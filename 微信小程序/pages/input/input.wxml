@@ -1,0 +1,53 @@
+<!--input.wxml-->
+<navigation-bar title="错题录入" back="{{true}}" color="black" background="#f3efe7"></navigation-bar>
+<scroll-view class="page" scroll-y type="list">
+  <view class="card">
+    <view class="label">
+      <text class="required">*</text> 错题题干
+      <text class="counter">{{questionLen}}/2000</text>
+    </view>
+    <textarea
+      class="textarea question"
+      placeholder="请在此完整输入错题题干"
+      placeholder-class="ph"
+      maxlength="2000"
+      value="{{question}}"
+      bindinput="onQuestionInput"
+      auto-height
+    />
+  </view>
+
+  <view class="card">
+    <view class="label">
+      错误作答（选填）
+      <text class="counter">{{answerLen}}/1000</text>
+    </view>
+    <textarea
+      class="textarea answer"
+      placeholder="填写你的错误答案，AI 将精准定位错因"
+      placeholder-class="ph"
+      maxlength="1000"
+      value="{{wrongAnswer}}"
+      bindinput="onAnswerInput"
+      auto-height
+    />
+  </view>
+
+  <view class="btn-wrap">
+    <button class="submit-btn" disabled="{{submitting}}" loading="{{submitting && !streamChars}}" bindtap="onSubmit">
+      {{submitting ? 'AI 诊断中…' : '开始智能解析'}}
+    </button>
+  </view>
+
+  <view class="stream-box" wx:if="{{submitting && streamChars}}">
+    <view class="stream-title">AI 正在实时生成诊断</view>
+    <view class="stream-dots">
+      <view class="dot"></view>
+      <view class="dot d2"></view>
+      <view class="dot d3"></view>
+    </view>
+    <view class="stream-progress">已生成 {{streamChars}} 字，完成后自动跳转诊断报告…</view>
+  </view>
+
+  <view class="hint" wx:if="{{!submitting}}">提示：诊断过程 AI 实时生成，请耐心等待</view>
+</scroll-view>

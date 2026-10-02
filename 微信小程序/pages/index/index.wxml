@@ -1,0 +1,51 @@
+<!--index.wxml-->
+<navigation-bar title="错因智诊" back="{{false}}" color="white" background="#3c5c5b"></navigation-bar>
+<scroll-view class="page" scroll-y type="list">
+  <view class="brand">
+    <view class="brand-title">错因智诊</view>
+    <view class="brand-divider"></view>
+    <view class="brand-sub">AI 驱动的理科错题智能诊断助手</view>
+  </view>
+
+  <view class="entry" hover-class="entry-hover" bindtap="goInput">
+    <view class="entry-icon"><text class="entry-icon-text">录</text></view>
+    <view class="entry-body">
+      <view class="entry-title">手动输入错题</view>
+      <view class="entry-desc">填写题干与错误作答，AI 精准诊断</view>
+    </view>
+    <view class="entry-arrow">&gt;</view>
+  </view>
+
+  <view class="entry" hover-class="entry-hover" bindtap="goCamera">
+    <view class="entry-icon"><text class="entry-icon-text">拍</text></view>
+    <view class="entry-body">
+      <view class="entry-title">拍照识别错题</view>
+      <view class="entry-desc">{{recognizing ? 'AI 识别中…' : '拍一张照片，AI 自动转录题目文字'}}</view>
+    </view>
+    <view class="entry-arrow">&gt;</view>
+  </view>
+
+  <view class="entry" hover-class="entry-hover" bindtap="goHistory">
+    <view class="entry-icon"><text class="entry-icon-text">本</text></view>
+    <view class="entry-body">
+      <view class="entry-title">我的错题本</view>
+      <view class="entry-desc">历史诊断记录，随时复习巩固</view>
+    </view>
+    <view class="entry-arrow">&gt;</view>
+  </view>
+
+  <view class="entry" hover-class="entry-hover" bindtap="goStats">
+    <view class="entry-icon"><text class="entry-icon-text">析</text></view>
+    <view class="entry-body">
+      <view class="entry-title">学情分析</view>
+      <view class="entry-desc">考点分布与错因节点统计，找到薄弱环节</view>
+    </view>
+    <view class="entry-arrow">&gt;</view>
+  </view>
+
+  <view class="tip">
+    <view class="tip-title">覆盖考点</view>
+    <view class="tip-kps">三角函数 · 对数 · 指数 · 方程 · 不等式 · 导数</view>
+    <view class="tip-kps">积分 · 数列 · 概率 · 向量 · 解析几何</view>
+  </view>
+</scroll-view>

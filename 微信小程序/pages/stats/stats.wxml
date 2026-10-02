@@ -1,0 +1,86 @@
+<!--stats.wxml-->
+<navigation-bar title="学情分析" back="{{true}}" color="black" background="#f3efe7"></navigation-bar>
+<scroll-view class="page" scroll-y type="list">
+  <!-- 空状态 -->
+  <view class="empty" wx:if="{{!total}}">
+    <view class="empty-icon">空</view>
+    <view class="empty-text">还没有错题数据，诊断几道题后再来看看</view>
+  </view>
+
+  <block wx:if="{{total}}">
+    <!-- 总览 -->
+    <view class="overview">
+      <view class="ov-item">
+        <view class="ov-num">{{total}}</view>
+        <view class="ov-label">累计错题</view>
+      </view>
+      <view class="ov-item">
+        <view class="ov-num small">{{topKp}}</view>
+        <view class="ov-label">最高频考点</view>
+      </view>
+      <view class="ov-item">
+        <view class="ov-num small">{{topCause || '待积累'}}</view>
+        <view class="ov-label">最高频错因</view>
+      </view>
+    </view>
+
+    <!-- 考点分布 -->
+    <view class="card">
+      <view class="card-title">考点错题分布</view>
+      <view class="bar-row" wx:for="{{kpStats}}" wx:key="name">
+        <view class="bar-name">{{item.name}}</view>
+        <view class="bar-track">
+          <view class="bar-fill" style="width: {{item.percent}}%;"></view>
+        </view>
+        <view class="bar-count">{{item.count}} 题 · {{item.percent}}%</view>
+      </view>
+    </view>
+
+    <!-- 错因节点排行 -->
+    <view class="card" wx:if="{{causeStats.length}}">
+      <view class="card-title">错因节点排行</view>
+      <view class="bar-row" wx:for="{{causeStats}}" wx:key="name">
+        <view class="bar-name cause">{{index + 1}}. {{item.name}}</view>
+        <view class="bar-track">
+          <view class="bar-fill orange" style="width: {{item.percent}}%;"></view>
+        </view>
+        <view class="bar-count">{{item.count}}</view>
+      </view>
+    </view>
+    <view class="card" wx:else>
+      <view class="card-title">错因节点排行</view>
+      <view class="tip-text">升级后的诊断会自动匹配错因节点，再诊断几道题即可生成排行</view>
+    </view>
+
+    <!-- 错因树（完整三层：考点 -> 错因大类 -> 节点） -->
+    <view class="card" wx:if="{{causeTree.length}}">
+      <view class="card-title">错因树</view>
+      <view class="tree-guide">完整错因地图：高亮为出现过的错因，灰色 ×0 为未触碰节点</view>
+      <view class="tree-branch" wx:for="{{causeTree}}" wx:key="name">
+        <view class="branch-head {{item.count ? '' : 'empty'}}" bindtap="toggleBranch" data-index="{{index}}">
+          <text class="branch-arrow">{{item.expanded ? '-' : '+'}}</text>
+          <text class="branch-name">{{item.name}}</text>
+          <text class="branch-count">{{item.count}} 次</text>
+        </view>
+        <block wx:if="{{item.expanded}}">
+          <view class="tree-cat" wx:for="{{item.categories}}" wx:for-item="cat" wx:key="name">
+            <view class="cat-head">
+              <view class="cat-dot"></view>
+              <text class="cat-name">{{cat.name}}</text>
+              <text class="cat-count">{{cat.count}} 次</text>
+            </view>
+            <view class="branch-leaf {{leaf.count ? '' : 'zero'}}" wx:for="{{cat.children}}" wx:for-item="leaf" wx:key="name">
+              <view class="leaf-dot"></view>
+              <text class="leaf-name">{{leaf.name}}</text>
+              <text class="leaf-count">×{{leaf.count}}</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <view class="advice" wx:if="{{topKp}}">
+      学情建议：你在「{{topKp}}」上出错最多，建议优先复习该章节的核心公式与适用前提，配合变式题巩固。
+    </view>
+  </block>
+</scroll-view>

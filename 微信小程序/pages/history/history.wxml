@@ -1,0 +1,45 @@
+<!--history.wxml-->
+<navigation-bar title="我的错题本" back="{{true}}" color="black" background="#f3efe7"></navigation-bar>
+<scroll-view class="page" scroll-y type="list">
+  <view class="search-bar" wx:if="{{records.length}}">
+    <input
+      class="search-input"
+      placeholder="搜索错题关键词或考点…"
+      placeholder-class="ph"
+      value="{{searchKey}}"
+      bindinput="onSearch"
+      confirm-type="search"
+    />
+  </view>
+
+  <scroll-view class="filter-bar" scroll-x wx:if="{{records.length}}">
+    <view
+      class="filter-tag {{activeFilter === kp ? 'active' : ''}}"
+      wx:for="{{filters}}"
+      wx:for-item="kp"
+      wx:key="*this"
+      data-kp="{{kp}}"
+      bindtap="onFilterTap"
+    >{{kp}}</view>
+  </scroll-view>
+
+  <view class="empty" wx:if="{{!filtered.length}}">
+    <view class="empty-icon">空</view>
+    <view class="empty-text">{{records.length ? '没有匹配的错题' : '错题本还是空的，去诊断第一道错题吧'}}</view>
+  </view>
+
+  <view class="record" hover-class="record-hover" wx:for="{{filtered}}" wx:key="id" data-id="{{item.id}}" bindtap="viewRecord">
+    <view class="record-main">
+      <view class="record-q">{{item.question}}</view>
+      <view class="record-meta">
+        <text class="record-kp" wx:if="{{item.result.knowledgePoint}}">{{item.result.knowledgePoint}}</text>
+        <text class="record-time">{{item.time}}</text>
+      </view>
+    </view>
+    <view class="record-del" catchtap="removeRecord" data-id="{{item.id}}">删除</view>
+  </view>
+
+  <view class="clear-wrap" wx:if="{{records.length}}">
+    <view class="clear-btn" bindtap="clearAll">清空错题本</view>
+  </view>
+</scroll-view>

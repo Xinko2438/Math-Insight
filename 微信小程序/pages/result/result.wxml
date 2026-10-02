@@ -1,0 +1,111 @@
+<!--result.wxml-->
+<navigation-bar title="诊断报告" back="{{true}}" color="black" background="#f3efe7"></navigation-bar>
+<scroll-view class="page" scroll-y type="list">
+  <block wx:if="{{result}}">
+    <view class="kp-bar">
+      <text class="kp-tag">考点：{{result.knowledgePoint}}</text>
+      <text class="source-tag" wx:if="{{result.source === 'rule'}}">规则引擎</text>
+    </view>
+    <view class="conf-bar" wx:if="{{result.confidence !== undefined}}">
+      <text class="conf-label">综合可信度</text>
+      <view class="conf-track">
+        <view class="conf-fill" style="width: {{result.confidence}}%;"></view>
+      </view>
+      <text class="conf-value">{{result.confidence}}%</text>
+    </view>
+
+    <view class="btn-wrap">
+      <button class="again-btn" bindtap="goAgain">再诊断一道错题</button>
+    </view>
+
+    <!-- 模块一：题目展示 -->
+    <view class="card">
+      <view class="card-title">题目展示</view>
+      <view class="question-text">{{result.question}}</view>
+    </view>
+
+    <!-- 模块二：错因诊断 -->
+    <view class="card">
+      <view class="card-title">错因诊断</view>
+      <view class="body-text">{{result.diagnosis}}</view>
+      <view class="cause-tree" wx:if="{{result.causeNodes && result.causeNodes.length}}">
+        <view class="cause-tree-root">{{result.knowledgePoint}} · 错因定位</view>
+        <view class="cause-tree-leaf" wx:for="{{result.causeNodes}}" wx:key="id">
+          <view class="leaf-dot"></view>
+          <text class="leaf-cat" wx:if="{{item.category}}">{{item.category}}</text>
+          <text class="leaf-text">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 模块三：引导式追问 -->
+    <view class="card">
+      <view class="card-title">追问 AI 老师</view>
+      <view class="chat-guide" wx:if="{{!chat.length}}">没看懂？继续追问，AI 老师会用提问引导你自己想通</view>
+      <view class="chat-list" wx:if="{{chat.length}}">
+        <view class="chat-item {{item.role}}" wx:for="{{chat}}" wx:key="index">
+          <view class="chat-bubble">{{item.content}}</view>
+        </view>
+        <view class="chat-thinking" wx:if="{{chatting}}">AI 老师思考中…</view>
+      </view>
+      <view class="chat-input-row">
+        <input
+          class="chat-input"
+          placeholder="针对这道题继续提问…"
+          value="{{chatInput}}"
+          bindinput="onChatInput"
+          confirm-type="send"
+          bindconfirm="sendChat"
+          disabled="{{chatting}}"
+        />
+        <view class="chat-send {{chatting ? 'disabled' : ''}}" bindtap="sendChat">发送</view>
+      </view>
+    </view>
+
+    <!-- 模块四：答题步骤（分步引导） -->
+    <view class="card">
+      <view class="card-title">答题步骤</view>
+      <view class="guide">先思考问题，想不通再点「看提示」，仍不会可点「看完整解答」对照分步推理</view>
+      <view class="step" wx:for="{{result.steps}}" wx:key="index">
+        <view class="step-dot">{{index + 1}}</view>
+        <view class="step-body">
+          <view class="step-text">{{item.question}}</view>
+          <view class="step-btns">
+            <view class="step-hint-btn" bindtap="toggleHint" data-index="{{index}}" wx:if="{{item.hint}}">
+              {{item.showHint ? '收起提示' : '看提示'}}
+            </view>
+            <view class="step-detail-btn" bindtap="toggleDetail" data-index="{{index}}" wx:if="{{item.detail}}">
+              {{item.showDetail ? '收起完整解答' : '看完整解答'}}
+            </view>
+          </view>
+          <view class="step-hint" wx:if="{{item.showHint && item.hint}}">{{item.hint}}</view>
+          <view class="step-detail" wx:if="{{item.showDetail && item.detail}}">{{item.detail}}</view>
+        </view>
+      </view>
+      <view class="solution-toggle" bindtap="toggleSolution" wx:if="{{result.solution}}">
+        <text>查看完整正确解答（汇总版）</text>
+        <view class="toggle-icon">{{solutionExpanded ? '-' : '+'}}</view>
+      </view>
+      <view class="solution-body" wx:if="{{solutionExpanded && result.solution}}">{{result.solution}}</view>
+    </view>
+
+    <!-- 模块五：变式题训练（难度分级） -->
+    <view class="card">
+      <view class="card-title">变式题训练</view>
+      <view class="variant" wx:for="{{result.variants}}" wx:key="index">
+        <view class="variant-q">
+          <text class="variant-badge">{{item.level}}</text>
+          {{item.question}}
+        </view>
+        <view class="variant-toggle" bindtap="toggleVariant" data-index="{{index}}">
+          <text>{{item.expanded ? '收起参考答案与解析' : '展开参考答案与解析'}}</text>
+          <view class="toggle-icon">{{item.expanded ? '-' : '+'}}</view>
+        </view>
+        <view wx:if="{{item.expanded}}" class="variant-detail">
+          <view class="variant-answer">参考答案：{{item.answer}}</view>
+          <view class="variant-analysis">解析：{{item.analysis}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>

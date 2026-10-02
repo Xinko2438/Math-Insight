@@ -1,0 +1,28 @@
+# ========== 敏感信息 ==========
+server/.env
+
+# ========== 微信开发者工具个人配置 ==========
+project.private.config.json
+微信小程序/project.private.config.json
+
+# ========== Node 依赖 ==========
+node_modules/
+**/node_modules/
+
+# ========== 比赛文档/截图/测试(本项目不公开) ==========
+截图/
+代码附件/
+*.docx
+*.xlsx
+
+# ========== 临时/日志文件 ==========
+*.tmp
+*_tmp.json
+*.log
+
+# ========== 系统/IDE 缓存 ==========
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

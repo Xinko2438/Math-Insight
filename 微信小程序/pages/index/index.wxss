@@ -1,0 +1,121 @@
+page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.page {
+  flex: 1;
+  min-height: 0;
+  background: #f3efe7;
+}
+
+.brand {
+  padding: 72rpx 40rpx 48rpx;
+}
+
+.brand-title {
+  font-size: 72rpx;
+  font-weight: bold;
+  color: #3c5c5b;
+  letter-spacing: 8rpx;
+}
+
+.brand-divider {
+  width: 72rpx;
+  height: 8rpx;
+  border-radius: 4rpx;
+  background: #6ed3cf;
+  margin: 24rpx 0;
+}
+
+.brand-sub {
+  font-size: 26rpx;
+  color: #a89c86;
+  letter-spacing: 2rpx;
+}
+
+.entry {
+  display: flex;
+  align-items: center;
+  margin: 24rpx 32rpx 0;
+  padding: 32rpx 28rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(60, 92, 91, 0.08);
+}
+
+.entry-hover {
+  opacity: 0.85;
+  transform: scale(0.98);
+}
+
+.entry-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: #e6f4f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+
+.entry-icon-text {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #3c5c5b;
+}
+
+.entry-body {
+  flex: 1;
+}
+
+.entry-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.entry-desc {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: #a89c86;
+}
+
+.entry-arrow {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #b7a992;
+  margin-left: 16rpx;
+}
+
+.tip {
+  margin: 32rpx 32rpx 48rpx;
+  padding: 28rpx;
+  background: #faf8f2;
+  border-radius: 20rpx;
+}
+
+.tip-title {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #3c5c5b;
+  margin-bottom: 14rpx;
+}
+
+.tip-kps {
+  font-size: 24rpx;
+  color: #8f8468;
+  line-height: 1.9;
+  letter-spacing: 1rpx;
+}
+
+.tip-note {
+  margin-top: 14rpx;
+  padding-top: 14rpx;
+  border-top: 1rpx solid #ece5d5;
+  font-size: 22rpx;
+  color: #b0a48c;
+}

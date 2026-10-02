@@ -1,0 +1,10 @@
+/**app.wxss**/
+page {
+  background: #f3efe7;
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", Arial, sans-serif;
+}
+
+/* 去掉小程序按钮默认的灰色细边框 */
+button::after {
+  border: none;
+}
