@@ -1,0 +1,100 @@
+{
+  "status": "BROWSER_CHECKS_PASS_USER_DIRECTION_PENDING",
+  "directions": {
+    "a": {
+      "checks": [
+        "photo is an explicit mock; recent equation opens the matching report",
+        "home: tabs, hints, multiline full solution, variant answer and back",
+        "report: tabs, hints, multiline full solution, variant answer and back"
+      ],
+      "internalViewport": "390x844",
+      "nativeRuntime": false
+    },
+    "b": {
+      "checks": [
+        "photo is an explicit mock; recent equation opens the matching report",
+        "home: tabs, hints, multiline full solution, variant answer and back",
+        "report: tabs, hints, multiline full solution, variant answer and back"
+      ],
+      "internalViewport": "390x844",
+      "nativeRuntime": false
+    },
+    "c": {
+      "checks": [
+        "photo is an explicit mock; recent equation opens the matching report",
+        "home: tabs, hints, multiline full solution, variant answer and back",
+        "report: tabs, hints, multiline full solution, variant answer and back"
+      ],
+      "internalViewport": "390x844",
+      "nativeRuntime": false
+    }
+  },
+  "representativeScreens": 6,
+  "thumbnailCandidates": 6,
+  "screenshotSize": [
+    414,
+    869
+  ],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "pythonDesignLint": "SKIPPED_missing_python_playwright; installed Node Playwright used",
+  "userAccepted": true,
+  "nativeFilesUnchanged": true,
+  "frozenExamplesUnchanged": 17,
+  "dependencies": [
+    {
+      "name": "react.js",
+      "source": "https://unpkg.com/react@18.3.1/umd/react.development.js",
+      "sha384": "hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L",
+      "bytes": 109931
+    },
+    {
+      "name": "react-dom.js",
+      "source": "https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js",
+      "sha384": "u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm",
+      "bytes": 1080227
+    },
+    {
+      "name": "babel.js",
+      "source": "https://unpkg.com/@babel/standalone@7.29.0/babel.min.js",
+      "sha384": "m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y",
+      "bytes": 3137752
+    }
+  ],
+  "learningReview": "saved_project_candidates_not_user_accepted",
+  "routing": {
+    "decision": "no-delegation",
+    "reason": "shared prototype/generator and one review surface; sequential root execution",
+    "independentBlindReview": false
+  },
+  "capturedArtifacts": {
+    "a-home.png": "ddc4e5f1d931a4557e925b57f4ec102e6c408509706b391e29a4f2598ee5e97f",
+    "a-report.png": "90e013a0bfe39865ae88a2923b9f86799f5090a024f8dfdfdc1d5815e3a4bab6",
+    "b-home.png": "f67e16060d819630e6b96508930e1f08b208b2a13d07b3e19818907d58b10507",
+    "b-report.png": "df33d4ec309c8a34e11ed5aa9ede3b42f88859c78b382383ed2cb17e0980cb07",
+    "c-home.png": "a718f7a426b373870f9a5a79a56d896803bd0da816e8e31d265f3d7938574499",
+    "c-report.png": "b8f26818a12f5f435c3af89b4c2b013d24d0a947653ca32c80d270f7414f4d3c",
+    "thumbs.png": "57d3c4b2fca1326dd6d2d0a1e53fb905238293080db33747962058084272896a",
+    "refs.png": "02d1790200afbb39ae2c939ab7de30943f36dc1a4633eb995bb92cd6204cdc47"
+  },
+  "manualReview": {
+    "selectedAfterRenderedReview": [
+      "a",
+      "b",
+      "c"
+    ],
+    "candidateA": "closest to supplied card; clear split entry and readable report",
+    "candidateB": "paper focus and connected reading hierarchy",
+    "candidateC": "stronger blue header with content-focused report",
+    "backups": [
+      "d: weaker product identity",
+      "e: diagram may suggest a plotting tool",
+      "f: typography has less camera affordance"
+    ],
+    "userSelection": "pending",
+    "prototypeOnly": true
+  },
+  "selectedDirection": "a",
+  "selectionQuote": "A",
+  "acceptanceScope": "visual direction of homepage and report candidate A; not native or device acceptance"
+}

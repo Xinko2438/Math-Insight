@@ -1,0 +1,132 @@
+{
+  "status": "PASS",
+  "layer": "isolated native JS and binding contracts; not device rendering",
+  "modelRequests": 0,
+  "realStorageWrites": 0,
+  "results": [
+    {
+      "name": "home recent records are derived from storage without writing it",
+      "pass": true
+    },
+    {
+      "name": "recent record reopening preserves original wrong answer",
+      "pass": true
+    },
+    {
+      "name": "history reopening preserves wrong answer without altering stored rows",
+      "pass": true
+    },
+    {
+      "name": "report defaults to thinking and consumes the matching answer context",
+      "pass": true
+    },
+    {
+      "name": "empty AI reply is an inline failure, never an ok success message",
+      "pass": true
+    },
+    {
+      "name": "again from history opens input rather than returning to history",
+      "pass": true
+    },
+    {
+      "name": "again over input reuses the existing input page",
+      "pass": true
+    },
+    {
+      "name": "main navigation reuses existing pages and ignores invalid keys",
+      "pass": true
+    },
+    {
+      "name": "OCR cancellation releases busy state and never uploads",
+      "pass": true
+    },
+    {
+      "name": "incremental UTF-8 matches standard decoding across Unicode boundaries and rejects malformed tails",
+      "pass": true
+    },
+    {
+      "name": "OCR works from home and the input form through one shared operation",
+      "pass": true
+    },
+    {
+      "name": "question-only and answer-only photos preserve the complementary manual field",
+      "pass": true
+    },
+    {
+      "name": "replacing an edited OCR draft requires confirmation and cancel preserves both fields",
+      "pass": true
+    },
+    {
+      "name": "OCR rejects malformed and oversized fields without replacing drafts or saving history",
+      "pass": true
+    },
+    {
+      "name": "the still-running legacy OCR response is accepted only with a review reminder",
+      "pass": true
+    },
+    {
+      "name": "history filtering and real statistics still work",
+      "pass": true
+    },
+    {
+      "name": "custom labels can be created, assigned, combined with knowledge filters, renamed and deleted without changing questions",
+      "pass": true
+    },
+    {
+      "name": "label editing from a reopened report preserves the identity of the original record",
+      "pass": true
+    },
+    {
+      "name": "a report can reopen its label editor after asynchronous page state updates",
+      "pass": true
+    },
+    {
+      "name": "corrupt label storage and failed writes never alter existing question records",
+      "pass": true
+    },
+    {
+      "name": "deleting a question removes only its label links and leaves other questions and labels intact",
+      "pass": true
+    },
+    {
+      "name": "ambiguous matching reports never edit a different stored question",
+      "pass": true
+    },
+    {
+      "name": "a freshly saved unique report can open its own label editor",
+      "pass": true
+    },
+    {
+      "name": "duplicate labels are rejected without changing their assignments",
+      "pass": true
+    },
+    {
+      "name": "zero-record statistics retain real zero counters, category bars and cause tree without writes",
+      "pass": true
+    },
+    {
+      "name": "nonzero statistics keep observed values instead of mixing zero display categories into totals",
+      "pass": true
+    },
+    {
+      "name": "empty and populated statistics use the same category order, rows and initial expansion",
+      "pass": true
+    },
+    {
+      "name": "library hydration retains unique semantic chart-row keys and real local counts",
+      "pass": true
+    },
+    {
+      "name": "all native event handlers and local components resolve",
+      "pass": true
+    },
+    {
+      "name": "accepted HTML examples remain byte-identical",
+      "pass": true
+    },
+    {
+      "name": "neat copy is byte-identical to the requested original",
+      "pass": true
+    }
+  ]
+}

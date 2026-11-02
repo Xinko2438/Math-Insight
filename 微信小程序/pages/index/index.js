@@ -1,80 +1,42 @@
-// index.js
-const { baseUrl } = require('../../utils/config')
+const { recognizeQuestion } = require('../../utils/ocr')
+const { openMain } = require('../../utils/navigation')
 
 Page({
-  data: {
-    recognizing: false
+  data: { recognizing: false, recentRecords: [], totalRecords: 0, draftCount: 0 },
+  onShow() {
+    const records = wx.getStorageSync('errorHistory') || []
+    this.setData({
+      totalRecords: records.length,
+      draftCount: (() => { try { return require('../../utils/drafts').list().length } catch (_) { return '—' } })(),
+      recentRecords: records.slice(0, 3).map(record => ({
+        id: record.id,
+        question: record.question,
+        cause: ((record.result && record.result.causeNodes) || []).map(node => node.name).filter(Boolean).slice(0, 2).join('、') || (record.result && record.result.knowledgePoint) || '查看诊断详情'
+      }))
+    })
   },
-
-  goInput() {
-    wx.navigateTo({ url: '/pages/input/input' })
+  goInput() { wx.navigateTo({ url: '/pages/input/input' }) },
+  goDrafts() { wx.navigateTo({ url: '/pages/drafts/drafts' }) },
+  goHistory() { openMain('history') },
+  goStats() { openMain('stats') },
+  viewRecent(e) {
+    const records = wx.getStorageSync('errorHistory') || []
+    const record = records.find(row => row.id === e.currentTarget.dataset.id)
+    if (!record || !record.result) return
+    getApp().globalData.lastResult = record.result
+    getApp().globalData.lastWrongAnswer = record.wrongAnswer || ''
+    wx.navigateTo({ url: '/pages/result/result' })
   },
-
-  goHistory() {
-    wx.navigateTo({ url: '/pages/history/history' })
-  },
-
-  goStats() {
-    wx.navigateTo({ url: '/pages/stats/stats' })
-  },
-
   goCamera() {
     if (this.data.recognizing) return
-    wx.chooseMedia({
-      count: 1,
-      mediaType: ['image'],
-      sourceType: ['camera', 'album'],
-      success: res => {
-        const filePath = res.tempFiles[0].tempFilePath
-        this.compressAndRecognize(filePath)
-      }
-    })
-  },
-
-  compressAndRecognize(filePath) {
-    this.setData({ recognizing: true })
-    wx.showLoading({ title: 'AI 识别中…', mask: true })
-    wx.compressImage({
-      src: filePath,
-      quality: 60,
-      success: res => this.readAndUpload(res.tempFilePath),
-      fail: () => this.readAndUpload(filePath)
-    })
-  },
-
-  readAndUpload(filePath) {
-    wx.getFileSystemManager().readFile({
-      filePath,
-      encoding: 'base64',
-      success: r => this.uploadImage(r.data),
-      fail: () => this.recognizeError('图片读取失败，请重试')
-    })
-  },
-
-  uploadImage(base64) {
-    wx.request({
-      url: `${baseUrl}/api/ocr`,
-      method: 'POST',
-      timeout: 60000,
-      data: { image: base64 },
-      success: res => {
-        const result = res.data
-        if (res.statusCode !== 200 || !result || result.code !== 0 || !result.data || !result.data.text) {
-          this.recognizeError((result && result.msg) || '识别失败，请重试或改用文字输入')
-          return
-        }
-        getApp().globalData.pendingQuestion = result.data.text
+    recognizeQuestion({
+      onStart: () => this.setData({ recognizing: true }),
+      onFinish: () => this.setData({ recognizing: false }),
+      onSuccess: photo => {
+        getApp().globalData.pendingPhoto = photo
         wx.navigateTo({ url: '/pages/input/input' })
       },
-      fail: () => this.recognizeError('无法连接识别服务，请确认后端已启动'),
-      complete: () => {
-        this.setData({ recognizing: false })
-        wx.hideLoading()
-      }
+      onError: content => wx.showModal({ title: '识别未完成', content, showCancel: false })
     })
-  },
-
-  recognizeError(msg) {
-    wx.showModal({ title: '识别失败', content: msg, showCancel: false })
   }
 })

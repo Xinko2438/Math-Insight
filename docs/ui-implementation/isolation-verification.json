@@ -1,0 +1,17 @@
+{
+  "status": "SELECTED_A_NATIVE_TECHNICALLY_VERIFIED_RENDERING_ISSUE_OPEN",
+  "pid": 2568,
+  "SDKVersion": "3.17.6",
+  "sourceFiles": 37,
+  "visibleWindows": 0,
+  "fixtureCleanup": {
+    "restored": true,
+    "mockRemoved": true
+  },
+  "selectedDirection": "A",
+  "privateProfileImported": false,
+  "runnerStoppedAfterVerification": true,
+  "profileRetained": true,
+  "fullVisualAcceptance": false,
+  "styleAccepted": true
+}

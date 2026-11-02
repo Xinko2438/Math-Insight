@@ -1,0 +1,35 @@
+{
+  "source": "D:\\windows_ext\\Desktop\\AI_Native\\.agents\\skills\\neat",
+  "destination": "C:\\Users\\Ethan\\WeChatProjects\\Math-APP\\.agents\\skills\\neat",
+  "status": "byte-identical",
+  "files": [
+    {
+      "relativePath": "SKILL.md",
+      "sha256": "C8301E3056C75EECB468EB0FB83BF236323475CC64DAF3B82DF6FB7C82DE23F6",
+      "bytes": 5616
+    },
+    {
+      "relativePath": "agents\\openai.yaml",
+      "sha256": "99D4B04A62E4A3A0B7C54554B360EF0495309BCFEC9E7FA47C1CA4FA4BF6A76A",
+      "bytes": 356
+    },
+    {
+      "relativePath": "evals\\validate.mjs",
+      "sha256": "E948BCCBA7D3ED5303C28E3B2454EDCB17B8BAB670FA8F54405CE264EBEE59AB",
+      "bytes": 3470
+    },
+    {
+      "relativePath": "references\\ai-native-routes.md",
+      "sha256": "D9E1CDEA283AEBF8DAFCB762D903E32C3E74BBA5611948A8F5AA748566E39741",
+      "bytes": 5651
+    },
+    {
+      "relativePath": "references\\upstream.md",
+      "sha256": "5BF86FCCCC57C218F8F90C38F0B7EBE9C4826018391EEE59DAF77CDF94C1B454",
+      "bytes": 2206
+    }
+  ],
+  "validationScope": "file integrity only; upstream eval requires AI Native workspace fixture",
+  "projectInvocation": "/neat -> .agents/skills/neat/SKILL.md",
+  "sourceModified": false
+}

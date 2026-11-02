@@ -1,0 +1,7 @@
+:host { display: block; flex-shrink: 0; }
+.study-tabs { display: flex; background: #fff; border-top: 1rpx solid #e5eaf2; padding: 12rpx 0; padding-bottom: calc(16rpx + env(safe-area-inset-bottom)); }
+.study-tab { flex: 1; min-width: 0; min-height: 100rpx; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #647086; font-size: 24rpx; line-height: 1.5; background: transparent; padding: 4rpx 0; margin: 0; border-radius: 0; font-weight: 400; }
+.study-tab.active { color: #3266ed; font-weight: 500; }
+.tab-symbol { width: 96rpx; height: 52rpx; margin-bottom: 5rpx; border-radius: 30rpx; display: flex; align-items: center; justify-content: center; }
+.active .tab-symbol { background: #eef3ff; }
+.study-tab .ui-icon { width: 36rpx; height: 36rpx; }

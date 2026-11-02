@@ -1,45 +1,45 @@
-<!--history.wxml-->
-<navigation-bar title="我的错题本" back="{{true}}" color="black" background="#f3efe7"></navigation-bar>
-<scroll-view class="page" scroll-y type="list">
-  <view class="search-bar" wx:if="{{records.length}}">
-    <input
-      class="search-input"
-      placeholder="搜索错题关键词或考点…"
-      placeholder-class="ph"
-      value="{{searchKey}}"
-      bindinput="onSearch"
-      confirm-type="search"
-    />
+<navigation-bar class="main-navigation" title="错题本" back="{{fromReport}}" color="#182237" background="#f5f7fb"></navigation-bar>
+<scroll-view class="page" scroll-y type="list"><view class="page-body">
+  <view class="search-bar"><view class="ui-icon icon-search"></view><input class="search-input" placeholder="搜索题目、考点或标签" value="{{searchKey}}" bindinput="onSearch" confirm-type="search" /></view>
+  <view class="filter-tabs">
+    <button class="filter-tab {{activeFilter === '全部' && !selectedTagId ? 'active' : ''}}" bindtap="showAll" style="width:auto;margin:0 36rpx 0 0;">全部</button>
+    <button class="filter-tab {{activeFilter !== '全部' || filterPanel === 'knowledge' ? 'active' : ''}}" data-panel="knowledge" bindtap="toggleFilterPanel" style="width:auto;margin:0 36rpx 0 0;">考点 <view class="filter-arrow {{filterPanel === 'knowledge' ? 'open' : ''}}"></view></button>
+    <button class="filter-tab {{selectedTagId || filterPanel === 'tags' ? 'active' : ''}}" data-panel="tags" bindtap="toggleFilterPanel" style="width:auto;margin:0;">我的标签 <view class="filter-arrow {{filterPanel === 'tags' ? 'open' : ''}}"></view></button>
   </view>
-
-  <scroll-view class="filter-bar" scroll-x wx:if="{{records.length}}">
-    <view
-      class="filter-tag {{activeFilter === kp ? 'active' : ''}}"
-      wx:for="{{filters}}"
-      wx:for-item="kp"
-      wx:key="*this"
-      data-kp="{{kp}}"
-      bindtap="onFilterTap"
-    >{{kp}}</view>
-  </scroll-view>
-
-  <view class="empty" wx:if="{{!filtered.length}}">
-    <view class="empty-icon">空</view>
-    <view class="empty-text">{{records.length ? '没有匹配的错题' : '错题本还是空的，去诊断第一道错题吧'}}</view>
+  <view class="filter-options" wx:if="{{filterPanel === 'knowledge'}}">
+    <scroll-view class="options-scroll" scroll-x type="custom" show-scrollbar="{{false}}">
+      <button class="filter-option {{activeFilter === '全部' ? 'selected' : ''}}" data-kp="全部" bindtap="onFilterTap" style="width:auto;margin:0 28rpx 0 0;">全部考点</button>
+      <button class="filter-option {{activeFilter === kp ? 'selected' : ''}}" wx:for="{{knowledgeOptions}}" wx:for-item="kp" wx:key="*this" data-kp="{{kp}}" bindtap="onFilterTap" style="width:auto;margin:0 28rpx 0 0;">{{kp}}</button>
+    </scroll-view>
   </view>
-
-  <view class="record" hover-class="record-hover" wx:for="{{filtered}}" wx:key="id" data-id="{{item.id}}" bindtap="viewRecord">
-    <view class="record-main">
-      <view class="record-q">{{item.question}}</view>
-      <view class="record-meta">
-        <text class="record-kp" wx:if="{{item.result.knowledgePoint}}">{{item.result.knowledgePoint}}</text>
-        <text class="record-time">{{item.time}}</text>
-      </view>
+  <view class="filter-options tag-filter" wx:if="{{filterPanel === 'tags'}}">
+    <view class="tag-filter-head"><text>我的标签</text><button bindtap="toggleTagManagement" style="width:auto;margin:0;">{{managingTags ? '完成' : '管理'}}</button></view>
+    <view wx:if="{{!managingTags}}">
+      <button class="filter-option {{!selectedTagId ? 'selected' : ''}}" data-id="" bindtap="selectTagFilter" style="width:auto;margin:0 28rpx 0 0;">全部标签</button>
+      <button class="filter-option {{selectedTagId === item.id ? 'selected' : ''}}" wx:for="{{tagCatalog}}" wx:key="id" data-id="{{item.id}}" bindtap="selectTagFilter" style="width:auto;margin:0 28rpx 0 0;">{{item.name}}</button>
+      <button class="filter-option create-tag" bindtap="promptCreateTag" style="width:auto;margin:0;">新建标签</button>
     </view>
-    <view class="record-del" catchtap="removeRecord" data-id="{{item.id}}">删除</view>
+    <view wx:else>
+      <view class="manage-tag-row" wx:for="{{tagCatalog}}" wx:key="id"><text>{{item.name}}</text><button data-id="{{item.id}}" bindtap="promptRenameTag" style="width:auto;margin:0 0 0 20rpx;">重命名</button><button data-id="{{item.id}}" bindtap="promptDeleteTag" style="width:auto;margin:0 0 0 20rpx;">删除</button></view>
+      <button class="filter-option create-tag" bindtap="promptCreateTag" style="width:auto;margin:0;">新建标签</button>
+    </view>
   </view>
-
-  <view class="clear-wrap" wx:if="{{records.length}}">
-    <view class="clear-btn" bindtap="clearAll">清空错题本</view>
+  <view class="filter-selection" wx:if="{{activeFilter !== '全部' || selectedTagId}}"><text wx:if="{{activeFilter !== '全部'}}">考点：{{activeFilter}}</text><text wx:if="{{selectedTagId}}">标签：{{selectedTagName}}</text></view>
+  <view class="book-head"><text class="section-title">{{searchKey || activeFilter !== '全部' || selectedTagId ? '筛选结果' : '全部错题'}}</text><text class="record-count">{{filtered.length}} 道</text></view>
+  <view class="book-list">
+    <view class="record" wx:for="{{filtered}}" wx:key="id">
+      <view class="record-mainline"><button class="record-open" data-id="{{item.id}}" bindtap="viewRecord" hover-class="button-hover" style="display:block;flex:1;width:0;min-width:0;margin:0;padding:0;"><view class="record-question">{{item.question}}</view></button><button class="record-delete" catchtap="removeRecord" data-id="{{item.id}}" aria-label="删除这道错题" style="width:88rpx;flex-shrink:0;margin:0;"><view class="ui-icon icon-trash"></view></button></view>
+      <view class="record-meta"><view class="record-meta-content"><text class="record-kp" wx:if="{{item.result.knowledgePoint}}">{{item.result.knowledgePoint}}</text><text class="record-time">{{item.time}}</text><text class="record-tag-name" wx:for="{{item.tagNames}}" wx:for-item="tagName" wx:key="*this">{{tagName}}</text></view><button class="record-tag-action" data-id="{{item.id}}" bindtap="openTagEditor" style="width:auto;margin:0;">标签</button></view>
+    </view>
   </view>
-</scroll-view>
+  <button class="clear-action" bindtap="clearAll" wx:if="{{records.length}}" style="width:auto;margin-left:0;margin-right:0;align-self:flex-start;">清空错题本</button>
+</view></scroll-view>
+<study-tabs class="main-tabs" active="history"></study-tabs>
+<view class="tag-overlay" wx:if="{{editorRecordId}}" bindtap="closeTagEditor">
+  <view class="tag-sheet" catchtap="keepTagEditorOpen">
+    <view class="tag-sheet-head"><text>题目标签</text><button bindtap="closeTagEditor" style="width:auto;margin:0;">完成</button></view>
+    <view class="tag-sheet-hint">选择已有标签，或新建一个。</view>
+    <scroll-view class="tag-sheet-list" wx:if="{{editorTags.length}}" scroll-y type="list" style="height:{{editorTags.length > 4 ? 360 : editorTags.length * 90}}rpx;"><view class="tag-sheet-row" wx:for="{{editorTags}}" wx:key="id"><button data-id="{{item.id}}" bindtap="onToggleRecordTag" aria-label="{{item.name}}" aria-role="checkbox" aria-checked="{{item.selected}}" style="width:100%;margin:0;"><text>{{item.name}}</text><text class="tag-check">{{item.selected ? '✓' : ''}}</text></button></view></scroll-view>
+    <button class="tag-sheet-create" bindtap="promptCreateTag" style="width:100%;margin:0;">新建标签</button>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+interface:
+  display_name: "AI Native 收尾与治理"
+  short_description: "对任务结果、项目真值、Memory 和知识进行有边界的收尾与对账"
+  default_prompt: "使用 $neat 对当前 AI Native 工作做有证据的收尾或治理；先确定模式和权威来源，只处理已授权范围。"
+policy:
+  allow_implicit_invocation: true

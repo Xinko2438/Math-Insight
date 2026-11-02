@@ -1,0 +1,251 @@
+{
+  "status": "LIVE_LAYOUT_PASS_SCREENSHOTS_PENDING",
+  "layer": "dedicated actual WeChat mini-program simulator API, layout and pixels",
+  "capturedAt": "2026-11-01T17:12:29.585Z",
+  "isolatedPid": 63668,
+  "desktopInputActions": 0,
+  "visibleWindows": 0,
+  "modelRequests": 0,
+  "fixtures": true,
+  "isolatedHistoryRestoredAfterStateChecks": true,
+  "sdkVersion": "3.17.6",
+  "layouts": {
+    "pages/index/index": {
+      "viewportWidth": 390,
+      "scrollHeight": 652.3333740234375,
+      "footerHeight": 100.66667175292969,
+      "tabs": [
+        {
+          "width": 130,
+          "height": 52,
+          "left": 0,
+          "top": 750
+        },
+        {
+          "width": 130,
+          "height": 52,
+          "left": 130,
+          "top": 750
+        },
+        {
+          "width": 130,
+          "height": 52,
+          "left": 260,
+          "top": 750
+        }
+      ],
+      "manualIconTextGap": 10,
+      "selectedACard": {
+        "height": 189,
+        "photoButtonHeight": 48,
+        "paperButtonGap": 19.821212768554688
+      },
+      "firstRecordTop": 428
+    },
+    "pages/drafts/drafts": {
+      "viewportWidth": 390,
+      "scrollHeight": 652.3333740234375,
+      "footerHeight": 100.66667175292969,
+      "tabs": [
+        {
+          "width": 130,
+          "height": 52,
+          "left": 0,
+          "top": 750
+        },
+        {
+          "width": 130,
+          "height": 52,
+          "left": 130,
+          "top": 750
+        },
+        {
+          "width": 130,
+          "height": 52,
+          "left": 260,
+          "top": 750
+        }
+      ]
+    },
+    "pages/input/input": {
+      "viewportWidth": 390,
+      "scrollHeight": 652.3333740234375,
+      "footerHeight": 100.66667175292969,
+      "tabs": [
+        {
+          "width": 130,
+          "height": 52,
+          "left": 0,
+          "top": 750
+        },
+        {
+          "width": 130,
+          "height": 52,
+          "left": 130,
+          "top": 750
+        },
+        {
+          "width": 130,
+          "height": 52,
+          "left": 260,
+          "top": 750
+        }
+      ],
+      "fieldLabelGap": 8.000003814697266,
+      "firstFieldTop": 161,
+      "submitTop": 618.6666870117188
+    },
+    "pages/history/history": {
+      "viewportWidth": 390,
+      "scrollHeight": 652.3333740234375,
+      "footerHeight": 100.66667175292969,
+      "tabs": [
+        {
+          "width": 130,
+          "height": 52,
+          "left": 0,
+          "top": 750
+        },
+        {
+          "width": 130,
+          "height": 52,
+          "left": 130,
+          "top": 750
+        },
+        {
+          "width": 130,
+          "height": 52,
+          "left": 260,
+          "top": 750
+        }
+      ],
+      "firstRecordTop": 271.9895935058594
+    },
+    "pages/result/result": {
+      "viewportWidth": 390,
+      "scrollHeight": 652.3333740234375,
+      "footerHeight": 100.66667175292969,
+      "tabs": [
+        {
+          "width": 130,
+          "height": 52,
+          "left": 0,
+          "top": 750
+        },
+        {
+          "width": 130,
+          "height": 52,
+          "left": 130,
+          "top": 750
+        },
+        {
+          "width": 130,
+          "height": 52,
+          "left": 260,
+          "top": 750
+        }
+      ],
+      "reportActionGap": 18,
+      "firstStepTop": 450.34375
+    },
+    "pages/stats/stats": {
+      "viewportWidth": 390,
+      "scrollHeight": 652.3333740234375,
+      "footerHeight": 100.66667175292969,
+      "tabs": [
+        {
+          "width": 130,
+          "height": 52,
+          "left": 0,
+          "top": 750
+        },
+        {
+          "width": 130,
+          "height": 52,
+          "left": 130,
+          "top": 750
+        },
+        {
+          "width": 130,
+          "height": 52,
+          "left": 260,
+          "top": 750
+        }
+      ],
+      "populatedStats": {
+        "chartRows": 12,
+        "causeRows": 4,
+        "positions": [
+          {
+            "left": 20,
+            "top": 295.21875
+          },
+          {
+            "left": 200,
+            "top": 295.21875
+          },
+          {
+            "left": 20,
+            "top": 341.41668701171875
+          }
+        ],
+        "labelBounds": [
+          [
+            {
+              "left": 20,
+              "top": 295.21875,
+              "width": 114.64583587646484
+            },
+            {
+              "left": 140.64584350585938,
+              "top": 295.21875,
+              "width": 49.35416793823242
+            }
+          ],
+          [
+            {
+              "left": 200,
+              "top": 295.21875,
+              "width": 114.64583587646484
+            },
+            {
+              "left": 320.6458435058594,
+              "top": 295.21875,
+              "width": 49.35416793823242
+            }
+          ]
+        ],
+        "summaryTop": 107,
+        "summaryHeight": 86.125
+      }
+    }
+  },
+  "checks": [
+    "fixtures and local request responses installed only in dedicated profile",
+    "home has two distinct, aligned tap targets and live history",
+    "dedicated native draft and task page displays isolated entries",
+    "native input bindings update and restore without submitting",
+    "history search and vertical record layout use real stored rows",
+    "stored report opens with matching work and switches content without AI",
+    "full 50-node cause tree data includes untriggered nodes from the source library",
+    "native statistics match unchanged stored history",
+    "native component navigation returns to home; history hash unchanged"
+  ],
+  "screenshots": [],
+  "stateScreenshots": [],
+  "localMockedRequests": [
+    "/api/cause-nodes"
+  ],
+  "routing": {
+    "decision": "no-delegation",
+    "reason": "one owned SDK runtime and sequential page state; parallel writers add conflicts",
+    "parallelBenefit": 0,
+    "models": [],
+    "usage": "not separately measured"
+  },
+  "remaining": "Inspect captured pixels against their routes. Device keyboard, real-device touch and user visual acceptance remain separate.",
+  "fixtureCleanup": {
+    "restored": true,
+    "mockRemoved": true
+  }
+}

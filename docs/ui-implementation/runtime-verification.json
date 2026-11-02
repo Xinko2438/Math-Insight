@@ -1,0 +1,161 @@
+{
+  "layer": "installed Tencent WXML/WXSS compilers",
+  "renderingVerified": false,
+  "modelRequests": 0,
+  "storageWrites": 0,
+  "foregroundActions": 0,
+  "compilers": {
+    "wcc": {
+      "status": "PASS",
+      "files": 8,
+      "executableSha256": "2ec832ea823c5f53e264230960637290a8cc7694773016b4c232a439193c9179",
+      "runs": [
+        {
+          "file": "./components/navigation-bar/navigation-bar.wxml",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 44238,
+          "outputSha256": "e5a82ce9d0cc4fc5f7863752fbbbecf706350d9991b1d944e599d8b0bf2a8762",
+          "diagnostics": ""
+        },
+        {
+          "file": "./components/study-tabs/study-tabs.wxml",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 41936,
+          "outputSha256": "50b15a99a6309cec903c8770382dc76d9375a5a991a1ac5555c91747aa394a63",
+          "diagnostics": ""
+        },
+        {
+          "file": "./pages/drafts/drafts.wxml",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 44591,
+          "outputSha256": "b7b4ad77b0808baef88ee3386c9401f48831c89fd50fc712cd678318111c142a",
+          "diagnostics": ""
+        },
+        {
+          "file": "./pages/history/history.wxml",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 57254,
+          "outputSha256": "0c06ca32d334ab11ce7e2a0e914d487816ae3dcac2b595a28ecca437449fbff6",
+          "diagnostics": ""
+        },
+        {
+          "file": "./pages/index/index.wxml",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 46903,
+          "outputSha256": "7db186e9dd60ea5d6f533c15ff6895bea6329a6984ca0a0037b1886b689cfa48",
+          "diagnostics": ""
+        },
+        {
+          "file": "./pages/input/input.wxml",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 45947,
+          "outputSha256": "d1d2db0f893071cd030f77d385718e810f4995d94c61a7fd86c5e1c27088186f",
+          "diagnostics": ""
+        },
+        {
+          "file": "./pages/result/result.wxml",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 59709,
+          "outputSha256": "faa68cc0def75f81b1b14906f66df71051a288804541459e37e72267098070d8",
+          "diagnostics": ""
+        },
+        {
+          "file": "./pages/stats/stats.wxml",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 50219,
+          "outputSha256": "3c3c90515b30417b173e031ed23e59bb27de6ab765fd84811219553f99316a96",
+          "diagnostics": ""
+        }
+      ]
+    },
+    "wcsc": {
+      "status": "PASS",
+      "files": 9,
+      "executableSha256": "23914ded6433a178c184e4e0fcdb077b499502b4e5a784a1f44f3db55699ce31",
+      "runs": [
+        {
+          "file": "./app.wxss",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 6140,
+          "outputSha256": "0322109c1b47a2905fa2638220d869e2be33020b0eb819b1540db8b9818feacf",
+          "diagnostics": ""
+        },
+        {
+          "file": "./components/navigation-bar/navigation-bar.wxss",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 3831,
+          "outputSha256": "2b165462ea428865f8f18e63090024b16cd15ee210384233f4ad65ea8defbd19",
+          "diagnostics": ""
+        },
+        {
+          "file": "./components/study-tabs/study-tabs.wxss",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 949,
+          "outputSha256": "b474dfe0208bbc7cee7376642da61da31b55d0318f4d76f0fba198fb0837aa5b",
+          "diagnostics": ""
+        },
+        {
+          "file": "./pages/drafts/drafts.wxss",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 1002,
+          "outputSha256": "d5121371decce9e41011712b04d61b848bad98bde534c78e0e92d21d7df5226d",
+          "diagnostics": ""
+        },
+        {
+          "file": "./pages/history/history.wxss",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 5529,
+          "outputSha256": "758aee040e03fb7e8a59ded435e4815b42f5eb2bb2b8f1825015799e560dfa6f",
+          "diagnostics": ""
+        },
+        {
+          "file": "./pages/index/index.wxss",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 3599,
+          "outputSha256": "13c7ff9f19c858b814ab9bdfca07c47dc539e276131569e4307789b00420d43a",
+          "diagnostics": ""
+        },
+        {
+          "file": "./pages/input/input.wxss",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 1944,
+          "outputSha256": "ce7a1befb894f3312bd9102c2a13347221f2d0683834e538e1785b40095c2ccf",
+          "diagnostics": ""
+        },
+        {
+          "file": "./pages/result/result.wxss",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 5241,
+          "outputSha256": "cc6a815db2260abf76180bf4b1b9c7435b1f1c48169254024f3bf25d3fee9c48",
+          "diagnostics": ""
+        },
+        {
+          "file": "./pages/stats/stats.wxss",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 3203,
+          "outputSha256": "e99cde8c7a9ec700d15c59b75021b66033a1a5665cfe94945c4ef10a0dff7df3",
+          "diagnostics": ""
+        }
+      ]
+    }
+  },
+  "status": "PASS",
+  "remaining": "This command proves source compilation only. Live simulator evidence belongs to verify-native-background.cjs and background-verification.json; real-device acceptance remains separate."
+}

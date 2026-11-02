@@ -1,121 +1,26 @@
-page {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
-.page {
-  flex: 1;
-  min-height: 0;
-  background: #f3efe7;
-}
-
-.brand {
-  padding: 72rpx 40rpx 48rpx;
-}
-
-.brand-title {
-  font-size: 72rpx;
-  font-weight: bold;
-  color: #3c5c5b;
-  letter-spacing: 8rpx;
-}
-
-.brand-divider {
-  width: 72rpx;
-  height: 8rpx;
-  border-radius: 4rpx;
-  background: #6ed3cf;
-  margin: 24rpx 0;
-}
-
-.brand-sub {
-  font-size: 26rpx;
-  color: #a89c86;
-  letter-spacing: 2rpx;
-}
-
-.entry {
-  display: flex;
-  align-items: center;
-  margin: 24rpx 32rpx 0;
-  padding: 32rpx 28rpx;
-  background: #fff;
-  border-radius: 24rpx;
-  box-shadow: 0 4rpx 16rpx rgba(60, 92, 91, 0.08);
-}
-
-.entry-hover {
-  opacity: 0.85;
-  transform: scale(0.98);
-}
-
-.entry-icon {
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 50%;
-  background: #e6f4f3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 24rpx;
-  flex-shrink: 0;
-}
-
-.entry-icon-text {
-  font-size: 34rpx;
-  font-weight: 600;
-  color: #3c5c5b;
-}
-
-.entry-body {
-  flex: 1;
-}
-
-.entry-title {
-  font-size: 32rpx;
-  font-weight: 600;
-  color: #333;
-}
-
-.entry-desc {
-  margin-top: 8rpx;
-  font-size: 24rpx;
-  color: #a89c86;
-}
-
-.entry-arrow {
-  font-size: 36rpx;
-  font-weight: 600;
-  color: #b7a992;
-  margin-left: 16rpx;
-}
-
-.tip {
-  margin: 32rpx 32rpx 48rpx;
-  padding: 28rpx;
-  background: #faf8f2;
-  border-radius: 20rpx;
-}
-
-.tip-title {
-  font-size: 24rpx;
-  font-weight: 600;
-  color: #3c5c5b;
-  margin-bottom: 14rpx;
-}
-
-.tip-kps {
-  font-size: 24rpx;
-  color: #8f8468;
-  line-height: 1.9;
-  letter-spacing: 1rpx;
-}
-
-.tip-note {
-  margin-top: 14rpx;
-  padding-top: 14rpx;
-  border-top: 1rpx solid #ece5d5;
-  font-size: 22rpx;
-  color: #b0a48c;
-}
+.scan-card { height: 365rpx; padding: 44rpx; position: relative; overflow: hidden; border-radius: 44rpx; background: #3266ed; color: #fff; }
+.scan-title { position: relative; z-index: 2; font-size: 44rpx; line-height: 1.45; font-weight: 500; }
+.scan-copy { position: relative; z-index: 2; margin-top: 14rpx; font-size: 25rpx; line-height: 1.6; color: #edf2ff; }
+.scan-art { position: absolute; top: 86rpx; right: 20rpx; width: 304rpx; height: 226rpx; transform: rotate(-9deg); border: 2rpx solid #9db8fc; border-radius: 25rpx; background: #3e6fef; display: flex; align-items: center; justify-content: center; }
+.scan-formula { white-space: nowrap; font-size: 36rpx; font-weight: 500; line-height: 1.4; letter-spacing: .6rpx; }
+.scan-corner { position: absolute; width: 26rpx; height: 26rpx; }
+.scan-corner.tl { top: 22rpx; left: 22rpx; border-top: 3rpx solid #c2d4ff; border-left: 3rpx solid #c2d4ff; }
+.scan-corner.tr { top: 22rpx; right: 22rpx; border-top: 3rpx solid #c2d4ff; border-right: 3rpx solid #c2d4ff; }
+.scan-corner.bl { bottom: 22rpx; left: 22rpx; border-bottom: 3rpx solid #c2d4ff; border-left: 3rpx solid #c2d4ff; }
+.scan-corner.br { bottom: 22rpx; right: 22rpx; border-bottom: 3rpx solid #c2d4ff; border-right: 3rpx solid #c2d4ff; }
+.scan-button { position: absolute; left: 44rpx; bottom: 44rpx; z-index: 3; display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 20rpx 28rpx; border-radius: 25rpx; font-size: 30rpx; font-weight: 500; line-height: 1.5; }
+.scan-button .ui-icon { margin-right: 20rpx; }
+.entry-row { display:flex; margin-top:24rpx; }
+.manual-button, .draft-entry { display:flex; align-items:center; justify-content:center; flex:1; width:0; min-width:0; min-height:52px; padding:20rpx 16rpx; background:#fff; border:1rpx solid #e5eaf2; border-radius:28rpx; font-size:28rpx; font-weight:400; white-space:nowrap; }
+/* Explicit margin works in native button layout without flex gap support. */
+.manual-button { margin:0 12rpx 0 0; }
+.manual-button .ui-icon { color:#3266ed; margin-right:20rpx; }
+.draft-entry { margin:0; }
+.draft-count { color:#647086; margin-left:12rpx; max-width:60rpx; overflow:hidden; text-overflow:ellipsis; }
+.recent-row { width: 100%; display: flex; align-items: center; padding: 28rpx 0; border-bottom: 1rpx solid #e5eaf2; text-align: left; font-weight: 400; }
+.recent-body { flex: 1; min-width: 0; }
+.recent-row .chevron { margin-left: 24rpx; }
+.recent-question { font-size: 30rpx; line-height: 1.8; letter-spacing: .6rpx; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.recent-cause { margin-top: 10rpx; color: #647086; font-size: 25rpx; line-height: 1.7; }
+.recent-empty { padding: 28rpx 0; font-size: 30rpx; }
+.recent-empty text { display: block; font-size: 26rpx; color: #647086; margin-top: 12rpx; line-height: 1.7; }

@@ -1,0 +1,139 @@
+{
+  "status": "PASS",
+  "layer": "source-backed browser layout projection; NOT native rendering",
+  "nativeRenderingVerified": false,
+  "modelRequests": 0,
+  "realStorageWrites": 0,
+  "foregroundActions": 0,
+  "networkRequests": 0,
+  "sourceHashes": [
+    {
+      "file": "微信小程序\\app.wxss",
+      "sha256": "ddeea6936b6642637e28324db4212f8eeb1675b2d6f9033690160936ce69880e"
+    },
+    {
+      "file": "微信小程序\\components\\study-tabs\\study-tabs.wxml",
+      "sha256": "ef633d23643ed39c68e3cf2a60f079ca65f72f9c72205b363ddc08b742091ea6"
+    },
+    {
+      "file": "微信小程序\\components\\study-tabs\\study-tabs.wxss",
+      "sha256": "f892ef30517257fa82676c51fc28470d4214fd5414c73d596f93927e16412172"
+    },
+    {
+      "file": "微信小程序\\pages\\history\\history.js",
+      "sha256": "52b2e0e583cc5d7a234fd125695ecac816f1a0a20654c464efad070a662518e2"
+    },
+    {
+      "file": "微信小程序\\pages\\history\\history.wxml",
+      "sha256": "555ce36dde2ab29f4bcdc9d27975051497166c4399754952c4afb8dfa91e9d49"
+    },
+    {
+      "file": "微信小程序\\pages\\history\\history.wxss",
+      "sha256": "1a189aeb904a35c7d1d1adcced31da643b1bfa981a46bf1fdfca95b6e9b99d63"
+    },
+    {
+      "file": "微信小程序\\pages\\stats\\stats.js",
+      "sha256": "05b8cfde144c7e60a3a62d98416271b2f433e4f592b327f136b2f056c7e1b555"
+    },
+    {
+      "file": "微信小程序\\pages\\stats\\stats.wxml",
+      "sha256": "3934c09bdf02d2bf2ffdfbe18f006634d16b16d262bf45665861f670e1d33741"
+    },
+    {
+      "file": "微信小程序\\pages\\stats\\stats.wxss",
+      "sha256": "420fd017a78ef88f95e0e50b95fa82d81c3a22b5a4d7e37b7fe102099292a62e"
+    },
+    {
+      "file": "server\\causeNodes.js",
+      "sha256": "c5870f80d0810623653bf12fdd39bb3be1bf2c32c3739fe6cf99e05658f110ce"
+    }
+  ],
+  "checks": [
+    {
+      "screen": "history",
+      "width": 390,
+      "expanded": false,
+      "populated": false,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "screen": "stats",
+      "width": 390,
+      "expanded": false,
+      "populated": false,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "screen": "stats",
+      "width": 390,
+      "expanded": false,
+      "populated": true,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "screen": "stats",
+      "width": 390,
+      "expanded": true,
+      "populated": false,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "screen": "stats",
+      "width": 375,
+      "expanded": false,
+      "populated": false,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "screen": "stats",
+      "width": 375,
+      "expanded": false,
+      "populated": true,
+      "status": "PASS",
+      "errors": []
+    }
+  ],
+  "images": [
+    {
+      "title": "错题本 · 0 道",
+      "file": "_work\\native-automation\\zero-history-html.png",
+      "sha256": "aa7ff220e299a74a298ce73c8f40ac924581c62c67612a88bb905ef4e39a1a7e",
+      "note": "HTML 布局预览，由当前 WXML、WXSS 和隔离示例数据生成；不是微信原生或真机截图。"
+    },
+    {
+      "title": "学情 · 全部为 0",
+      "file": "_work\\native-automation\\zero-stats-html.png",
+      "sha256": "2d7c1a8be8b725591407e179a23b24ae1ef817e8eea465d7943ccf6685f15ced",
+      "note": "HTML 布局预览，由当前 WXML、WXSS 和隔离示例数据生成；不是微信原生或真机截图。"
+    },
+    {
+      "title": "学情 · 1 道示例记录",
+      "file": "_work\\native-automation\\zero-stats-html-populated.png",
+      "sha256": "6ff7b3556ceb496febc8319be5b13cecf924086e4154019e0bb5658ccdd407d6",
+      "note": "HTML 布局预览，由当前 WXML、WXSS 和隔离示例数据生成；不是微信原生或真机截图。"
+    },
+    {
+      "title": "学情 · 展开错因分类",
+      "file": "_work\\native-automation\\zero-stats-html-expanded.png",
+      "sha256": "173caffdb792f0e841f6305765963fbf03a67ec6ee12bd1c52e0c7362f66aa25",
+      "note": "HTML 布局预览，由当前 WXML、WXSS 和隔离示例数据生成；不是微信原生或真机截图。"
+    },
+    {
+      "title": "学情 · 375px 零记录",
+      "file": "_work\\native-automation\\zero-stats-html-375.png",
+      "sha256": "e41e52b59580d724f7638836f207251b326fa3ff9405538905ac12f4cb43df83",
+      "note": "HTML 布局预览，由当前 WXML、WXSS 和隔离示例数据生成；不是微信原生或真机截图。"
+    },
+    {
+      "title": "学情 · 375px 有记录",
+      "file": "_work\\native-automation\\zero-stats-html-375-populated.png",
+      "sha256": "9de567c20438b3bdc3a6903d8c4052dda580ba2a9a4a852564e6d38c7fa07f4e",
+      "note": "HTML 布局预览，由当前 WXML、WXSS 和隔离示例数据生成；不是微信原生或真机截图。"
+    }
+  ]
+}

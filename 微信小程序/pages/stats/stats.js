@@ -1,20 +1,31 @@
 // stats.js
 const { loadLibrary } = require('../../utils/causeNodes')
+const { openMain } = require('../../utils/navigation')
 
 Page({
   data: {
     total: 0,
+    kpCount: 0,
+    causeCount: 0,
+    causeTotal: 0,
     topKp: '',
     topCause: '',
     kpStats: [],
+    kpDisplay: [{ name: '全部考点', count: 0, percent: 0 }],
+    kpRows: [{ key: '全部考点', items: [{ name: '全部考点', count: 0, percent: 0 }] }],
     causeStats: [],
+    causeDisplay: [{ name: '错因记录', count: 0 }],
     causeTree: []
   },
 
   onShow() {
-    // 错因树需要完整节点库（含未触发的灰色节点），先确保库已加载
+    // 先呈现本地记录，再用完整节点库补齐未触发的考点与错因
+    this.compute()
     loadLibrary(() => this.compute())
   },
+
+  goInput() { wx.navigateTo({ url: '/pages/input/input' }) },
+  goHistory() { openMain('history') },
 
   compute() {
     const lib = require('../../utils/causeNodes').getLibrary() || { kpOrder: [], categories: [], nodes: [] }
@@ -47,6 +58,16 @@ Page({
     kpStats.forEach(s => {
       s.percent = records.length ? Math.round(s.count / records.length * 100) : 0
     })
+    // 零记录与有记录共用完整分类及稳定顺序，只更新数值
+    const kpNames = [...lib.kpOrder, ...Object.keys(kpMap).filter(name => !lib.kpOrder.includes(name))]
+    const kpDisplay = (kpNames.length ? kpNames : ['全部考点'])
+      .map(name => ({ name, count: kpMap[name] || 0, percent: records.length ? Math.round((kpMap[name] || 0) / records.length * 100) : 0 }))
+    // 显式两项一行，避免原生百分比宽度取整后 wrap 将第二列挤到下一行
+    const kpRows = []
+    for (let i = 0; i < kpDisplay.length; i += 2) {
+      const items = kpDisplay.slice(i, i + 2)
+      kpRows.push({ key: items.map(item => item.name).join('|'), items })
+    }
 
     const causeStats = Object.entries(causeMap)
       .map(([name, count]) => ({ name, count }))
@@ -54,6 +75,12 @@ Page({
       .slice(0, 8)
     const causeMax = causeStats.length ? causeStats[0].count : 1
     causeStats.forEach(s => { s.percent = Math.round(s.count / causeMax * 100) })
+    const causeDisplay = lib.categories.map(name => ({ name, count: lib.nodes
+      .filter(node => node.category === name)
+      .reduce((sum, node) => sum + (countMap[node.id] || 0), 0) }))
+    const extraCount = Object.values(extraMap).reduce((sum, count) => sum + count, 0)
+    if (extraCount) causeDisplay.push({ name: '未分类', count: extraCount })
+    if (!causeDisplay.length) causeDisplay.push({ name: '错因记录', count: 0 })
 
     // 完整三层错因树：考点（枝干）-> 错因大类（分枝）-> 节点（叶子）
     // 未出现过的节点保留显示 ×0，形成完整错因地图
@@ -77,18 +104,19 @@ Page({
       const count = extraChildren.reduce((sum, c) => sum + c.count, 0)
       causeTree.push({ name: '其他', count, categories: [{ name: '未分类', count, children: extraChildren }], expanded: false })
     }
-    // 有记录的枝干按次数排前面，无记录的保持库顺序沉底
-    causeTree.sort((a, b) => b.count - a.count || lib.kpOrder.indexOf(a.name) - lib.kpOrder.indexOf(b.name))
-    // 默认展开第一个有记录的枝干
-    const firstHit = causeTree.findIndex(b => b.count > 0)
-    if (firstHit >= 0) causeTree[firstHit].expanded = true
 
     this.setData({
       total: records.length,
+      kpCount: Object.keys(kpMap).length,
+      causeCount: Object.keys(causeMap).length,
+      causeTotal: Object.values(causeMap).reduce((sum, count) => sum + count, 0),
       topKp: kpStats.length ? kpStats[0].name : '',
       topCause: causeStats.length ? causeStats[0].name : '',
       kpStats,
+      kpDisplay,
+      kpRows,
       causeStats,
+      causeDisplay,
       causeTree
     })
   },

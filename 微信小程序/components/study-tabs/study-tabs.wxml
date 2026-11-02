@@ -1,0 +1,5 @@
+<view class="study-tabs">
+  <button class="study-tab {{active === 'home' ? 'active' : ''}}" data-page="home" bindtap="open" aria-label="学习首页" style="width:0;flex:1;min-width:0;margin:0;"><view class="tab-symbol"><view class="ui-icon icon-home"></view></view><text>学习</text></button>
+  <button class="study-tab {{active === 'history' ? 'active' : ''}}" data-page="history" bindtap="open" aria-label="错题本" style="width:0;flex:1;min-width:0;margin:0;"><view class="tab-symbol"><view class="ui-icon icon-book"></view></view><text>错题本</text></button>
+  <button class="study-tab {{active === 'stats' ? 'active' : ''}}" data-page="stats" bindtap="open" aria-label="学情分析" style="width:0;flex:1;min-width:0;margin:0;"><view class="tab-symbol"><view class="ui-icon icon-chart"></view></view><text>学情</text></button>
+</view>

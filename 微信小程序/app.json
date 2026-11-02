@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/input/input",
+    "pages/drafts/drafts",
     "pages/result/result",
     "pages/history/history",
     "pages/stats/stats"
@@ -11,7 +12,7 @@
     "navigationStyle": "custom"
   },
   "style": "v2",
-  "renderer": "skyline",
+  "renderer": "webview",
   "rendererOptions": {
     "skyline": {
       "defaultDisplayBlock": true,
@@ -24,5 +25,8 @@
   },
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "study-tabs": "/components/study-tabs/study-tabs"
+  }
 }

@@ -1,51 +1,22 @@
-<!--index.wxml-->
-<navigation-bar title="错因智诊" back="{{false}}" color="white" background="#3c5c5b"></navigation-bar>
+<navigation-bar class="main-navigation" title="错因智诊" back="{{false}}" color="#182237" background="#f5f7fb"></navigation-bar>
 <scroll-view class="page" scroll-y type="list">
-  <view class="brand">
-    <view class="brand-title">错因智诊</view>
-    <view class="brand-divider"></view>
-    <view class="brand-sub">AI 驱动的理科错题智能诊断助手</view>
-  </view>
-
-  <view class="entry" hover-class="entry-hover" bindtap="goInput">
-    <view class="entry-icon"><text class="entry-icon-text">录</text></view>
-    <view class="entry-body">
-      <view class="entry-title">手动输入错题</view>
-      <view class="entry-desc">填写题干与错误作答，AI 精准诊断</view>
+  <view class="page-body">
+    <view class="entry-options">
+      <view class="scan-card">
+        <view class="scan-title">拍照录题</view><view class="scan-copy">支持相册选图</view>
+        <view class="scan-art" aria-hidden="true"><view class="scan-corner tl"></view><view class="scan-corner tr"></view><view class="scan-corner bl"></view><view class="scan-corner br"></view><text class="scan-formula">2(x − 3) = x + 4</text></view>
+        <button class="scan-button" bindtap="goCamera" disabled="{{recognizing}}" hover-class="button-hover" style="width:254rpx;min-width:0;margin:0;background:#fff;color:#3266ed;opacity:1;"><view class="ui-icon icon-camera" wx:if="{{!recognizing}}"></view><text>{{recognizing ? '正在识别…' : '拍照录入'}}</text></button>
+      </view>
+      <view class="entry-row">
+        <button class="manual-button" bindtap="goInput" hover-class="button-hover" style="margin:0 12rpx 0 0;"><view class="ui-icon icon-edit"></view><text>手动录入</text></button>
+        <button class="draft-entry" bindtap="goDrafts" hover-class="button-hover" style="margin:0;"><text class="draft-label">草稿与任务</text><text class="draft-count">{{draftCount}}</text></button>
+      </view>
     </view>
-    <view class="entry-arrow">&gt;</view>
-  </view>
-
-  <view class="entry" hover-class="entry-hover" bindtap="goCamera">
-    <view class="entry-icon"><text class="entry-icon-text">拍</text></view>
-    <view class="entry-body">
-      <view class="entry-title">拍照识别错题</view>
-      <view class="entry-desc">{{recognizing ? 'AI 识别中…' : '拍一张照片，AI 自动转录题目文字'}}</view>
+    <view class="section-head"><text class="section-title">最近错题</text><button class="quiet-action" bindtap="goHistory" wx:if="{{totalRecords}}" style="width:auto;margin-left:0;margin-right:0;">全部 {{totalRecords}} 道</button></view>
+    <view class="recent-list" wx:if="{{recentRecords.length}}">
+      <button class="recent-row" wx:for="{{recentRecords}}" wx:key="id" data-id="{{item.id}}" bindtap="viewRecent" hover-class="button-hover" style="width:100%;margin-left:0;margin-right:0;"><view class="recent-body"><view class="recent-question">{{item.question}}</view><view class="recent-cause">{{item.cause}}</view></view><view class="chevron"></view></button>
     </view>
-    <view class="entry-arrow">&gt;</view>
-  </view>
-
-  <view class="entry" hover-class="entry-hover" bindtap="goHistory">
-    <view class="entry-icon"><text class="entry-icon-text">本</text></view>
-    <view class="entry-body">
-      <view class="entry-title">我的错题本</view>
-      <view class="entry-desc">历史诊断记录，随时复习巩固</view>
-    </view>
-    <view class="entry-arrow">&gt;</view>
-  </view>
-
-  <view class="entry" hover-class="entry-hover" bindtap="goStats">
-    <view class="entry-icon"><text class="entry-icon-text">析</text></view>
-    <view class="entry-body">
-      <view class="entry-title">学情分析</view>
-      <view class="entry-desc">考点分布与错因节点统计，找到薄弱环节</view>
-    </view>
-    <view class="entry-arrow">&gt;</view>
-  </view>
-
-  <view class="tip">
-    <view class="tip-title">覆盖考点</view>
-    <view class="tip-kps">三角函数 · 对数 · 指数 · 方程 · 不等式 · 导数</view>
-    <view class="tip-kps">积分 · 数列 · 概率 · 向量 · 解析几何</view>
+    <view class="recent-empty" wx:else><view>还没有错题</view><text>把报告存入错题本后，题目会显示在这里。</text></view>
   </view>
 </scroll-view>
+<study-tabs class="main-tabs" active="home"></study-tabs>

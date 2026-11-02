@@ -1,0 +1,121 @@
+{
+  "date": "2026-10-31",
+  "scope": "offline HTML candidate only; no WeChat or model calls",
+  "directions": {
+    "a": {
+      "checks": [
+        "blue direction uses regular UI sans fonts and no letter-tile icons",
+        "empty question disables analysis",
+        "fixture input navigates to report",
+        "hint hidden until requested",
+        "full solution explicitly expanded",
+        "three variants with independent answer expansion",
+        "follow-up failure shown without fabricated response",
+        "camera path is honestly labelled offline",
+        "history search, topic filter and record reopening",
+        "statistics derived from eight synthetic records; tree expands",
+        "all five pages fit 320 and 390 widths without horizontal overflow"
+      ],
+      "pass": true,
+      "viewport": "390x844",
+      "narrowWidth": 320
+    },
+    "b": {
+      "checks": [
+        "empty question disables analysis",
+        "fixture input navigates to report",
+        "hint hidden until requested",
+        "full solution explicitly expanded",
+        "three variants with independent answer expansion",
+        "follow-up failure shown without fabricated response",
+        "camera path is honestly labelled offline",
+        "history search, topic filter and record reopening",
+        "statistics derived from eight synthetic records; tree expands",
+        "all five pages fit 320 and 390 widths without horizontal overflow"
+      ],
+      "pass": true,
+      "viewport": "390x844",
+      "narrowWidth": 320
+    },
+    "c": {
+      "checks": [
+        "empty question disables analysis",
+        "fixture input navigates to report",
+        "hint hidden until requested",
+        "full solution explicitly expanded",
+        "three variants with independent answer expansion",
+        "follow-up failure shown without fabricated response",
+        "camera path is honestly labelled offline",
+        "history search, topic filter and record reopening",
+        "statistics derived from eight synthetic records; tree expands",
+        "all five pages fit 320 and 390 widths without horizontal overflow"
+      ],
+      "pass": true,
+      "viewport": "390x844",
+      "narrowWidth": 320
+    }
+  },
+  "consoleErrors": [],
+  "externalRequests": [],
+  "acceptedByUser": false,
+  "typography": [
+    {
+      "selector": ".page-title",
+      "style": {
+        "family": "Arial, \"PingFang SC\", \"HarmonyOS Sans SC\", \"Noto Sans CJK SC\", DengXian, \"Microsoft YaHei\", sans-serif",
+        "weight": "500",
+        "size": "28px",
+        "spacing": "normal"
+      },
+      "fonts": [
+        {
+          "familyName": "DengXian",
+          "postScriptName": "DengXian",
+          "isCustomFont": false,
+          "glyphCount": 10
+        }
+      ]
+    },
+    {
+      "selector": ".scan-card h3",
+      "style": {
+        "family": "Arial, \"PingFang SC\", \"HarmonyOS Sans SC\", \"Noto Sans CJK SC\", DengXian, \"Microsoft YaHei\", sans-serif",
+        "weight": "500",
+        "size": "20px",
+        "spacing": "normal"
+      },
+      "fonts": [
+        {
+          "familyName": "DengXian",
+          "postScriptName": "DengXian",
+          "isCustomFont": false,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "selector": ".row-title",
+      "style": {
+        "family": "Arial, \"PingFang SC\", \"HarmonyOS Sans SC\", \"Noto Sans CJK SC\", DengXian, \"Microsoft YaHei\", sans-serif",
+        "weight": "400",
+        "size": "15px",
+        "spacing": "normal"
+      },
+      "fonts": [
+        {
+          "familyName": "DengXian",
+          "postScriptName": "DengXian",
+          "isCustomFont": false,
+          "glyphCount": 4
+        },
+        {
+          "familyName": "Arial",
+          "postScriptName": "ArialMT",
+          "isCustomFont": false,
+          "glyphCount": 10
+        }
+      ]
+    }
+  ],
+  "status": "PASS"
+}
