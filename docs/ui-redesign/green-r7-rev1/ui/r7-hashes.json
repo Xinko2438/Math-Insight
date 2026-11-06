@@ -1,0 +1,116 @@
+{
+  "schema": "green-ui-r7-material.v1",
+  "version": "GREEN-R1-UI-R7-20261106-rev1",
+  "previousVersion": "GREEN-R1-UI-R7-20261106",
+  "inputVersion": "GREEN-R1-20261104-1504",
+  "gitObject": "0c1c043ee630dcbdf624b788272d52f2bde0f818",
+  "generatedAt": "2026-11-06T02:45:13.263Z",
+  "generator": "_r7hash.js (writes material)",
+  "sourceR6": {
+    "index.html": {
+      "sha256": "68e1a620780c6ae1269b528edf53eb853fdb3ee9f408edb07520b57ba518807d",
+      "bytes": 5709
+    },
+    "app.js": {
+      "sha256": "a13dbc60ba45922c59f93c4c79da3ba0af23fef977ca5c9aa230c0cfd4a53f93",
+      "bytes": 49457
+    },
+    "data.js": {
+      "sha256": "d6e80c05abc87edfb2078ecccdea50fb0a82be03994ce0d191ff5c3b345827f6",
+      "bytes": 12791
+    },
+    "styles.css": {
+      "sha256": "7b094f0ec62f8d2ec85956c0325476ee333bfdab129ad2975545a91a2c9c5318",
+      "bytes": 27868
+    }
+  },
+  "files": {
+    "index.html": {
+      "sha256": "22b523bfdaf5d9519d18d8ba067c4b8c3251b46b93c40ef5fede16f2aead41c2",
+      "bytes": 5697
+    },
+    "app.js": {
+      "sha256": "d708c78089ec36b22e74deb069b2c98bf2c954ca6b3383ccd08af2a8f86d42b2",
+      "bytes": 43656
+    },
+    "data.js": {
+      "sha256": "d6e80c05abc87edfb2078ecccdea50fb0a82be03994ce0d191ff5c3b345827f6",
+      "bytes": 12791
+    },
+    "styles.css": {
+      "sha256": "2e192c66a5bdfa352ba315746ee53be1c1c531837e81c4b080ce53c0cd7d3f4b",
+      "bytes": 29670
+    },
+    "r3-fixtures.js": {
+      "sha256": "c081e36690b6f7945901ba50e72416558e002126bf70b739c2c73cb1f2f5edba",
+      "bytes": 11058
+    },
+    "gallery.html": {
+      "sha256": "6038e3d9d0e14083fa02ad8f128209f1284af79d2fd0f3754798b2a74b58b4b2",
+      "bytes": 4270
+    },
+    "r7-notes.md": {
+      "sha256": "b6478323a53f279f908be2a57f3c50c095c3bea44db78a09d4d015f892a4d54b",
+      "bytes": 2491
+    },
+    "_r7hash.js": {
+      "sha256": "1d983ff14a4ec1993ae2eccf62d9987e344cf534e2edef96c93eba3558adee26",
+      "bytes": 1268
+    },
+    "_r7-verify.js": {
+      "sha256": "95621c727050771de08b31fc99f5d06dba7c40e564bf70a8774b1075b7b36fbc",
+      "bytes": 6297
+    },
+    "_r7-capture.js": {
+      "sha256": "10f699ce8e792747dea6f3c48624e1ecee425f075c3f41fc0ae6013ecbd8aa1a",
+      "bytes": 4458
+    },
+    "_r7-verify.json": {
+      "sha256": "f5d9488e3eb5e4290bec6b2c0c67ff2866997d2d250bda84278e2e0faa9cb223",
+      "bytes": 12869
+    },
+    "screenshots/r7-screenshots-manifest.json": {
+      "sha256": "3b3cf37e3f3c179ebee58c677b242a078567310d46b0f639d747a881b904e406",
+      "bytes": 2101
+    }
+  },
+  "measurement": {
+    "r6_390_screen": [
+      713,
+      2300
+    ],
+    "r7_390_screen": [
+      713,
+      713
+    ],
+    "r6_375_screen": [
+      536,
+      2294
+    ],
+    "r7_375_screen": [
+      536,
+      670
+    ],
+    "r7_390_expanded": [
+      711,
+      832
+    ]
+  },
+  "revision": {
+    "label": "R7-rev1",
+    "fixes": [
+      "R7-C01 global cause rank 1-8, only rank 1 is-top",
+      "R7-E01 recapture four 390 views with full phone frame and rendered tabbar"
+    ],
+    "changedProductionFiles": [
+      "app.js"
+    ],
+    "unchanged": [
+      "styles.css=2e192c66a5bdfa352ba315746ee53be1c1c531837e81c4b080ce53c0cd7d3f4b",
+      "data.js",
+      "r3-fixtures.js",
+      "index.html"
+    ]
+  },
+  "note": "r7-hashes.json cannot include its own hash; recompute externally."
+}

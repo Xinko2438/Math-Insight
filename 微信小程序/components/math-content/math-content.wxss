@@ -1,0 +1,12 @@
+@import "../../vendor/math/runtime.wxss";
+.math-document{font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif;font-size:32rpx;line-height:1.85;color:inherit;word-break:break-word;}
+.text-piece{display:inline;white-space:pre-wrap;}
+.inline-math{display:inline-block;vertical-align:middle;max-width:100%;margin:0 3rpx;font-size:31rpx;}
+.block-math{display:block;padding:10rpx 0;margin:8rpx 0;max-width:100%;}
+.formula-scroll{width:100%;white-space:nowrap;}
+.formula-inner{display:inline-block;min-width:100%;font-size:34rpx;white-space:nowrap;}
+.katex-display{margin:.35em 0;text-align:left;}
+.katex-display>.katex{text-align:left;}
+.editable-piece{border-radius:8rpx;}
+.formula-fallback{display:block;padding:12rpx 0;white-space:pre-wrap;color:#647086;}
+.fallback-note{display:block;font-size:23rpx;margin-top:8rpx;color:#9a5038;}

@@ -1,0 +1,18 @@
+(() => {
+ const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],click=s=>{const e=$(s);if(!e)throw Error(s);e.click();};
+ const box=e=>{if(!e)return null;const r=e.getBoundingClientRect();return {top:r.top,bottom:r.bottom,left:r.left,right:r.right,w:r.width,h:r.height};};
+ const fit=(e,container)=>{if(!e)return null;const a=box(e),b=box(container);return {box:a,within:a.top>=b.top-.5&&a.bottom<=b.bottom+.5&&a.left>=b.left-.5&&a.right<=b.right+.5,text:e.innerText,scrollWidth:e.scrollWidth,clientWidth:e.clientWidth,ellipsis:getComputedStyle(e).textOverflow,wrapped:getComputedStyle(e).whiteSpace}};
+ const snapshot=label=>{const p=$('#phone'),sc=$('#screen'),b=$('.more-causes'),sr=box(sc),names=$$('.cr-name');const o={label,at:new Date().toISOString(),context:{fixture:p.dataset.fixture,state:p.dataset.state,page:p.dataset.page,viewport:p.dataset.viewport},phone:box(p),screen:{box:sr,clientH:sc.clientHeight,scrollH:sc.scrollHeight,scrollTop:sc.scrollTop,maxScroll:sc.scrollHeight-sc.clientHeight,scrollW:sc.scrollWidth,clientW:sc.clientWidth},button:b?{text:b.innerText,expanded:b.getAttribute('aria-expanded'),...fit(b,sc),focus:document.activeElement===b}:null,headings:$$('.lean-stats h3').map(e=>({text:e.innerText,box:box(e),font:getComputedStyle(e).fontSize})),metrics:$$('.lean-metrics b').map(e=>e.innerText),rows:$$('.cause-rank-row').map(e=>({text:e.innerText,rank:e.querySelector('.cr-no').innerText,top:e.classList.contains('is-top'),name:fit(e.querySelector('.cr-name'),sc),count:fit(e.querySelector('.cr-count'),sc),box:box(e)})),last:fit(names.at(-1),sc),newFirst:fit($('.more-list .cr-name'),sc),nav:box($('#tabbar')),pageScroll:scrollY,host:{w:innerWidth,h:innerHeight},errors:window.__r3error||null};window.__qaR7.interactions=window.__qaR7.interactions||[];window.__qaR7.interactions.push(o);return o;};
+ const prepare=w=>{click('#fixtureSwitch [data-fixture="default"]');click('#stateSwitch [data-state="short"]');click('#pageSwitch [data-page="stats"]');click('#viewportSwitch [data-viewport="'+w+'"]');$('#screen').scrollTop=0;return snapshot('default-'+w+'-initial');};
+ const supplement={at:new Date().toISOString(),definition:'S50 is zero records with full 50-node library, not 50 saved records. Both S0 and S50 map to makeStats([]). Strict zero expectations replace weak not-library-catalog predicate in presentation initial.',frames:[]};
+ for(const w of ['375','390']){
+  for(const id of ['S50','default']){
+   click('#fixtureSwitch [data-fixture="'+id+'"]');click('#pageSwitch [data-page="stats"]');click('#viewportSwitch [data-viewport="'+w+'"]');if(id==='default')click('#stateSwitch [data-state="zero"]');
+   const sc=$('#screen'),o={w,id,actualState:$('#phone').dataset.state,metrics:$$('.lean-metrics b').map(e=>e.innerText),headings:$$('.lean-stats h3').map(e=>({text:e.innerText,font:getComputedStyle(e).fontSize})),kp:$$('.lean-kp-cell').length,rows:$$('.cause-rank-row').map(e=>({name:e.querySelector('.cr-name').innerText,rank:e.querySelector('.cr-no').innerText,count:e.querySelector('.cr-count').innerText})),more:!!$('.more-causes'),text:sc.innerText,height:$('#phone').clientHeight,overflowX:sc.scrollWidth>sc.clientWidth};
+   o.ok=JSON.stringify(o.metrics)==='["0","0"]'&&o.headings.length===3&&o.headings.every(h=>h.font==='17px')&&o.kp===0&&o.rows.length===1&&o.rows[0].name==='暂无错因'&&o.rows[0].rank==='—'&&o.rows[0].count==='0 次'&&!o.more&&!o.overflowX;
+   supplement.frames.push(o);
+  }
+ }
+ window.__qaR7.supplement=supplement;window.__qaR7.capture=snapshot;window.__qaR7.prepare=prepare;
+ return {supplement,initial:prepare('375')};
+})()

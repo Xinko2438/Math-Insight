@@ -1,5 +1,6 @@
 const { recognizeQuestion } = require('../../utils/ocr')
 const { openMain } = require('../../utils/navigation')
+const math=require('../../utils/math-document')
 
 Page({
   data: { recognizing: false, recentRecords: [], totalRecords: 0, draftCount: 0 },
@@ -10,7 +11,7 @@ Page({
       draftCount: (() => { try { return require('../../utils/drafts').list().length } catch (_) { return '—' } })(),
       recentRecords: records.slice(0, 3).map(record => ({
         id: record.id,
-        question: record.question,
+        question: math.summary(record.questionDoc||math.fromText(record.question),record.question),
         cause: ((record.result && record.result.causeNodes) || []).map(node => node.name).filter(Boolean).slice(0, 2).join('、') || (record.result && record.result.knowledgePoint) || '查看诊断详情'
       }))
     })
@@ -25,6 +26,7 @@ Page({
     if (!record || !record.result) return
     getApp().globalData.lastResult = record.result
     getApp().globalData.lastWrongAnswer = record.wrongAnswer || ''
+    getApp().globalData.lastQuestionDoc=record.questionDoc||record.result.questionDoc||null;getApp().globalData.lastWrongAnswerDoc=record.wrongAnswerDoc||record.result.wrongAnswerDoc||null;getApp().globalData.lastSourceImage=record.sourceImage||null
     wx.navigateTo({ url: '/pages/result/result' })
   },
   goCamera() {

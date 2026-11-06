@@ -1,7 +1,9 @@
+const { request } = require('../../utils/request')
 // result.js
 const { baseUrl } = require('../../utils/config')
 const { loadLibrary, resolveNode } = require('../../utils/causeNodes')
 const jobs = require('../../utils/analysis-jobs')
+const photos = require('../../utils/photo-assets')
 
 Page({
   data: {
@@ -13,13 +15,15 @@ Page({
     activeTab: 'steps',
     wrongAnswer: '',
     chatError: '',
-    recordId: '', taskId: '', canSaveTask: false
+    recordId: '', taskId: '', canSaveTask: false,questionDoc:null,wrongAnswerDoc:null,questionDocJson:'',wrongAnswerDocJson:'',sourceImage:null
   },
 
   onLoad(options = {}) {
     const rawResult = getApp().globalData.lastResult
     const result = rawResult ? JSON.parse(JSON.stringify(rawResult)) : null
     const wrongAnswer = getApp().globalData.lastWrongAnswer || ''
+    const questionDoc=getApp().globalData.lastQuestionDoc||(result&&result.questionDoc)||null,wrongAnswerDoc=getApp().globalData.lastWrongAnswerDoc||(result&&result.wrongAnswerDoc)||null,sourceImage=getApp().globalData.lastSourceImage||null
+    getApp().globalData.lastQuestionDoc=null;getApp().globalData.lastWrongAnswerDoc=null;getApp().globalData.lastSourceImage=null
     getApp().globalData.lastWrongAnswer = ''
     if (!result) {
       wx.showToast({ title: '暂无解析数据', icon: 'none' })
@@ -39,7 +43,7 @@ Page({
         if (matches.length === 1) recordId = String(matches[0].id)
       }
     } catch (_) { /* Reporting remains available when local history cannot be read. */ }
-    this.setData({ recordId, taskId:options.taskId || '', canSaveTask:!!options.taskId && !recordId && result.source !== 'rule' })
+    this.setData({ recordId, taskId:options.taskId || '',questionDoc,wrongAnswerDoc,questionDocJson:questionDoc?JSON.stringify(questionDoc):'',wrongAnswerDocJson:wrongAnswerDoc?JSON.stringify(wrongAnswerDoc):'',sourceImage, canSaveTask:!!options.taskId && !recordId && result.source !== 'rule' })
     // 变式题默认收起答案
     result.variants = (result.variants || []).map((v, i) => ({ ...v, level: v.level || `变式${i + 1}`, expanded: false }))
     // 默认收起提示与完整解答
@@ -59,14 +63,12 @@ Page({
   openTagEditor() {
     if (this.data.recordId) wx.navigateTo({ url: '/pages/history/history?tagRecordId=' + encodeURIComponent(this.data.recordId) })
   },
+  previewOriginal() { photos.preview(this.data.sourceImage) },
 
   saveTaskToHistory() {
     if (!this.data.canSaveTask || !this.data.taskId) return
-    wx.showModal({title:'存入错题本？',content:'请先确认这道题确实需要作为错题复习。存入后会计入错题统计。',confirmText:'存入',success:res=>{
-      if (!res.confirm) return
-      try { const record=jobs.saveToHistory(this.data.taskId); this.setData({recordId:String(record.id),canSaveTask:false}); wx.showToast({title:'已存入错题本',icon:'none'}) }
-      catch (_) { wx.showToast({title:'保存失败，报告仍在任务中',icon:'none'}) }
-    }})
+    try { const record=jobs.saveToHistory(this.data.taskId); this.setData({recordId:String(record.id),canSaveTask:false}); wx.showToast({title:'已存入错题本',icon:'none'}) }
+    catch (_) { wx.showToast({title:'保存失败，报告仍在任务中',icon:'none'}) }
   },
 
   switchReportTab(e) {
@@ -105,7 +107,7 @@ Page({
     this.setData({ chat, chatInput: '', chatting: true, chatError: '' })
 
     const r = this.data.result
-    wx.request({
+    request({
       url: `${baseUrl}/api/chat`,
       method: 'POST',
       timeout: 30000,
@@ -129,9 +131,11 @@ Page({
   },
 
   goAgain() {
-    const pages = getCurrentPages()
-    const previous = pages[pages.length - 2]
-    if (previous && previous.route === 'pages/input/input') wx.navigateBack({ delta: 1 })
-    else wx.redirectTo({ url: '/pages/input/input' })
+    const pages=getCurrentPages()
+    const previous=pages[pages.length-2]
+    if (previous && previous.route === 'pages/input/input') {
+      getApp().globalData.startFreshDraft=true
+      wx.navigateBack({delta:1,fail:()=>{getApp().globalData.startFreshDraft=false;wx.redirectTo({url:'/pages/input/input'})}})
+    } else wx.redirectTo({url:'/pages/input/input'})
   }
 })

@@ -1,0 +1,179 @@
+{
+  "schema": "green-r7-rev1-chief-freeze.v1",
+  "version": "GREEN-R1-UI-R7-20261106-rev1",
+  "inputVersion": "GREEN-R1-20261104-1504",
+  "gitObject": "0c1c043ee630dcbdf624b788272d52f2bde0f818",
+  "frozenAt": "2026-11-06T02:47:57.8177493Z",
+  "status": "chief_review_then_targeted_qa",
+  "primary": "ui/index.html",
+  "files": [
+    {
+      "file": "index.html",
+      "sha256": "22b523bfdaf5d9519d18d8ba067c4b8c3251b46b93c40ef5fede16f2aead41c2",
+      "bytes": 5697,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\index.html"
+    },
+    {
+      "file": "app.js",
+      "sha256": "d708c78089ec36b22e74deb069b2c98bf2c954ca6b3383ccd08af2a8f86d42b2",
+      "bytes": 43656,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\app.js"
+    },
+    {
+      "file": "data.js",
+      "sha256": "d6e80c05abc87edfb2078ecccdea50fb0a82be03994ce0d191ff5c3b345827f6",
+      "bytes": 12791,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\data.js"
+    },
+    {
+      "file": "styles.css",
+      "sha256": "2e192c66a5bdfa352ba315746ee53be1c1c531837e81c4b080ce53c0cd7d3f4b",
+      "bytes": 29670,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\styles.css"
+    },
+    {
+      "file": "r3-fixtures.js",
+      "sha256": "c081e36690b6f7945901ba50e72416558e002126bf70b739c2c73cb1f2f5edba",
+      "bytes": 11058,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\r3-fixtures.js"
+    },
+    {
+      "file": "gallery.html",
+      "sha256": "6038e3d9d0e14083fa02ad8f128209f1284af79d2fd0f3754798b2a74b58b4b2",
+      "bytes": 4270,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\gallery.html"
+    },
+    {
+      "file": "r7-notes.md",
+      "sha256": "b6478323a53f279f908be2a57f3c50c095c3bea44db78a09d4d015f892a4d54b",
+      "bytes": 2491,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\r7-notes.md"
+    },
+    {
+      "file": "_r7hash.js",
+      "sha256": "1d983ff14a4ec1993ae2eccf62d9987e344cf534e2edef96c93eba3558adee26",
+      "bytes": 1268,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\_r7hash.js"
+    },
+    {
+      "file": "_r7-verify.js",
+      "sha256": "95621c727050771de08b31fc99f5d06dba7c40e564bf70a8774b1075b7b36fbc",
+      "bytes": 6297,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\_r7-verify.js"
+    },
+    {
+      "file": "_r7-capture.js",
+      "sha256": "10f699ce8e792747dea6f3c48624e1ecee425f075c3f41fc0ae6013ecbd8aa1a",
+      "bytes": 4458,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\_r7-capture.js"
+    },
+    {
+      "file": "_r7-verify.json",
+      "sha256": "f5d9488e3eb5e4290bec6b2c0c67ff2866997d2d250bda84278e2e0faa9cb223",
+      "bytes": 12869,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\_r7-verify.json"
+    },
+    {
+      "file": "screenshots/r7-screenshots-manifest.json",
+      "sha256": "3b3cf37e3f3c179ebee58c677b242a078567310d46b0f639d747a881b904e406",
+      "bytes": 2101,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\screenshots\\r7-screenshots-manifest.json"
+    },
+    {
+      "file": "r7-hashes.json",
+      "sha256": "2f6a8984584df1439257887dde6fca25a7b5af87944d92f86a9a780186d4350d",
+      "bytes": 3297,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\r7-hashes.json"
+    },
+    {
+      "file": "screenshots/r6-stats-375.png",
+      "sha256": "b36c20790350c280da23f9e6ff9200b0a5e5f8f38d34048620e2ccd6905b3d02",
+      "bytes": 62759,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\screenshots\\r6-stats-375.png"
+    },
+    {
+      "file": "screenshots/r7-stats-375.png",
+      "sha256": "d3631221e529e0a20b186643f6a0b59a22248db0cf7382b1950f3c7fbae33b47",
+      "bytes": 37289,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\screenshots\\r7-stats-375.png"
+    },
+    {
+      "file": "screenshots/r6-stats-390.png",
+      "sha256": "03624e7f2be603702d4a6ccdfd1199ce9e3c7e39e51f78548e0c0733e9ca0c71",
+      "bytes": 67047,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\screenshots\\r6-stats-390.png"
+    },
+    {
+      "file": "screenshots/r7-stats-390.png",
+      "sha256": "3465a6d32849202274b0267eb04ca0da3a6c538ba0e5237570886e5856e7a21a",
+      "bytes": 46047,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\screenshots\\r7-stats-390.png"
+    },
+    {
+      "file": "screenshots/r7-more-390.png",
+      "sha256": "38f592ab0176ca83ab9c68dc9e85648b2e02f68493365f2fc8de0cb9452f4ef5",
+      "bytes": 50030,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\screenshots\\r7-more-390.png"
+    },
+    {
+      "file": "screenshots/r7-S0-375.png",
+      "sha256": "8b461cb83827741a6aa3e2783d22c4bff44e404769b1b584d17b39617cc7ee63",
+      "bytes": 27344,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\screenshots\\r7-S0-375.png"
+    },
+    {
+      "file": "screenshots/r7-S2-375.png",
+      "sha256": "4192bc26123c3ca2149567e0e6ac6d8e541280cf045f4a0b35d798abbfbace9d",
+      "bytes": 33425,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\screenshots\\r7-S2-375.png"
+    },
+    {
+      "file": "screenshots/r7-report-390.png",
+      "sha256": "18e27430aa92b7f654870fdac92123e48e62c15b05666803d1aa9d534fe61242",
+      "bytes": 66274,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\ui\\green-candidate-r7\\screenshots\\r7-report-390.png"
+    }
+  ],
+  "comparedToInitial": [
+    {
+      "file": "styles.css",
+      "unchanged": true
+    },
+    {
+      "file": "index.html",
+      "unchanged": true
+    },
+    {
+      "file": "data.js",
+      "unchanged": true
+    },
+    {
+      "file": "r3-fixtures.js",
+      "unchanged": true
+    }
+  ],
+  "productionDiff": "Only causeRows global offset/rank and its two call sites; computations and report renderer outside this diff unchanged",
+  "screenshots": {
+    "corrected390": [
+      "r7-stats-390.png",
+      "r7-more-390.png",
+      "r7-report-390.png"
+    ],
+    "legacy390": "r6-stats-390.png retains previous capture; not complete-navigation evidence",
+    "fairComparison": "Use unchanged paired 375x667 images for before/after",
+    "initialSnapshots": "Preserved at ../initial/ui; R6 and prior QA untouched"
+  },
+  "verificationBoundary": "Offline prototype only; no native/phone/user acceptance",
+  "route": {
+    "flow": "Chief exact-version review then existing quality lead targeted verification",
+    "writeScopes": "Producer R7 work directory; Chief rev1 evidence; QA separate output",
+    "parallelBenefit": "Not claimed",
+    "modelChange": "None",
+    "cost": "Unavailable"
+  },
+  "reuse": {
+    "consumer": "Existing quality lead verifies R7 new presentation and C01/E01",
+    "measure": "three sections, absent removed prose, correct full ranking, reachable final cause, complete current 390 frames",
+    "rebuild": "Hash manifest + initial diff + frozen UI and noted browser actions"
+  }
+}

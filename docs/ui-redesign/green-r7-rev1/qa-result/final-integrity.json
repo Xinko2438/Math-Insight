@@ -1,0 +1,833 @@
+{
+  "at": "2026-11-06T03:09:42.1621847Z",
+  "protectedChecked": 205,
+  "protectedChanged": 0,
+  "files": [
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\chief-dom.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\manifest.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\REVIEW.md",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\_r7-capture.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\_r7-verify.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\_r7-verify.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\_r7hash.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\app.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\data.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\gallery.html",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\index.html",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\r3-fixtures.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\r7-hashes.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\r7-notes.md",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\styles.css",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r6-stats-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r6-stats-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r7-more-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r7-report-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r7-S0-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r7-S2-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r7-screenshots-manifest.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r7-stats-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r7-stats-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\manifest.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\REVIEW.md",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\delivery-preview\\report.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\delivery-preview\\stats.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\evidence.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\gallery.html",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\handoff.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\report.md",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\probes\\build-report.py",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\probes\\contrast.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\probes\\contrast.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\probes\\delivery-check.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\probes\\final-check.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\probes\\final-check.py",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\probes\\rendering.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\probes\\rendering.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\probes\\source-check.py",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\probes\\source.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\probes\\student.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\probes\\student.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\shots\\captures.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\shots\\F1-help-titles-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\shots\\F3-cases-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\shots\\F3-cases-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\shots\\S2-scope-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\shots\\S2-tree-note-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\qa-result\\shots\\scope-capture.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\_r3hashes.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\_r3verify.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\_r5check.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\app.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\data.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\gallery.html",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\index.html",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\r3-fixtures.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\r6-defect-evidence.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\r6-hashes.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\r6-implementation-notes.md",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\styles.css",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r3-F1-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r3-F2-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r3-F3-cases-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r3-F3-extras-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r3-F4-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r3-F5-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r3-F6-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r3-F7-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r3-F8-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r3-S1-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r3-S2-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r3-S2-tree-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r3-S2-unknown-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r3-S50-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r4-F3-cases-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r4-F3-cases-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r4-F3-extras-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r4-F3-extras-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r4-F4-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r4-F8-full-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r4-F8-full-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r5-D02-hint-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r5-D06-scope-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r5-F6-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r5-F6-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r5-F7-0steps-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r5-S0-scope-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r6-F3-brace-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r6-F3-brace-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r6\\ui\\screenshots\\r6-screenshots-manifest.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r3-20261105\\evidence.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r3-20261105\\gallery.html",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r3-20261105\\report.md",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r3-20261105\\shots\\F3-cases-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r3-20261105\\shots\\F3-cases-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r3-20261105\\shots\\F3-extras-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r3-20261105\\shots\\F3-math-block.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r3-20261105\\shots\\F4-student-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r3-20261105\\shots\\F6-source-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r3-20261105\\shots\\F8-first-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r3-20261105\\shots\\F8-last-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r3-20261105\\shots\\S2-unknown-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r5-20261105\\evidence.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r5-20261105\\gallery.html",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r5-20261105\\report.md",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r5-20261105\\probes\\base.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r5-20261105\\probes\\base.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r5-20261105\\probes\\contrast.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r5-20261105\\probes\\contrast.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r5-20261105\\probes\\interactions.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r5-20261105\\probes\\interactions.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r5-20261105\\probes\\rendering.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r5-20261105\\probes\\rendering.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r5-20261105\\probes\\stats.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r5-20261105\\probes\\stats.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r5-20261105\\shots\\F1-hint-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r5-20261105\\shots\\F3-cases-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r5-20261105\\shots\\F3-cases-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r5-20261105\\shots\\F6-input-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\evidence.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\gallery.html",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\report.md",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\probes\\build-report.py",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\probes\\contrast.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\probes\\contrast.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\probes\\delivery-check.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\probes\\final-check.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\probes\\final-check.py",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\probes\\rendering.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\probes\\rendering.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\probes\\source-check.py",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\probes\\source.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\probes\\student.js",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\probes\\student.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\shots\\captures.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\shots\\F1-help-titles-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\shots\\F3-cases-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\shots\\F3-cases-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\shots\\S2-scope-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\shots\\S2-tree-note-390.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r6-20261105\\shots\\scope-capture.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\revisions\\qa-r2\\evidence.json",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\revisions\\qa-r2\\preimage.md",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R01-steps-375-collapsed-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R02-report-short-375-diagnosis-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R02-report-short-375-diagnosis.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R02-report-short-375-hint.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R02-report-short-390-diagnosis-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R02-steps-375-hint-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R02-steps-390-hint-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R03-report-short-375-detail.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R03-steps-375-detail-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R03-steps-375-two-details-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R04-solution-375-open-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R04-solution-375-open.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R04-solution-390-open-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R05-variants-375-all-open.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R05-variants-375-collapsed-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R05-variants-375-collapsed.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R05-variants-375-second-open-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R05-variants-375-second-open.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R09-rule-375-default.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R09-rule-375-diagnosis-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R09-rule-375-diagnosis.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R09-rule-375-steps-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\R12-report-zero-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\S01-stats-zero-375-tree-open-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\S01-stats-zero-375-tree-open.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\S01-stats-zero-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\S01-stats-zero-390-tree-open-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\S02-stats-short-375-categories-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\S03-stats-short-375-cause-rank-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\S03-stats-short-390-cause-rank-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\S06-stats-short-375-log-tree-open-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\S06-stats-short-375-log-tree-open.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\S06-stats-short-375-tree-list-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\S06-stats-short-390-log-tree-open-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\S08-stats-zero-note-375-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\S08-stats-zero-note-390-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\V01-report-long-375-default.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\V01-report-long-375-expanded-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\V01-report-long-375-expanded.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\V01-report-long-390-default.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\V01-report-long-390-expanded-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\V01-report-short-375-default.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\V01-report-short-390-default.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\V01-stats-short-375-default.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\V01-stats-short-390-default.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\V03-stats-short-375-zero-leaf-scrolled.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\V04-report-short-375-diagnosis-grayscale.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\V04-stats-short-375-grayscale.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\V04-stats-short-375-tree-contrast.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\V05-summary-button-375.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\V07-report-long-375-expanded-bottom.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\V07-report-short-375-bottom.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\V07-report-short-390-bottom.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\V07-stats-short-375-bottom.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\V07-stats-short-390-bottom.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\shots\\V07-stats-tree-open-375-bottom.png",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\acceptance-matrix.md",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\baseline-findings.md",
+      "unchanged": true
+    },
+    {
+      "path": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\candidate-review-GREEN-R1-UI-1.md",
+      "unchanged": true
+    }
+  ],
+  "writeRoot": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r7-rev1-20261106",
+  "onlyNewEvidence": true,
+  "caseLedgerCount": 10,
+  "passed": 10,
+  "failed": 0,
+  "fixtureS50": "zero records with full50 library"
+}

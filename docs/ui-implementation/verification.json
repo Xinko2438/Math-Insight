@@ -29,7 +29,7 @@
       "pass": true
     },
     {
-      "name": "again over input reuses the existing input page",
+      "name": "again over input reuses its page as a fresh form and preserves the old draft",
       "pass": true
     },
     {
@@ -46,6 +46,42 @@
     },
     {
       "name": "OCR works from home and the input form through one shared operation",
+      "pass": true
+    },
+    {
+      "name": "photo result gives visible review feedback without an extra confirmation",
+      "pass": true
+    },
+    {
+      "name": "completed task offers its report directly without changing edited input",
+      "pass": true
+    },
+    {
+      "name": "double-tapping the completed report opens it only once",
+      "pass": true
+    },
+    {
+      "name": "analysis received while page is hidden resumes without forcing navigation",
+      "pass": true
+    },
+    {
+      "name": "backgrounding during secure ID generation cannot start two submissions",
+      "pass": true
+    },
+    {
+      "name": "late old submission callback cannot replace a newer task",
+      "pass": true
+    },
+    {
+      "name": "returning after deleting a task restores the analysis action",
+      "pass": true
+    },
+    {
+      "name": "saving as another draft disconnects late old task callbacks",
+      "pass": true
+    },
+    {
+      "name": "reanalysis confirmation survives hide and cannot submit twice",
       "pass": true
     },
     {

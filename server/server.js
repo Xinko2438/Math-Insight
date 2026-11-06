@@ -28,11 +28,20 @@ app.use(express.json({ limit: '12mb' }))
 // 允许跨域（便于调试；小程序 wx.request 本身不受跨域限制）
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Job-Token')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Job-Token, Authorization')
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,DELETE,OPTIONS')
   if (req.method === 'OPTIONS') return res.sendStatus(204)
   next()
 })
+
+// Explicitly enabled only for the public deployment. Missing credentials fail closed.
+if (process.env.MATH_APP_PUBLIC_ACCESS === '1') {
+  // Exactly one trusted Nginx hop; Docker port is published on loopback only.
+  app.set('trust proxy', 1)
+  const { createPublicAccess } = require('./public-access')
+  const access = createPublicAccess({dbPath:path.join(__dirname,'.runtime','public-access.sqlite'),appId:process.env.MATH_APP_WECHAT_APP_ID,appSecret:process.env.MATH_APP_WECHAT_APP_SECRET,sessionSecret:process.env.MATH_APP_SESSION_SECRET,userDaily:Number(process.env.MATH_APP_USER_DAILY)||30,globalDaily:Number(process.env.MATH_APP_GLOBAL_DAILY)||150})
+  app.use('/api',access.middleware)
+}
 
 // ================= 本地规则引擎（降级兜底） =================
 const KNOWLEDGE_RULES = [
@@ -124,6 +133,7 @@ function buildMessages(question, wrongAnswer) {
   ]
 }
 要求：整体输出务必精炼；steps 控制在 3~4 步，question 用提问方式引导学生思考本步该做什么，hint 给出该步的具体操作提示但不在此给出最终答案，detail 给出本步的完整推理与解答（像老师讲课一样写清推理依据与本步结论，最后一步的 detail 必须包含最终答案）；solution 给出完整规范解答（含最终答案）；variants 三道难度递进，level 固定依次为 基础巩固/中等提升/能力扩展，必须与题干同考点，题干和解析各不超过 50 字。
+数学公式使用 LaTeX，行内用 $...$，独立或多行公式用 $$...$$；中文叙述放在公式外，JSON 中反斜杠正确转义，不输出 HTML 或宏定义。输入中已有公式和学生错误步骤不得因排版被改写。
 confidence 表示你对本次诊断的把握程度（0~100 的整数），证据充分给 80 以上，信息不足（如未提供错误作答）相应降低。
 causeNodeIds：先根据题干与作答判断考点，再只在该考点下的节点中挑选（通用考点的节点任何时候都可作为补充）；仅当存在可指出的错误时选与错误情节吻合的 1~3 个节点 id，只允许从库中选，不得编造。如果作答正确或证据不足，明确说明并返回空数组，不得硬凑错因。特别注意：①不要因节点名称字面相似就误选其他考点的节点，必须以判定依据为准；②将学生的作答逐步与判定依据逐条比对，选吻合条目最多的节点；学生已经做对的步骤（如求导本身正确）不得选对应节点；③区间书写错误（如用并集连接多段单调区间、端点开闭写错）属于"单调区间端点处理不当"类节点，而非求导法则类节点。
 错因节点库（按考点分组，含定义与判定依据）：
@@ -514,7 +524,7 @@ app.post('/api/chat', async (req, res) => {
   const system = `你是一位苏格拉底式的数学辅导老师。学生刚做错一道题，背景如下：
 错题题干：${question || '（未知）'}
 AI 诊断结论：${diagnosis || '（未知）'}
-学生现在继续追问。要求：绝不直接给出完整答案，用反问、提示、类比引导学生自己想通；每次回复 100 字以内；语气温和鼓励。`
+学生现在继续追问。要求：绝不直接给出完整答案，用反问、提示、类比引导学生自己想通；每次回复 100 字以内；语气温和鼓励。数学公式用 $...$ 或 $$...$$ 包裹的 LaTeX，中文放在公式外，不输出 HTML。`
   const messages = [{ role: 'system', content: system }]
   for (const h of history) {
     if (h && (h.role === 'user' || h.role === 'assistant') && typeof h.content === 'string') {
@@ -570,7 +580,7 @@ if (typeof module !== 'undefined' && require.main === module) {
   }
 }
 
-app.listen(PORT, () => {
+app.listen(PORT, process.env.HOST || '0.0.0.0', () => {
   const hasKey = Boolean(MIMO_API_KEY)
   console.log(`错因智诊后端已启动：http://localhost:${PORT}`)
   console.log(`AI 模型：${hasKey ? '小米 MiMo-V2.6-Flash（已配置 Key）' : '未配置 Key，当前使用本地规则引擎'}`)

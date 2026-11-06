@@ -88,15 +88,20 @@ test('repeated analysis warns if an earlier task may still be running', () => {
   requests[0].fail({}); p.onSubmit()
   assert.equal(requests.length,1); assert.ok(h.calls.some(c=>c[0]==='modal' && /费用|收费/.test(c[1].content)))
 })
-test('report offers deliberate history saving and retains source snapshot', () => {
+test('report saves once on explicit tap without modal, and preserves failures and rule results', () => {
   const {host}=require('./verify-native-ui.cjs'); const h=host(); const job=jobs.list()[0]
   h.storage['mathJob:'+job.taskId]=JSON.parse(JSON.stringify(job))
   h.app.globalData.lastResult=JSON.parse(JSON.stringify(job.result)); h.app.globalData.lastWrongAnswer=job.snapshot.wrongAnswer
   const page=h.page('result'); page.onLoad({taskId:job.taskId}); page.saveTaskToHistory()
-  const modal=h.calls.find(c=>c[0]==='modal'); assert.ok(modal)
-  assert.equal(h.storage.errorHistory.length,0); modal[1].success({confirm:true})
+  assert.ok(!h.calls.some(c=>c[0]==='modal'), 'saving from the explicit button must not require another confirmation')
   assert.equal(h.storage.errorHistory.length,1); assert.equal(page.data.recordId,'task-'+job.taskId)
+  page.saveTaskToHistory(); assert.equal(h.storage.errorHistory.length,1)
   assert.deepEqual(h.storage['mathJob:'+job.taskId].result,job.result)
+  const failed=host(); failed.storage['mathJob:'+job.taskId]=JSON.parse(JSON.stringify(job)); failed.app.globalData.lastResult=JSON.parse(JSON.stringify(job.result)); failed.app.globalData.lastWrongAnswer=job.snapshot.wrongAnswer
+  const failedPage=failed.page('result'); failedPage.onLoad({taskId:job.taskId}); failed.wx.setStorageSync=()=>{throw Error('quota')}; failedPage.saveTaskToHistory()
+  assert.equal(failed.storage.errorHistory.length,0); assert.equal(failedPage.data.canSaveTask,true); assert.ok(failed.calls.some(c=>c[0]==='toast' && /保存失败/.test(c[1].title))); assert.deepEqual(failed.storage['mathJob:'+job.taskId].result,job.result)
+  const fallback=host(); fallback.storage['mathJob:'+job.taskId]=JSON.parse(JSON.stringify(job)); fallback.storage['mathJob:'+job.taskId].result.source='rule'; fallback.app.globalData.lastResult=JSON.parse(JSON.stringify(fallback.storage['mathJob:'+job.taskId].result))
+  const fallbackPage=fallback.page('result'); fallbackPage.onLoad({taskId:job.taskId}); fallbackPage.saveTaskToHistory(); assert.equal(fallback.storage.errorHistory.length,0); assert.equal(fallbackPage.data.canSaveTask,false)
 })
 test('deleting task requires server confirmation and prevents stale response restoring it', () => {
   const id=jobs.list()[0].taskId
@@ -133,4 +138,21 @@ test('home does not claim zero drafts when local storage cannot be read', () => 
   const {host}=require('./verify-native-ui.cjs'); const h=host()
   h.wx.getStorageInfoSync=()=>{throw Error('read failed')}
   const page=h.page('index'); page.onShow(); assert.equal(page.data.draftCount,'—')
+})
+test('more menu never deletes until a specific action and confirmation are chosen', () => {
+  const {host}=require('./verify-native-ui.cjs'); const h=host(); let menu
+  h.wx.showActionSheet=o=>{menu=o}; h.wx.getStorageInfoSync=()=>({keys:Object.keys(h.storage)})
+  const id='f'.repeat(32);h.storage['mathJob:'+id]={taskId:id,token:'a'.repeat(64),status:'complete',snapshot:{question:'保留题目',wrongAnswer:''}}
+  const page=h.page('drafts');page.openMore({currentTarget:{dataset:{id,kind:'task'}}})
+  assert.ok(menu.itemList.length === 2);assert.ok(h.storage['mathJob:'+id]);assert.equal(h.calls.filter(x=>x[0]==='modal').length,0)
+  menu.success({tapIndex:1});const modal=h.calls.find(x=>x[0]==='modal')[1];assert.match(modal.content,/服务端内容仍/)
+  modal.success({confirm:false});assert.ok(h.storage['mathJob:'+id])
+  page.openMore({currentTarget:{dataset:{id,kind:'task'}}});menu.success({tapIndex:1});h.calls.filter(x=>x[0]==='modal').at(-1)[1].success({confirm:true});assert.equal(h.storage['mathJob:'+id],undefined)
+})
+test('task menu server removal preserves the existing confirmation and transport', () => {
+  const {host}=require('./verify-native-ui.cjs');const h=host();let menu,request
+  h.wx.showActionSheet=o=>{menu=o};h.wx.request=o=>{request=o};h.wx.getStorageInfoSync=()=>({keys:Object.keys(h.storage)})
+  const id='e'.repeat(32);h.storage['mathJob:'+id]={taskId:id,token:'b'.repeat(64),status:'running',snapshot:{question:'题目',wrongAnswer:''}}
+  const p=h.page('drafts');p.openMore({currentTarget:{dataset:{id,kind:'task'}}});menu.success({tapIndex:0});assert.equal(request,undefined)
+  const modal=h.calls.find(x=>x[0]==='modal')[1];assert.match(modal.content,/费用/);modal.success({confirm:true});assert.equal(request.method,'DELETE');assert.ok(h.storage['mathJob:'+id])
 })

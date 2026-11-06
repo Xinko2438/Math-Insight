@@ -6,6 +6,7 @@ const path = require('node:path')
 const crypto = require('node:crypto')
 const { DatabaseSync } = require('node:sqlite')
 const express = require('express')
+const { normalizeSnapshot } = require('../微信小程序/utils/math-document')
 
 const DAY = 86400000
 const digest = value => crypto.createHash('sha256').update(value).digest('hex')
@@ -20,9 +21,11 @@ function createAnalysisJobs({ dbPath, provider, now = Date.now, maxQueued = 100,
     db.exec('PRAGMA busy_timeout=1000; PRAGMA journal_mode=DELETE; PRAGMA synchronous=FULL; PRAGMA secure_delete=ON; PRAGMA locking_mode=EXCLUSIVE; BEGIN EXCLUSIVE; COMMIT;')
     db.exec(`CREATE TABLE IF NOT EXISTS jobs (
       id TEXT PRIMARY KEY, token_hash TEXT NOT NULL, snapshot_hash TEXT,
-      question TEXT, answer TEXT, status TEXT NOT NULL, result TEXT,
+      question TEXT, answer TEXT, question_doc TEXT, answer_doc TEXT, status TEXT NOT NULL, result TEXT,
       created INTEGER NOT NULL, updated INTEGER NOT NULL, tombstone_until INTEGER
     )`)
+    const columns=new Set(db.prepare('PRAGMA table_info(jobs)').all().map(x=>x.name))
+    for(const column of ['question_doc','answer_doc'])if(!columns.has(column))db.exec('ALTER TABLE jobs ADD COLUMN '+column+' TEXT')
   } catch (error) { db.close(); throw error }
   const get = db.prepare('SELECT * FROM jobs WHERE id=?')
   const router = express.Router()
@@ -32,8 +35,8 @@ function createAnalysisJobs({ dbPath, provider, now = Date.now, maxQueued = 100,
   function cleanup() {
     const time = now()
     // An active dispatch is never retried because its provider outcome may be unknown.
-    db.prepare("UPDATE jobs SET question=NULL, answer=NULL, result=NULL, snapshot_hash=NULL, status='expired', updated=?, tombstone_until=? WHERE status='queued' AND created<=?").run(time, time + 30 * DAY, time - DAY)
-    db.prepare("UPDATE jobs SET question=NULL, answer=NULL, result=NULL, snapshot_hash=NULL, status='expired', updated=?, tombstone_until=? WHERE status IN ('complete','failed','uncertain') AND updated<=?").run(time, time + 30 * DAY, time - 7 * DAY)
+    db.prepare("UPDATE jobs SET question=NULL, answer=NULL, question_doc=NULL, answer_doc=NULL, result=NULL, snapshot_hash=NULL, status='expired', updated=?, tombstone_until=? WHERE status='queued' AND created<=?").run(time, time + 30 * DAY, time - DAY)
+    db.prepare("UPDATE jobs SET question=NULL, answer=NULL, question_doc=NULL, answer_doc=NULL, result=NULL, snapshot_hash=NULL, status='expired', updated=?, tombstone_until=? WHERE status IN ('complete','failed','uncertain') AND updated<=?").run(time, time + 30 * DAY, time - 7 * DAY)
     db.prepare("DELETE FROM jobs WHERE status='expired' AND tombstone_until<=?").run(time)
   }
   // Database exclusive locking rejects another server process instead of stealing its running task.
@@ -67,7 +70,10 @@ function createAnalysisJobs({ dbPath, provider, now = Date.now, maxQueued = 100,
       const changed = db.prepare("UPDATE jobs SET status='running', updated=? WHERE id=? AND status='queued'").run(now(), row.id).changes
       if (!changed) return
       try {
-        const result = await provider({ taskId: row.id, question: row.question, wrongAnswer: row.answer })
+        const snapshot={question:row.question,wrongAnswer:row.answer,...(row.question_doc?{questionDoc:JSON.parse(row.question_doc)}:{}),...(row.answer_doc?{wrongAnswerDoc:JSON.parse(row.answer_doc)}:{})}
+        const provided = await provider({ taskId: row.id,...snapshot })
+        if(!provided||typeof provided!=='object'||Array.isArray(provided))throw Error('invalid result')
+        const result={...provided,...(snapshot.questionDoc?{questionDoc:snapshot.questionDoc}:{}),...(snapshot.wrongAnswerDoc?{wrongAnswerDoc:snapshot.wrongAnswerDoc}:{})}
         const encoded = JSON.stringify(result)
         if (!encoded || encoded.length > 1024 * 1024) throw Error('invalid result')
         if (!closed) db.prepare("UPDATE jobs SET status='complete', result=?, updated=? WHERE id=? AND status='running'").run(encoded, now(), row.id)
@@ -78,11 +84,13 @@ function createAnalysisJobs({ dbPath, provider, now = Date.now, maxQueued = 100,
   }
   function guarded(fn) { return (req, res) => { try { cleanup(); fn(req, res) } catch (_) { fail(res, 503, '任务服务暂不可用') } } }
   router.post('/', guarded((req, res) => {
-    const { taskId, question, wrongAnswer } = req.body || {}
+    const { taskId } = req.body || {}
     const token = req.get('X-Job-Token')
-    if (!validId(taskId) || !validToken(token) || typeof question !== 'string' || typeof wrongAnswer !== 'string' || !question.trim() || question.length > 2000 || wrongAnswer.length > 1000) return fail(res, 400, '提交内容无效')
-    const q = question.trim(), a = wrongAnswer.trim()
-    const fingerprint = digest(JSON.stringify([q, a]))
+    let snapshot
+    try{if(typeof req.body.question!=='string'||typeof req.body.wrongAnswer!=='string')throw Error('type');snapshot=normalizeSnapshot(req.body)}catch(_){return fail(res,400,'提交的数学内容无效')}
+    const {question:q,wrongAnswer:a,questionDoc,wrongAnswerDoc}=snapshot
+    if (!validId(taskId) || !validToken(token) || !q.trim() || q.length > (questionDoc?4000:2000) || a.length > (wrongAnswerDoc?2000:1000)) return fail(res, 400, '提交内容无效')
+    const fingerprint = digest(JSON.stringify(questionDoc||wrongAnswerDoc?[q,a,questionDoc||null,wrongAnswerDoc||null]:[q,a]))
     const existing = get.get(taskId)
     if (existing) {
       if (!authorized(existing, token)) return fail(res, 404, '任务不存在或无权访问')
@@ -94,7 +102,7 @@ function createAnalysisJobs({ dbPath, provider, now = Date.now, maxQueued = 100,
     if (recent.length >= rateLimit) return fail(res, 429, '请求过于频繁')
     if (db.prepare("SELECT COUNT(*) AS count FROM jobs WHERE status IN ('queued','running')").get().count >= maxQueued) return fail(res, 429, '任务较多，请稍后再试')
     recent.push(time); attempts.set(ip, recent)
-    db.prepare("INSERT INTO jobs (id,token_hash,snapshot_hash,question,answer,status,created,updated) VALUES (?,?,?,?,?,'queued',?,?)").run(taskId, digest(token), fingerprint, q, a, time, time)
+    db.prepare("INSERT INTO jobs (id,token_hash,snapshot_hash,question,answer,question_doc,answer_doc,status,created,updated) VALUES (?,?,?,?,?,?,?,'queued',?,?)").run(taskId, digest(token), fingerprint, q, a, questionDoc?JSON.stringify(questionDoc):null,wrongAnswerDoc?JSON.stringify(wrongAnswerDoc):null,time, time)
     schedule()
     return res.status(202).json({ code: 0, data: publicData(get.get(taskId)) })
   }))
@@ -107,7 +115,7 @@ function createAnalysisJobs({ dbPath, provider, now = Date.now, maxQueued = 100,
     const row = validId(req.params.id) && get.get(req.params.id)
     if (!authorized(row, req.get('X-Job-Token'))) return fail(res, 404, '任务不存在或无权访问')
     const time = now()
-    db.prepare("UPDATE jobs SET question=NULL, answer=NULL, result=NULL, snapshot_hash=NULL, status='expired', updated=?, tombstone_until=? WHERE id=? AND status!='expired'").run(time, time + 30 * DAY, row.id)
+    db.prepare("UPDATE jobs SET question=NULL, answer=NULL, question_doc=NULL, answer_doc=NULL, result=NULL, snapshot_hash=NULL, status='expired', updated=?, tombstone_until=? WHERE id=? AND status!='expired'").run(time, time + 30 * DAY, row.id)
     return res.json({ code: 0, data: publicData(get.get(row.id)) })
   }))
   const interval = setInterval(() => { if (!closed) { try { cleanup(); schedule() } catch (_) {} } }, 60000)

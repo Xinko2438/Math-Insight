@@ -7,7 +7,7 @@ const { randomUUID } = require('node:crypto');
 const { createHash } = require('node:crypto');
 const assert = require('node:assert/strict');
 const root = path.resolve(__dirname, '..');
-const SAFE_METHODS = new Set(['onShow', 'goInput', 'goDrafts', 'goHistory', 'goStats', 'viewRecent', 'viewRecord', 'onSearch', 'onFilterTap', 'onQuestionInput', 'onAnswerInput', 'switchReportTab', 'toggleHint', 'toggleDetail', 'toggleSolution', 'toggleVariant', 'toggleBranch', 'goAgain']);
+const SAFE_METHODS = new Set(['onShow', 'goInput', 'goDrafts', 'goHistory', 'goStats', 'viewRecent', 'viewRecord', 'onSearch', 'onFilterTap', 'onQuestionInput', 'onAnswerInput', 'onFieldFocus', 'onFieldBlur', 'applyPhoto', 'onSubmit', 'switchReportTab', 'toggleHint', 'toggleDetail', 'toggleSolution', 'toggleVariant', 'toggleBranch', 'goAgain']);
 
 async function connect(port, options = {}) {
   const manifestPath = path.join(root, '_work/native-automation/manifest.json');
@@ -26,7 +26,7 @@ async function connect(port, options = {}) {
   const sourceLibVersion = JSON.parse(fs.readFileSync(path.join(root, 'project.config.json'), 'utf8')).libVersion || '3.17.6';
   const expectedLibVersion = options.libVersion || sourceLibVersion;
   if (options.libVersion && !options.fixtureProfile || (snapshot.libVersion || sourceLibVersion) !== expectedLibVersion) throw Error('Library diagnostic requires an explicit matching version');
-  if ((snapshot.fixtureProfile || '') !== (options.fixtureProfile || '') || options.fixtureProfile && !['multiline-bare', 'text-matrix', 'supported-text', 'supported-all'].includes(options.fixtureProfile)) throw Error('Diagnostic fixture requires an explicit matching connector; it is not product UI evidence');
+  if ((snapshot.fixtureProfile || '') !== (options.fixtureProfile || '') || options.fixtureProfile && !['multiline-bare', 'text-matrix', 'supported-text', 'supported-all', 'math-render'].includes(options.fixtureProfile)) throw Error('Diagnostic fixture requires an explicit matching connector; it is not product UI evidence');
   for (const file of snapshot.copiedFiles) {
     for (const base of [path.join(root, '微信小程序'), path.join(root, '_work/native-automation/project/miniprogram')]) {
       const source = path.resolve(base, file.path);
@@ -149,6 +149,7 @@ async function verifyLayout(options = {}) {
   const screenshots = [];
   const stateScreenshots = [];
   const draftScreenshots = [];
+  const motionEvidence = [];
   let beforeHistory;
   let globals;
   let initial;
@@ -366,20 +367,77 @@ async function verifyLayout(options = {}) {
       await common(draftPage); await waitData(draftPage, 'drafts', rows => rows.some(row => row.id === 'draft-fixture'), 'draft list');
       await waitData(draftPage, 'tasks', rows => rows.some(row => row.id === 'a'.repeat(32) && row.ready), 'task list');
       await element(draftPage, '.draft-row'); await element(draftPage, '.task-row');
+      const more = await element(draftPage,'.more-action');
+      assert.ok(more.dimensions.properties[0] >= 44 && more.dimensions.properties[1] >= 44,'More action touch target is too small');
+      assert.ok((await client.inspect(draftPage,'.delete')).missing,'Destructive actions still occupy the default list');
       await captureDraft(draftPage, 'list', '草稿与任务 · 隔离示例');
       await callFunction(function () { wx.navigateBack(); }); page = await pageAt('pages/index/index');
       checks.push('dedicated native draft and task page displays isolated entries');
     }
     await client.call(page, 'goInput'); page = await pageAt('pages/input/input');
     await common(page);
-    const primary = await element(page, '.action-primary');
+    let primary = await element(page, '.action-primary');
     assert.ok(primary.dimensions.properties[0] > 290);
     const firstField = await element(page, '.field');
     await captureDraft(page, 'input', '录入题目 · 自动保存');
+    if (options.draftUi) {
+      await client.call(page, 'applyPhoto', {question:'解方程：2x + 1 = 7',wrongAnswer:'x = 2',reviewReasons:[]});
+      await waitData(page, 'photoNotice', value => value.includes('识别完成'), 'photo review feedback');
+      await waitData(page, 'saveState', value => value === '已保存', 'photo draft saved');
+      const toolbar=await element(page,'.input-toolbar');
+      const photoFeedback=await element(page,'.photo-notice');
+      assert.ok(photoFeedback.offset.top >= toolbar.offset.top+toolbar.dimensions.properties[1]-1,'Recognition feedback overlaps input toolbar');
+      await captureDraft(page, 'photo-feedback', '识别完成 · 核对与保存');
+      await client.call(page,'onFieldBlur',{currentTarget:{dataset:{field:'question'}}});
+      await client.call(page,'onFieldBlur',{currentTarget:{dataset:{field:'answer'}}});
+      await waitData(page,'focusedField',value=>value === '', 'unfocused field');
+      await new Promise(resolve=>setTimeout(resolve,250));
+      const normalField=await element(page,'.field');
+      const beforeBorder=await client.send('Element.getStyles',{...normalField.params,names:['border-top-color']});
+      await client.call(page,'onFieldFocus',{currentTarget:{dataset:{field:'question'}}});
+      const focused=await element(page,'.field.is-focused');
+      let focusedBorder;
+      for(let frame=0;frame<20;frame++) {
+        focusedBorder=await client.send('Element.getStyles',{...focused.params,names:['border-top-color']});
+        if(JSON.stringify(focusedBorder.styles)!==JSON.stringify(beforeBorder.styles)) break;
+        await new Promise(resolve=>setTimeout(resolve,100));
+      }
+      assert.notDeepEqual(focusedBorder.styles,beforeBorder.styles,'Focused field is not visually distinguished');
+      assert.ok(Math.abs(focused.dimensions.properties[1]-normalField.dimensions.properties[1])<1,'Focus changed the input height');
+      assert.equal(await client.pageData(page,'question'),'解方程：2x + 1 = 7');
+      await captureDraft(page,'focus','录题 · 当前编辑位置');
+      await client.call(page,'onFieldBlur',{currentTarget:{dataset:{field:'question'}}});
+      const notice=await element(page,'.photo-notice');
+      const motion=await client.send('Element.getStyles',{...notice.params,names:['animation-name','animation-duration','animation-iteration-count']});
+      motionEvidence.push({selector:'.photo-notice',styles:motion.styles,layer:'native computed CSS; not a real-device motion recording'});
+      if(motion.styles[0] !== 'none') { assert.equal(motion.styles[1],'0.16s'); assert.equal(motion.styles[2],'1'); }
+      const fixtureId = 'c'.repeat(32);
+      const sourceDraftId = await callFunction(function () { return getCurrentPages().slice(-1)[0]._draftId; });
+      await callFunction(function (id) {
+        const p=getCurrentPages().slice(-1)[0];
+        wx.setStorageSync('mathJob:'+id,{taskId:id,token:'d'.repeat(64),draftId:p._draftId,revision:p._revision,snapshot:{question:p.data.question.trim(),wrongAnswer:p.data.wrongAnswer.trim()},status:'complete',createdAt:Date.now(),result:{source:'ai',question:p.data.question.trim(),diagnosis:'检查计算。',steps:[],variants:[]}});
+        p.onShow();
+      }, fixtureId);
+      await waitData(page, 'primaryMode', value => value === 'report', 'ready report on input page');
+      const readyButton = await element(page, '.action-primary');
+      const readyWxml = await client.send('Element.getWXML', {...readyButton.params,type:'outer'});
+      assert.ok(readyWxml.wxml.includes('查看报告'), 'Ready report action missing');
+      await captureDraft(page, 'report-ready', '分析完成 · 直接查看报告');
+      await client.call(page, 'onSubmit'); let reportPage=await pageAt('pages/result/result');
+      await waitData(reportPage, 'result', value => !!value, 'open report directly');
+      assert.equal((await client.pageData(reportPage,'result')).question,'解方程：2x + 1 = 7');
+      await client.call(reportPage, 'goAgain'); page=await pageAt('pages/input/input');
+      await waitData(page,'question',value=>value === '', 'next question opens blank input');
+      assert.equal(await callFunction(function (id) { return wx.getStorageSync('mathDraft:'+id).question; }, sourceDraftId),'解方程：2x + 1 = 7');
+      await callFunction(function (id) { wx.removeStorageSync('mathJob:'+id); const p=getCurrentPages().slice(-1)[0]; p.onQuestionInput({detail:{value:''}}); p.onAnswerInput({detail:{value:''}}); p.setData({photoNotice:''}); p.onShow(); },fixtureId);
+      checks.push('photo feedback, direct report entry, and next blank question preserve the isolated draft');
+    }
     const fieldGap = await gapBetween(page, '.field-label', '.field-mark', firstField.params);
     assert.ok(fieldGap >= 8, 'Required marker touches field label: ' + fieldGap + 'px');
     layouts[page.path].fieldLabelGap = fieldGap;
     layouts[page.path].firstFieldTop = firstField.offset.top;
+    const submitDeadline=Date.now()+4000;
+    while(primary.offset.top+primary.dimensions.properties[1]>742&&Date.now()<submitDeadline){await new Promise(resolve=>setTimeout(resolve,100));primary=await element(page,'.action-primary')}
     layouts[page.path].submitTop = primary.offset.top;
     assert.ok(primary.offset.top + primary.dimensions.properties[1] <= 742, 'Short-form submit is not fully visible above navigation');
     await captureState(page, 'input-empty');
@@ -563,6 +621,7 @@ async function verifyLayout(options = {}) {
     client.close();
   }
   if (report) {
+    report.motionEvidence=motionEvidence;
     fs.writeFileSync(path.join(root, 'docs/ui-implementation/background-verification.json'), JSON.stringify(report, null, 2));
     if (options.draftUi) {
       const snapshot = JSON.parse(fs.readFileSync(path.join(root, '_work/native-automation/source-snapshot.json'), 'utf8'));

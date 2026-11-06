@@ -1,5 +1,8 @@
 // Personal labels live separately from the student's original problem records.
 const TAG_KEY = 'userQuestionTags'
+const math=require('../../utils/math-document')
+const photos=require('../../utils/photo-assets')
+const sheetLayout=require('../../utils/sheet-layout')
 
 function readTags() {
   try {
@@ -34,7 +37,7 @@ Page({
     const assignments = tagState ? tagState.assignments : {}
     const records = (wx.getStorageSync('errorHistory') || []).map(record => {
       const ids = Array.isArray(assignments[String(record.id)]) ? assignments[String(record.id)] : []
-      return { ...record, tagNames: tags.filter(tag => ids.includes(tag.id)).map(tag => tag.name) }
+      return { ...record,displayQuestion:math.summary(record.questionDoc||math.fromText(record.question),record.question), tagNames: tags.filter(tag => ids.includes(tag.id)).map(tag => tag.name) }
     })
     const filters = ['全部', ...new Set(records.map(r => r.result && r.result.knowledgePoint).filter(Boolean))]
     let activeFilter = this.data.activeFilter
@@ -141,7 +144,8 @@ Page({
     const id = String(e.currentTarget.dataset.id)
     if (!this.data.tagStorageReady) { wx.showToast({ title: '标签暂时不可用', icon: 'none' }); return }
     if (!this.data.records.some(record => String(record.id) === id)) { wx.showToast({ title: '这道题已不存在', icon: 'none' }); return }
-    this.setData({ editorRecordId: id, filterPanel: '' }, () => this.loadRecords())
+    const viewport=sheetLayout.readMetrics(wx)
+    this.setData({ editorRecordId: id, filterPanel: '', tagSheetMaxHeight:Math.max(0,viewport.height-viewport.safeTop) }, () => this.loadRecords())
   },
   closeTagEditor() {
     this.setData({ editorRecordId: '', editorTags: [] })
@@ -167,14 +171,17 @@ Page({
     if (!record || !record.result) return
     getApp().globalData.lastResult = record.result
     getApp().globalData.lastWrongAnswer = record.wrongAnswer || ''
+    getApp().globalData.lastQuestionDoc=record.questionDoc||record.result.questionDoc||null;getApp().globalData.lastWrongAnswerDoc=record.wrongAnswerDoc||record.result.wrongAnswerDoc||null;getApp().globalData.lastSourceImage=record.sourceImage||null
     wx.navigateTo({ url: '/pages/result/result?recordId=' + encodeURIComponent(id) })
   },
   removeRecord(e) {
     const id = e.currentTarget.dataset.id
     wx.showModal({ title: '删除记录', content: '确定删除这条错题记录吗？', success: m => {
       if (!m.confirm) return
+      const old=(wx.getStorageSync('errorHistory')||[]).find(r=>r.id===id)
       const records = (wx.getStorageSync('errorHistory') || []).filter(r => r.id !== id)
       wx.setStorageSync('errorHistory', records)
+      photos.releaseIfUnused(old&&old.sourceImage)
       this.forgetRecordTags([id])
       this.loadRecords()
     } })
@@ -183,8 +190,10 @@ Page({
     if (!this.data.records.length) return
     wx.showModal({ title: '清空错题本', content: '确定清空全部错题记录吗？此操作不可恢复。', success: m => {
       if (!m.confirm) return
-      const ids = (wx.getStorageSync('errorHistory') || []).map(record => record.id)
+      const old=wx.getStorageSync('errorHistory')||[]
+      const ids = old.map(record => record.id)
       wx.removeStorageSync('errorHistory')
+      old.forEach(record=>photos.releaseIfUnused(record.sourceImage))
       this.forgetRecordTags(ids)
       this.loadRecords()
     } })

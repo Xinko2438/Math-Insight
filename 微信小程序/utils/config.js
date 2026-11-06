@@ -1,7 +1,7 @@
 // 后端服务地址配置
-// 当前开发服务：开发者工具和同一 Wi-Fi 的手机共用此地址。
-// 电脑局域网地址变化时更新这里；开发、预览、发布使用同一份项目源码。
-// 正式上线前切换为正式 HTTPS 后端，并配置小程序请求合法域名。
+// 体验版使用独立公网后端。微信后台 request 合法域名为 https://sparkye.cn。
+// 凭据只在服务器；客户端用临时微信 code 换取会话，不携带 AppSecret 或模型密钥。
 module.exports = {
-  baseUrl: 'http://192.168.96.239:3000'
+  baseUrl: 'https://sparkye.cn/math-app',
+  authRequired: true
 }

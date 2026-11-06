@@ -1,0 +1,4 @@
+# Generated, hash-bound math assets retain their exact build bytes on checkout.
+微信小程序/vendor/math/* -text
+# Preserve the reviewed prototype/QA bytes, including their intentional final blank lines.
+docs/ui-redesign/green-r7-rev1/** -text whitespace=cr-at-eol,-blank-at-eof

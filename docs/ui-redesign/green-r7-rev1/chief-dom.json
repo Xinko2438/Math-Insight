@@ -1,0 +1,71 @@
+{
+  "expanded": "true",
+  "fontSizes": [
+    "17px",
+    "17px",
+    "17px",
+    "12.5px"
+  ],
+  "removedProseStillPresent": false,
+  "rows": [
+    {
+      "count": "4 次",
+      "name": "忽略真数大于零的条件",
+      "rank": "1",
+      "top": true
+    },
+    {
+      "count": "3 次",
+      "name": "增根漏检验",
+      "rank": "2",
+      "top": false
+    },
+    {
+      "count": "2 次",
+      "name": "对数运算法则记混",
+      "rank": "3",
+      "top": false
+    },
+    {
+      "count": "2 次",
+      "name": "审题不清漏看条件",
+      "rank": "4",
+      "top": false
+    },
+    {
+      "count": "2 次",
+      "name": "计算过程粗心出错",
+      "rank": "5",
+      "top": false
+    },
+    {
+      "count": "2 次",
+      "name": "公式记忆不准确",
+      "rank": "6",
+      "top": false
+    },
+    {
+      "count": "1 次",
+      "name": "解集端点开闭判断错误",
+      "rank": "7",
+      "top": false
+    },
+    {
+      "count": "1 次",
+      "name": "n=1 特殊情况未验证",
+      "rank": "8",
+      "top": false
+    }
+  ],
+  "screen": {
+    "client": 713,
+    "scroll": 832,
+    "top": 119
+  },
+  "sections": [
+    "记录概览",
+    "高频考点",
+    "具体错因"
+  ],
+  "url": "file:///D:/AI_Tools/OpenMausBot/data/task-workspaces/154430b7-4741-4857-9000-a1fb494a5a9f/76f6df31-cf5f-4edc-bd2c-978d6d74e839/green-review-20261105/r7/rev1/ui/index.html?page=stats&fixture=default&viewport=390&shot=1"
+}

@@ -1,4 +1,6 @@
+const { request } = require('./request')
 const { baseUrl } = require('./config')
+const math=require('./math-document')
 const PREFIX = 'mathJob:'
 function get(id) {
   if (!/^[0-9a-f]{32}$/.test(id || '')) return null
@@ -26,11 +28,16 @@ function random(callback) {
 function submit(draft, callback) {
   random((error, identity) => {
     if (error) return callback(error)
+    let stage='identity'
     try {
       if (get(identity.taskId)) throw Error('任务标识冲突，请重试')
-      const job = put({ ...identity, draftId: draft.id, revision: draft.revision, snapshot: {question:draft.question.trim(),wrongAnswer:draft.wrongAnswer.trim()}, status:'submitting', createdAt:Date.now() })
-      wx.request({ url: `${baseUrl}/api/analysis-jobs`, method:'POST', timeout:15000, header:{'X-Job-Token':job.token}, data:{taskId:job.taskId,...job.snapshot}, success: res => update(job.taskId,res,callback), fail: () => uncertain(job.taskId,callback) })
-    } catch (e) { callback(e) }
+      stage='document'
+      const submission=math.normalizeSnapshot(draft)
+      stage='storage'
+      const job = put({ ...identity, draftId: draft.id, revision: draft.revision, snapshot: {...submission,...(draft.sourceImage?{sourceImage:math.clone(draft.sourceImage)}:{})}, status:'submitting', createdAt:Date.now() })
+      stage='request'
+      request({ url: `${baseUrl}/api/analysis-jobs`, method:'POST', timeout:15000, header:{'X-Job-Token':job.token}, data:{taskId:job.taskId,...submission}, success: res => update(job.taskId,res,callback), fail: () => uncertain(job.taskId,callback) })
+    } catch (e) { e.taskStage=stage; callback(e) }
   })
 }
 function uncertain(id, callback) {
@@ -58,7 +65,7 @@ function refresh(id, callback) {
   let job
   try { job=get(id) } catch(e) { return callback(e) }
   if (!job) return callback(Error('本机任务不存在'))
-  wx.request({url:`${baseUrl}/api/analysis-jobs/${id}`,method:'GET',header:{'X-Job-Token':job.token},timeout:10000,success:res=>update(id,res,callback),fail:()=>uncertain(id,callback)})
+  request({url:`${baseUrl}/api/analysis-jobs/${id}`,method:'GET',header:{'X-Job-Token':job.token},timeout:10000,success:res=>update(id,res,callback),fail:()=>uncertain(id,callback)})
 }
 function saveToHistory(id) {
   const job=get(id)
@@ -70,6 +77,7 @@ function saveToHistory(id) {
   if (existing) return existing
   const now=new Date(), pad=n=>String(n).padStart(2,'0')
   const record={id:'task-'+id,taskId:id,time:`${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}`,question:job.snapshot.question,wrongAnswer:job.snapshot.wrongAnswer,result:job.result}
+  for(const key of ['questionDoc','wrongAnswerDoc','sourceImage'])if(job.snapshot[key])record[key]=math.clone(job.snapshot[key])
   wx.setStorageSync('errorHistory',[record,...records])
   return record
 }
@@ -80,7 +88,7 @@ function remove(id, callback) {
     try { const current=get(id); if (current && current.status === 'deleting') {current.status=original;put(current)} } catch (_) {}
     callback(Error('服务端删除未确认，请联网后重试'))
   }
-  wx.request({url:`${baseUrl}/api/analysis-jobs/${id}`,method:'DELETE',timeout:10000,header:{'X-Job-Token':job.token},success:res=>{
+  request({url:`${baseUrl}/api/analysis-jobs/${id}`,method:'DELETE',timeout:10000,header:{'X-Job-Token':job.token},success:res=>{
     if (!res || res.statusCode !== 200 || !res.data || res.data.code !== 0 || !res.data.data || res.data.data.taskId !== id || res.data.data.status !== 'expired') return fail()
     try { wx.removeStorageSync(PREFIX+id); callback(null) } catch (_) { callback(Error('服务端已删除，本机记录清理失败，请重试')) }
   },fail})

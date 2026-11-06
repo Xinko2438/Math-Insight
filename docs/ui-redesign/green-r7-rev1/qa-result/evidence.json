@@ -1,0 +1,228 @@
+{
+  "schema": "math-green-r7-targeted-qa.v1",
+  "version": "GREEN-R1-UI-R7-20261106-rev1",
+  "inputVersion": "GREEN-R1-20261104-1504",
+  "gitObject": "0c1c043ee630dcbdf624b788272d52f2bde0f818",
+  "rootTurn": "01a1aec5-2b42-7c50-86c5-191e6ebfdbb3",
+  "primary": "report.md",
+  "verdict": "受测离线差异符合；R7-C01/R7-E01关闭",
+  "scope": "D/H及固定合成M的显示映射；不作诊断/教学质量或用户接受判断",
+  "caseLedger": [
+    {
+      "id": "V01",
+      "status": "pass",
+      "layer": "D",
+      "claim": "冻结材料与未变范围",
+      "actual": "21份哈希及字节匹配；R6计算段、报告段逐字相同，data/fixtures全文件相同",
+      "evidence": [
+        "probes/source.json"
+      ]
+    },
+    {
+      "id": "V02",
+      "status": "pass",
+      "layer": "H",
+      "claim": "三块精简及声明删除",
+      "actual": "默认/S0/S1/S2/S50 ×375/390：仅记录概览/高频考点/具体错因；完整目录/树/重复汇总/建议/分母及免责声明无学生DOM",
+      "evidence": [
+        "probes/presentation-initial.json",
+        "probes/target.json"
+      ]
+    },
+    {
+      "id": "V03",
+      "status": "pass",
+      "layer": "H",
+      "claim": "正常字号与核心位置",
+      "actual": "固定375×667/390×844、transform none/zoom1；标题17/考点14/错因12.5px，两宽两态未缩字；具体错因标题在首屏",
+      "evidence": [
+        "probes/presentation-initial.json",
+        "probes/target.json",
+        "shots/default-375.png"
+      ]
+    },
+    {
+      "id": "V04",
+      "status": "pass",
+      "layer": "H/fixed-M",
+      "claim": "零与非零同结构",
+      "actual": "S0、S50、默认zero均为同三块，0题/0种、短空列表，无虚构排名或整页CTA；S50是50节点零记录",
+      "evidence": [
+        "probes/target.json",
+        "shots/zero-375.png"
+      ]
+    },
+    {
+      "id": "V05",
+      "status": "pass",
+      "layer": "H/fixed-M",
+      "claim": "仅实际出现项及未知错因",
+      "actual": "默认12题/8种，考点5/3/2/1；S1 3题/3种；S2 4题/4种，未知U 1次实际可见可达；S50不铺50节点",
+      "evidence": [
+        "probes/presentation-initial.json",
+        "probes/target.json"
+      ]
+    },
+    {
+      "id": "V06",
+      "status": "pass",
+      "layer": "H",
+      "claim": "其余错因展开/收起/再展开",
+      "actual": "两宽实际浏览器点击：5→8→5→8，1–8连续，仅整体第1项强调，次数4/3/2/2/2/2/1/1；aria状态正确",
+      "evidence": [
+        "probes/target.json",
+        "probes/validation.json"
+      ],
+      "closes": [
+        "R7-C01"
+      ]
+    },
+    {
+      "id": "V07",
+      "status": "pass",
+      "layer": "H",
+      "claim": "新增项/末项/长名称与滚动",
+      "actual": "展开即露新增项与末项；375顶286/上限286，390顶119/上限119；收起回134/0；受测名称无截断，无横溢，底栏不遮挡",
+      "evidence": [
+        "probes/target.json",
+        "probes/validation.json",
+        "shots/expanded-375.png",
+        "shots/expanded-390.png"
+      ]
+    },
+    {
+      "id": "V08",
+      "status": "pass",
+      "layer": "H",
+      "claim": "新范围文字字色与操作目标",
+      "actual": "244条新学情文字取样，58组样式；另核两宽收起按钮；60组对比度最低6.44119560013896、0不确定/低于4.5；重算差0；按钮347/358×44px",
+      "evidence": [
+        "probes/presentation-initial.json",
+        "probes/target.json",
+        "probes/validation.json"
+      ]
+    },
+    {
+      "id": "V09",
+      "status": "pass",
+      "layer": "H/evidence",
+      "claim": "当前390截图完整性",
+      "actual": "独立目视冻结默认/展开/报告三张390×844：全底栏；另有独立展开390全页截图。旧R6 390不作当前导航证据",
+      "evidence": [
+        "shots/expanded-390.png",
+        "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r7-stats-390.png",
+        "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r7-more-390.png",
+        "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r7-report-390.png"
+      ],
+      "closes": [
+        "R7-E01"
+      ]
+    },
+    {
+      "id": "V10",
+      "status": "pass",
+      "layer": "D/H",
+      "claim": "共用滚动定位直接影响",
+      "actual": "仅F1提示两宽各一次：右侧命中打开、首行可见、收起位置保持；详情/完整解答/变式均无联动；无旧套件重跑",
+      "evidence": [
+        "probes/shared-anchor.js",
+        "probes/target.json"
+      ]
+    }
+  ],
+  "summary": {
+    "pass": 10,
+    "fail": 0,
+    "scope": "仅本表10项新范围，不是R6的38项重跑或继承"
+  },
+  "sourceAuthority": [
+    "C:\\Users\\Ethan\\WeChatProjects\\Math-APP\\AGENTS.md",
+    "C:\\Users\\Ethan\\WeChatProjects\\Math-APP\\docs\\PRD-错因智诊-开发版.md §0/3/5",
+    "C:\\Users\\Ethan\\WeChatProjects\\Math-APP\\docs\\ui-redesign\\direction-approved.md 顶部2026-11-06",
+    "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\REVIEW.md",
+    "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\manifest.json"
+  ],
+  "unchangedBoundary": {
+    "calc": [
+      "function formatPercent",
+      "function fixtureReport"
+    ],
+    "report": [
+      "function renderSummary",
+      "function renderKpCell"
+    ],
+    "wholeFiles": [
+      "data.js",
+      "r3-fixtures.js"
+    ],
+    "evidence": "probes/source.json"
+  },
+  "legacyScopeChanges": [
+    {
+      "id": "S01",
+      "scope": "旧全分类/两列展示",
+      "current": "not_applicable",
+      "retained": "零/非零同结构，按新三块核V04"
+    },
+    {
+      "id": "S03",
+      "scope": "旧考点百分比展示",
+      "current": "not_applicable",
+      "retained": "未修改计算；本轮不跑旧统计检查"
+    },
+    {
+      "id": "S05",
+      "scope": "旧全50节点屏幕投影",
+      "current": "not_applicable",
+      "retained": "库保留源不变，S50零记录不铺库"
+    },
+    {
+      "id": "S06",
+      "scope": "旧错因树库序/折叠",
+      "current": "not_applicable",
+      "retained": "本轮仅核实际错因排名展开"
+    },
+    {
+      "id": "S07",
+      "scope": "旧未知树及树合计",
+      "current": "not_applicable",
+      "retained": "未知错因名称/1次/可达核V05"
+    },
+    {
+      "id": "S08",
+      "scope": "旧长口径/分母/不代表说明",
+      "current": "not_applicable",
+      "retained": "指标名称/题种次单位，新要求优先"
+    }
+  ],
+  "retainedGaps": [
+    "R6原35通过/0不通过/2部分/1未测仅绑定R6，旧QA不改写",
+    "G02三方同输入比较未补；R12聊天保存恢复/S09真实存储过滤去重缺口未补",
+    "本轮不覆盖主业务测试、原生编译/模拟器、真机、真实模型/教学质量和用户最终接受"
+  ],
+  "optionalImprovements": [],
+  "provenance": {
+    "independent": "冻结源只读；亲用内置隔离浏览器；原始DOM分段完整提取，四张独立截图；冻结390三图仅作独立目视的制作者材料",
+    "makerAndChief": "REVIEW/chief-dom仅用于定位，未当作亲测结果",
+    "fairCompare": "冻结r6-stats-375/r7-stats-375已同667内框目视；未用旧R6-390的导航判R7"
+  },
+  "route": {
+    "delegation": "none",
+    "reason": "一次冻结页的串行状态与单证据写入范围，直接独立复核；不增加评审链",
+    "topology": "quality lead alone",
+    "model": "current inherited, no override",
+    "expectedParallelBenefit": "none",
+    "actualParallelBenefit": "none",
+    "conflicts": "no overlapping writers; exact QA write root only",
+    "usageCost": "not measured",
+    "rework": "候选未改；采集/校验方法问题见probes/method-notes.md"
+  },
+  "reuse": {
+    "consumer": "Chief更新PRD A-05证据；后续同要求版本差异验收",
+    "entry": "report.md / evidence.json caseLedger；既有浏览器可执行probes/presentation.js、target.js及shared-anchor.js",
+    "decisionChanged": "用独立差异结果关闭两项反例；旧目录不再被误设必选验收标准",
+    "measurement": "逐版本核冻结哈希、同反例状态序列及末项可达；本轮10项判定与原始证据对照。未测长期返工/费用收益",
+    "rebuild": "从冻结manifest的ui/index.html?shot=1固定合成状态执行已保存表达式；分段导出JSON并运行probes/validate.ps1；截图用fullPage保留导航",
+    "truth": "项目PRD为状态权威；本包只为版本证据，交Chief维护，不改主项目"
+  }
+}

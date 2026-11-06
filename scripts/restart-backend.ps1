@@ -59,5 +59,8 @@ for ($attempt=0; $attempt -lt 16; $attempt++) {
 }
 if (-not $healthy) { throw ('New backend did not become healthy. Inspect ' + (Join-Path $runtime 'backend.stderr.log')) }
 if ((Get-NetTCPConnection -LocalPort 3000 -State Listen | Select-Object -First 1).OwningProcess -ne $started.Id) { throw 'Health endpoint belongs to another process.' }
+$taskReady=$false
+try { Invoke-RestMethod 'http://127.0.0.1:3000/api/analysis-jobs/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' -TimeoutSec 2 | Out-Null } catch { if ($_.Exception.Response -and [int]$_.Exception.Response.StatusCode -eq 404) { $taskReady=$true } }
+if(-not $taskReady){throw 'Health is ready but the task service is unavailable. Inspect the backend error log.'}
 [pscustomobject]@{owner='math-app-backend';pid=$started.Id;sourceProject=$projectRoot;entry=$entry;port=3000;healthCode=$health.code;modelRequests=0;startedAt=(Get-Date).ToUniversalTime().ToString('o')} | ConvertTo-Json | Set-Content -LiteralPath $ownerFile -Encoding utf8
 Write-Output ('Backend updated. PID=' + $started.Id + '; health code=0; no model request was made.')

@@ -25,6 +25,16 @@ async function request(method, jobId, body, auth = token) {
   })
   return { status: response.status, body: await response.json() }
 }
+async function verifyMathContract(){
+ const {questionDoc,wrongAnswerDoc}=require('./math-fixtures.cjs'),math=require('../微信小程序/utils/math-document'),{DatabaseSync}=require('node:sqlite'),crypto=require('node:crypto')
+ const file=path.join(tmp,'math-contract.sqlite');let seen=0
+ const q=createAnalysisJobs({dbPath:file,provider:async snapshot=>{seen++;assert.deepEqual(snapshot.questionDoc,questionDoc);assert.deepEqual(snapshot.wrongAnswerDoc,wrongAnswerDoc);assert.equal(snapshot.question,math.toText(questionDoc));return{source:'fixture',question:snapshot.question,diagnosis:'fixture',steps:[],variants:[]}}})
+ const app=express();app.use(express.json());app.use('/api/analysis-jobs',q.router);const s=app.listen(0,'127.0.0.1');await new Promise(r=>s.once('listening',r))
+ const api=async(method,body)=>{const r=await fetch('http://127.0.0.1:'+s.address().port+'/api/analysis-jobs'+(method==='POST'?'':'/'+id),{method,headers:{'Content-Type':'application/json','X-Job-Token':token},body:body&&JSON.stringify(body)});return{status:r.status,body:await r.json()}}
+ try{const body={taskId:id,question:'different client projection',wrongAnswer:'',questionDoc,wrongAnswerDoc};assert.equal((await api('POST',body)).status,202);await waitFor(async()=>((await api('GET')).body.data.status==='complete'));const result=(await api('GET')).body.data.result;assert.deepEqual(result.questionDoc,questionDoc);assert.equal(seen,1);const altered=JSON.parse(JSON.stringify(questionDoc));altered.blocks.push({id:'extra',type:'text',text:''});assert.equal((await api('POST',{...body,questionDoc:altered})).status,409);assert.equal((await api('POST',body)).status,200);await api('DELETE')}finally{await new Promise(r=>s.close(r));q.close()}
+ const db=new DatabaseSync(file),row=db.prepare('SELECT question_doc,answer_doc FROM jobs WHERE id=?').get(id);assert.equal(row.question_doc,null);assert.equal(row.answer_doc,null);db.close()
+ const legacy=path.join(tmp,'legacy-schema.sqlite'),old=new DatabaseSync(legacy),now=Date.now();old.exec('CREATE TABLE jobs(id TEXT PRIMARY KEY,token_hash TEXT NOT NULL,snapshot_hash TEXT,question TEXT,answer TEXT,status TEXT NOT NULL,result TEXT,created INTEGER NOT NULL,updated INTEGER NOT NULL,tombstone_until INTEGER)');const hash=s=>crypto.createHash('sha256').update(s).digest('hex');old.prepare("INSERT INTO jobs VALUES(?,?,?,?,?,'complete',?,?,?,NULL)").run(id,hash(token),hash(JSON.stringify(['legacy',''])),'legacy','',JSON.stringify({source:'fixture'}),now,now);old.close();const upgraded=createAnalysisJobs({dbPath:legacy,provider:async()=>{throw Error('legacy task must not repeat')}});upgraded.close();const verify=new DatabaseSync(legacy);assert.ok(verify.prepare('PRAGMA table_info(jobs)').all().some(x=>x.name==='question_doc'));assert.equal(verify.prepare('SELECT snapshot_hash FROM jobs WHERE id=?').get(id).snapshot_hash,hash(JSON.stringify(['legacy',''])));verify.close()
+}
 async function verifyServerEntry() {
   const sourcePath = path.join(__dirname, '../server/server.js')
   const source = fs.readFileSync(sourcePath, 'utf8'), localRequire = createRequire(sourcePath)
@@ -188,6 +198,7 @@ async function main() {
   await waitFor(async () => (await request('GET', id3)).body.data.status === 'uncertain')
   assert.equal(expireCalls, 2)
   await verifyServerEntry()
+  await verifyMathContract()
   await verifyFrontendContract()
   console.log('PASS isolated HTTP: 20-second async frontend submit/navigation/query/report, concurrent dedupe, conflict, access, delete, restart, uncertain, retention, exclusive lock, audit; real model calls 0')
 }

@@ -1,0 +1,8 @@
+<view class="math-document">
+  <block wx:for="{{rows}}" wx:key="id">
+    <view wx:if="{{item.type === 'text'}}" class="text-piece {{editable ? 'editable-piece' : ''}}" data-id="{{item.id}}" bindtap="select"><text selectable="{{!editable}}">{{item.text}}</text></view>
+    <view wx:elif="{{item.error}}" class="formula-fallback" data-id="{{item.id}}" bindtap="select"><text selectable>{{item.latex}}</text><text class="fallback-note">该公式暂未排版，原文已保留。</text></view>
+    <view wx:elif="{{item.display === 'inline'}}" class="inline-math {{editable ? 'editable-piece' : ''}}" data-id="{{item.id}}" bindtap="select"><rich-text nodes="{{item.nodes}}" /></view>
+    <view wx:else class="block-math {{editable ? 'editable-piece' : ''}}" data-id="{{item.id}}" bindtap="select"><scroll-view class="formula-scroll" scroll-x show-scrollbar enhanced><view class="formula-inner"><rich-text nodes="{{item.nodes}}" /></view></scroll-view></view>
+  </block>
+</view>

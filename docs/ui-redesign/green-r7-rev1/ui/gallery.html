@@ -1,0 +1,18 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Math-APP 绿色 R7-rev1 · 精简学情前后切换</title><link rel="stylesheet" href="styles.css"></head><body class="r3"><main class="gallery"><div class="review-kicker"><span class="dot"></span>GREEN-R1-UI-R7-rev1 · 离线图片集</div><h1>学情三块 · 精简前面对比</h1><p class="gallery-meta">以下为相同记录、手机DOM内框的正常字号截图。<b>R6 是精简前的独立复验版本</b>；R7-rev1 为本次三块减量候选（序号1–8连续，390图完整画入底部导航）。<a id="r6link" href="https://example.invalid">查看 R6 对照图</a> · <a href="index.html">R7 默认学情</a> · <a href="index.html?page=report&amp;fixture=default&amp;viewport=390">R7 报告页</a>。DOM内框截图不是真机。</p><div class="gallery-buttons" id="prev"><button type="button">← 上一张</button><button type="button">下一张 →</button><select id="pick" aria-label="选择截图"></select></div><section class="gallery-view"><img id="shot" alt="学情精简截图"><div class="gallery-side"><h2 id="title">R6 · 学情四段＋目录</h2><p id="desc"></p><a id="source" href="index.html">在 R7 中查看该状态</a></div></section></main><script>
+var S=[
+ {f:'r6-stats-390.png',t:'R6 · 精简前学情（390）',d:'完整考点、50节点树、重复大类、建议与口径在内的精简前页面。',u:'index.html?page=stats&fixture=default&viewport=390',a:'冻结R6原图390×844；其导航绘制状态未作为R7证据。'},
+ {f:'r7-stats-390.png',t:'R7-rev1 · 精简后三块（390）',d:'记录概览→高频考点→前5项；390宽主体在一屏内，只强调整体第1项。',u:'index.html?page=stats&fixture=default&viewport=390',a:'手机内框0–844完整采集，含顶部状态栏与底部导航；不是真机。'},
+ {f:'r6-stats-375.png',t:'R6 · 精简前学情（375）',d:'375宽同记录的精简前长页面。',u:'index.html?page=stats&fixture=default&viewport=375',a:'DOM内框375×667；冻结R6。'},
+ {f:'r7-stats-375.png',t:'R7 · 精简后三块（375）',d:'正常字号，未缩字；最后一行可下滚查看。',u:'index.html?page=stats&fixture=default&viewport=375',a:'DOM内框375×667。'},
+ {f:'r7-more-390.png',t:'R7-rev1 · 其余错因展开为1–8',d:'点击“查看其余3种”后序号连续到8，仅整体第1项强调；次数、顺序和条形比例不变。',u:'index.html?page=stats&fixture=default&viewport=390',a:'手机内框0–844完整采集，含底部导航；展开后页内滚动到末项。'},
+ {f:'r7-S0-375.png',t:'R7 · 零记录仍三块',d:'0题、0种；两条简短空列表，没有第一名称号或百科节点。',u:'index.html?fixture=S0&page=stats&viewport=375',a:'DOM内框375×667。'},
+ {f:'r7-S2-375.png',t:'R7 · S2 未知节点仍可见',d:'4题、4种；未知U保留在具体错因，未铺完整节点库。',u:'index.html?fixture=S2&page=stats&viewport=375',a:'DOM内框375×667。'},
+ {f:'r7-report-390.png',t:'R7-rev1 · 报告页保留',d:'默认学情仍可切换到原报告页，报告内容和折叠状态保持。',u:'index.html?page=report&fixture=default&viewport=390',a:'手机内框0–844完整采集，含顶部状态栏与底部导航。'}
+];
+var R6='screenshots/r6-stats-375.png';
+var i=0,pick=document.getElementById('pick');
+S.forEach(function(s,n){var o=document.createElement('option');o.value=n;o.textContent=(n+1)+' · '+s.t;pick.appendChild(o)});
+function show(n){i=(n+S.length)%S.length;document.getElementById('shot').src='screenshots/'+S[i].f;document.getElementById('title').textContent=S[i].t;document.getElementById('desc').textContent=S[i].d+' '+S[i].a;document.getElementById('source').href=S[i].u;pick.value=i;}
+document.querySelectorAll('#prev button')[0].onclick=function(){show(i-1)};document.querySelectorAll('#prev button')[1].onclick=function(){show(i+1)};pick.onchange=function(){show(Number(pick.value))};
+document.getElementById('r6link').href=R6;show(0);
+</script></body></html>

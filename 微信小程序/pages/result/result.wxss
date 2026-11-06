@@ -41,3 +41,7 @@
 .chat-thinking { color: #647086; font-size: 24rpx; padding: 16rpx 0; }
 .chat-error { margin-top: 20rpx; padding: 22rpx; background: #fff0ec; color: #9d392c; font-size: 25rpx; line-height: 1.8; border-radius: 16rpx; }
 .again-button { margin-top: 32rpx; }
+@media (prefers-reduced-motion: no-preference) {
+  .report-tab { transition:color 120ms ease-out, border-color 120ms ease-out; }
+  .reveal,.solution,.variant-detail { animation:feedback-enter 160ms ease-out; }
+}

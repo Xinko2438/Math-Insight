@@ -7,9 +7,25 @@
   "compilers": {
     "wcc": {
       "status": "PASS",
-      "files": 8,
+      "files": 10,
       "executableSha256": "2ec832ea823c5f53e264230960637290a8cc7694773016b4c232a439193c9179",
       "runs": [
+        {
+          "file": "./components/math-content/math-content.wxml",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 42858,
+          "outputSha256": "07d9c64c8bc3489d2648624d4fcf85d3cc3e38ed5c9c5ba54b56b7069bc541f1",
+          "diagnostics": ""
+        },
+        {
+          "file": "./components/math-editor/math-editor.wxml",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 110799,
+          "outputSha256": "6f5f08e3011df917b21d885830fca29371b50f6fe7b86b2e88fa86496ff1f9e8",
+          "diagnostics": ""
+        },
         {
           "file": "./components/navigation-bar/navigation-bar.wxml",
           "status": "PASS",
@@ -30,16 +46,16 @@
           "file": "./pages/drafts/drafts.wxml",
           "status": "PASS",
           "exitCode": 0,
-          "outputBytes": 44591,
-          "outputSha256": "b7b4ad77b0808baef88ee3386c9401f48831c89fd50fc712cd678318111c142a",
+          "outputBytes": 44431,
+          "outputSha256": "15b0a55725fa121c9e5594d4b43e2899809f73a8494918643ba52ad9a1a3e8f4",
           "diagnostics": ""
         },
         {
           "file": "./pages/history/history.wxml",
           "status": "PASS",
           "exitCode": 0,
-          "outputBytes": 57254,
-          "outputSha256": "0c06ca32d334ab11ce7e2a0e914d487816ae3dcac2b595a28ecca437449fbff6",
+          "outputBytes": 57337,
+          "outputSha256": "f2b48d0bc701e2c542711f91ed68544c1179a910c78643f046d8c27ae40f272c",
           "diagnostics": ""
         },
         {
@@ -54,16 +70,16 @@
           "file": "./pages/input/input.wxml",
           "status": "PASS",
           "exitCode": 0,
-          "outputBytes": 45947,
-          "outputSha256": "d1d2db0f893071cd030f77d385718e810f4995d94c61a7fd86c5e1c27088186f",
+          "outputBytes": 54451,
+          "outputSha256": "bca467ee64ab39478bf5360f954a57d1cb53f96ab654948916489dea728e2284",
           "diagnostics": ""
         },
         {
           "file": "./pages/result/result.wxml",
           "status": "PASS",
           "exitCode": 0,
-          "outputBytes": 59709,
-          "outputSha256": "faa68cc0def75f81b1b14906f66df71051a288804541459e37e72267098070d8",
+          "outputBytes": 60630,
+          "outputSha256": "bf69a9e906c730673a13e22946c9b9a2089135dc007fc4db3ed8b8a9f1c1b986",
           "diagnostics": ""
         },
         {
@@ -78,15 +94,31 @@
     },
     "wcsc": {
       "status": "PASS",
-      "files": 9,
+      "files": 12,
       "executableSha256": "23914ded6433a178c184e4e0fcdb077b499502b4e5a784a1f44f3db55699ce31",
       "runs": [
         {
           "file": "./app.wxss",
           "status": "PASS",
           "exitCode": 0,
-          "outputBytes": 6140,
-          "outputSha256": "0322109c1b47a2905fa2638220d869e2be33020b0eb819b1540db8b9818feacf",
+          "outputBytes": 7038,
+          "outputSha256": "007ff4b4ecf482b90abf70f0a8c3133529eba6270705b181ec405ff314c3708f",
+          "diagnostics": ""
+        },
+        {
+          "file": "./components/math-content/math-content.wxss",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 387210,
+          "outputSha256": "e3596ad5b6cb921ce7f48e352d3ab0509ed83d7900f50fae974e6e2e27b1eb15",
+          "diagnostics": ""
+        },
+        {
+          "file": "./components/math-editor/math-editor.wxss",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 391203,
+          "outputSha256": "58d5dff591f25bbcd293b8f0b202545e302765444a7c924a094188ae9cc3b845",
           "diagnostics": ""
         },
         {
@@ -109,16 +141,16 @@
           "file": "./pages/drafts/drafts.wxss",
           "status": "PASS",
           "exitCode": 0,
-          "outputBytes": 1002,
-          "outputSha256": "d5121371decce9e41011712b04d61b848bad98bde534c78e0e92d21d7df5226d",
+          "outputBytes": 1245,
+          "outputSha256": "5aae7fadbc1995f4fb552d48246b9df1140ca6cd16f97853884a9f79b3d98c49",
           "diagnostics": ""
         },
         {
           "file": "./pages/history/history.wxss",
           "status": "PASS",
           "exitCode": 0,
-          "outputBytes": 5529,
-          "outputSha256": "758aee040e03fb7e8a59ded435e4815b42f5eb2bb2b8f1825015799e560dfa6f",
+          "outputBytes": 5747,
+          "outputSha256": "fe454afdd94ded52c74821a32a3008c4b0a0d1eeaa8e604feee5dd4e6236b5f7",
           "diagnostics": ""
         },
         {
@@ -133,16 +165,16 @@
           "file": "./pages/input/input.wxss",
           "status": "PASS",
           "exitCode": 0,
-          "outputBytes": 1944,
-          "outputSha256": "ce7a1befb894f3312bd9102c2a13347221f2d0683834e538e1785b40095c2ccf",
+          "outputBytes": 3699,
+          "outputSha256": "5804966a19ba53ae9a589e0d97be9b8bf699249361528d746e7e6189322dfe1b",
           "diagnostics": ""
         },
         {
           "file": "./pages/result/result.wxss",
           "status": "PASS",
           "exitCode": 0,
-          "outputBytes": 5241,
-          "outputSha256": "cc6a815db2260abf76180bf4b1b9c7435b1f1c48169254024f3bf25d3fee9c48",
+          "outputBytes": 5506,
+          "outputSha256": "40f795d75f7d71afdbeade24d8260c6cad35dfeb3dd05860c9e8f579df7611f6",
           "diagnostics": ""
         },
         {
@@ -151,6 +183,14 @@
           "exitCode": 0,
           "outputBytes": 3203,
           "outputSha256": "e99cde8c7a9ec700d15c59b75021b66033a1a5665cfe94945c4ef10a0dff7df3",
+          "diagnostics": ""
+        },
+        {
+          "file": "./vendor/math/runtime.wxss",
+          "status": "PASS",
+          "exitCode": 0,
+          "outputBytes": 386175,
+          "outputSha256": "9cc544df93b0423f26d0e73979128b49ae02b2a06120471a58ee6f829ac6eff3",
           "diagnostics": ""
         }
       ]

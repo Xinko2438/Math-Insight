@@ -1,0 +1,130 @@
+{
+  "schema": "math-qa-package.v1",
+  "version": "GREEN-R1-UI-R7-20261106-rev1",
+  "primary": "report.md",
+  "files": [
+    {
+      "path": "evidence.json",
+      "sha256": "1184e8841aaafe82cf17d67586e52c053443a656fadbe3c5635ea8f3912f73a8",
+      "bytes": 9147,
+      "role": "supporting"
+    },
+    {
+      "path": "final-integrity.json",
+      "sha256": "d7a7a98bb1de453e595725de4d2f631f308acfd118c1bbbc0819dfaa4f3eeb56",
+      "bytes": 53017,
+      "role": "supporting"
+    },
+    {
+      "path": "gallery.html",
+      "sha256": "31f8e475516632797480afd960d2600036a9a0aaa8bd855040c0e5913a84f1d4",
+      "bytes": 4426,
+      "role": "supporting"
+    },
+    {
+      "path": "handoff.json",
+      "sha256": "5cdc256aeb22e1ed782b4b75704b721f7a11c6f23d8a173e196e1bc2a68c1742",
+      "bytes": 1794,
+      "role": "supporting"
+    },
+    {
+      "path": "report.md",
+      "sha256": "8bba71389c37d87a77bad6b59f9fbf7e69fb80d785e28df45d76ba5f45a34763",
+      "bytes": 3563,
+      "role": "primary"
+    },
+    {
+      "path": "probes\\gallery-check.json",
+      "sha256": "1a6e75be34b7000cf789444cebfcb06a5f693efad765b53c3442e146ade8b921",
+      "bytes": 1724,
+      "role": "supporting"
+    },
+    {
+      "path": "probes\\method-notes.md",
+      "sha256": "e4dd0ea34d2d5b7d69498d7fae6840107aac9dd0ff7193bd6fcbacdba441cc0d",
+      "bytes": 2937,
+      "role": "supporting"
+    },
+    {
+      "path": "probes\\placement.json",
+      "sha256": "f3541bdaf756a28bd2477aa826a76ca9092a09ec37f253bddc7c92152b0379bb",
+      "bytes": 777,
+      "role": "supporting"
+    },
+    {
+      "path": "probes\\presentation-initial.json",
+      "sha256": "cb332a7a162a93fd3838b8df35a5c735ada40f52d08b333773efde338a88585e",
+      "bytes": 114685,
+      "role": "supporting"
+    },
+    {
+      "path": "probes\\presentation.js",
+      "sha256": "33d06f6086864f9db4fb71ca5d19fcd7cdd664159114d3db00022710949bc48e",
+      "bytes": 9519,
+      "role": "supporting"
+    },
+    {
+      "path": "probes\\shared-anchor.js",
+      "sha256": "4cf5f45dbb4abcd6a63305b70854ee11ab3126ad6fd5c8f9438671b054df4a59",
+      "bytes": 1926,
+      "role": "supporting"
+    },
+    {
+      "path": "probes\\source.json",
+      "sha256": "10d3a34d19765dfed19cb4d399fce6600db0cbc71795a9a5555af28064a81260",
+      "bytes": 76100,
+      "role": "supporting"
+    },
+    {
+      "path": "probes\\target.js",
+      "sha256": "562c87df659eadaed6b89a9f914bef0538e64164ea39ae812103ec3bc1827883",
+      "bytes": 3630,
+      "role": "supporting"
+    },
+    {
+      "path": "probes\\target.json",
+      "sha256": "72f4f9d2896cbe8d75d0df093595ddd5ba26ff5f0d3576f6fb9d5ed74457290b",
+      "bytes": 72568,
+      "role": "supporting"
+    },
+    {
+      "path": "probes\\validate.ps1",
+      "sha256": "8ee2d448aef5fc983fcfce407788ae2b17f33b57ae6d9a7905a8585bfdeda5c4",
+      "bytes": 3639,
+      "role": "supporting"
+    },
+    {
+      "path": "probes\\validation.json",
+      "sha256": "00ed0f4f97e0cc464a1164eac05a7dab9eced184eb308dec9c8e790688971936",
+      "bytes": 10299,
+      "role": "supporting"
+    },
+    {
+      "path": "shots\\default-375.png",
+      "sha256": "50daf22a91780aca986e4f715e1d7b4baf4c076829755fa04ffd4d4c19292348",
+      "bytes": 42436,
+      "role": "supporting"
+    },
+    {
+      "path": "shots\\expanded-375.png",
+      "sha256": "2ce916a8e59221a6610f40953d78cd31045c248e002e30ac8d637b89510b6057",
+      "bytes": 41249,
+      "role": "supporting"
+    },
+    {
+      "path": "shots\\expanded-390.png",
+      "sha256": "70aa13adba6adc508b1d55f4100a3dcfcb6876c810567a2c039b5edc31e938d2",
+      "bytes": 52186,
+      "role": "supporting"
+    },
+    {
+      "path": "shots\\zero-375.png",
+      "sha256": "efddab183aace4657e7a3eb0a2d063f4a54c84df8d6c6d957cb7766a6125e6cf",
+      "bytes": 31218,
+      "role": "supporting"
+    }
+  ],
+  "fileCount": 20,
+  "writeRoot": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r7-rev1-20261106",
+  "sourceTruth": "Project PRD; QA package is version evidence"
+}

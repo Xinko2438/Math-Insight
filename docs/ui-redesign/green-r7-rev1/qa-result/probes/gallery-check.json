@@ -1,0 +1,84 @@
+{
+  "allLoaded": true,
+  "initial": {
+    "count": "1 / 9",
+    "crop": {
+      "bottom": 913.84375,
+      "height": 669,
+      "left": 160,
+      "right": 537,
+      "top": 244.84375,
+      "width": 377,
+      "x": 160,
+      "y": 244.84375
+    },
+    "title": "独立亲采 · 375 默认"
+  },
+  "results": [
+    {
+      "h": 720,
+      "ok": true,
+      "title": "独立亲采 · 375 默认",
+      "w": 1280
+    },
+    {
+      "h": 720,
+      "ok": true,
+      "title": "独立亲采 · 375 展开",
+      "w": 1280
+    },
+    {
+      "h": 720,
+      "ok": true,
+      "title": "独立亲采 · S0 零记录",
+      "w": 1280
+    },
+    {
+      "h": 844,
+      "ok": true,
+      "title": "独立亲采 · 390 展开",
+      "w": 1280
+    },
+    {
+      "h": 844,
+      "ok": true,
+      "title": "冻结制作材料 · 390 默认",
+      "w": 390
+    },
+    {
+      "h": 844,
+      "ok": true,
+      "title": "冻结制作材料 · 390 展开",
+      "w": 390
+    },
+    {
+      "h": 844,
+      "ok": true,
+      "title": "冻结制作材料 · 390 报告",
+      "w": 390
+    },
+    {
+      "h": 667,
+      "ok": true,
+      "title": "公平前后对比 · R6 375",
+      "w": 375
+    },
+    {
+      "h": 667,
+      "ok": true,
+      "title": "公平前后对比 · R7 375",
+      "w": 375
+    }
+  ],
+  "url": "file:///D:/AI_Tools/OpenMausBot/data/task-workspaces/154430b7-4741-4857-9000-a1fb494a5a9f/50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09/evidence/green-round1/worktrees/qa/review/r7-rev1-20261106/gallery.html",
+  "next": {
+    "count": "2 / 9",
+    "loaded": true,
+    "title": "独立亲采 · 375 展开"
+  },
+  "previous": {
+    "count": "1 / 9",
+    "loaded": true,
+    "title": "独立亲采 · 375 默认"
+  }
+}

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Math-APP 报告与学情 · 绿色离线候选 GREEN-R1-UI-R7</title>
+<style>body.r3 .r2-only{display:none!important}.r3-only{display:none}body.r3 .r3-only{display:block}</style>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="r2 r3">
+<main class="review">
+  <header class="review-head">
+    <div class="review-kicker"><span class="dot"></span><span class="r2-only">GREEN-R1-UI-R2 · 离线 HTML 候选</span><span class="r3-only">GREEN-R1-UI-R7 · 离线 HTML 候选</span></div>
+    <h1>把错因、提示、解答和练习重新分开</h1>
+    <p class="review-lede">报告与学情共用一组合成数据。页面按学生实际阅读顺序排列：先看原题和自己的作答，再看主要错因；提示与分步解答分开，完整答案默认折叠。学情先给记录范围与高频项，再给完整分布和错因树。</p>
+    <ul class="review-notes">
+      <li><span class="tick">✓</span><span><b>报告</b>：保留原题／我的作答对应，错因摘要在首屏，完整答案不默认展开。</span></li>
+      <li><span class="tick">✓</span><span><b>学情</b>：高频考点与具体错因回到摘要层，零记录与有记录共用同一框架。</span></li>
+      <li><span class="tick">✓</span><span><b>口径</b>：只显示本机已存入错题的次数，不把数量当掌握度，不虚构自动判分。</span></li>
+    </ul>
+    <div class="review-controls" role="group" aria-label="候选查看控制">
+      <div class="control-group r3-only" style="width:100%">
+        <span class="control-label">R3 冻结样例</span>
+        <div class="seg" id="fixtureSwitch">
+          <button type="button" data-fixture="default" aria-pressed="true">默认报告</button>
+          <button type="button" data-fixture="F1">F1</button><button type="button" data-fixture="F2">F2</button><button type="button" data-fixture="F3">F3</button><button type="button" data-fixture="F4">F4</button><button type="button" data-fixture="F5">F5</button><button type="button" data-fixture="F6">F6</button><button type="button" data-fixture="F7">F7</button><button type="button" data-fixture="F8">F8</button>
+          <button type="button" data-fixture="S0">S0</button><button type="button" data-fixture="S1">S1</button><button type="button" data-fixture="S2">S2</button><button type="button" data-fixture="S50">S50</button>
+        </div>
+        <span class="r3-only control-label" id="fixtureNote" aria-live="polite" style="margin-top:2px"></span>
+        <div class="r3-only" id="fixtureExtra" style="margin-top:4px"></div>
+      </div>
+      <div class="control-group">
+        <span class="control-label">页面</span>
+        <div class="seg" id="pageSwitch">
+          <button type="button" data-page="report" aria-pressed="true">诊断报告</button>
+          <button type="button" data-page="stats" aria-pressed="false">学情分析</button>
+        </div>
+      </div>
+      <div class="control-group">
+        <span class="control-label">状态</span>
+        <div class="seg" id="stateSwitch">
+          <button type="button" data-state="short" aria-pressed="true">有记录</button>
+          <button type="button" data-state="long" aria-pressed="false">长题／长公式</button>
+          <button type="button" data-state="zero" aria-pressed="false">零记录</button>
+        </div>
+      </div>
+      <div class="control-group">
+        <span class="control-label">视口</span>
+        <div class="seg" id="viewportSwitch">
+          <button type="button" data-viewport="375" aria-pressed="false">375 × 667</button>
+          <button type="button" data-viewport="390" aria-pressed="true">390 × 844</button>
+        </div>
+      </div>
+    </div>
+    <p class="review-meta"><span class="r2-only">输入版本 <code>GREEN-R1-20261104-1504</code>。候选版本 <code>GREEN-R1-UI-R2-20261105</code>。数据为 12 条合成错题与 50 个错因节点的只读副本；没有学生数据、模型调用或自动判分。此页是 HTML 静态候选，不是微信原生、模拟器或真机验收，也尚未独立质量复验。</span><span class="r3-only">输入版本 <code>GREEN-R1-20261104-1504</code>。候选版本 <code>GREEN-R1-UI-R7-20261105</code>。R7 默认进入精简学情；数据、统计与报告保持R6逻辑；全部是离线合成演示，没有学生数据、真实模型、自动判分或原生业务改动。此页是 HTML 静态候选，不是原生、模拟器、真机验收，也未独立复验。</span></p>
+<p class="review-meta r3-only"><a href="gallery.html">打开 R5 前后切换图集 →</a></p>
+  </header>
+
+  <section class="stage" aria-label="手机候选预览">
+    <div class="viewport-note" id="viewportNote">390 × 844 · 正常字号</div>
+    <div class="phone" id="phone" data-page="report" data-state="short" data-viewport="390">
+      <div class="statusbar">
+        <span>9:41</span>
+        <span class="status-right">
+          <span class="signal"><i></i><i></i><i></i><i></i></span>
+          <span>5G</span>
+          <span class="battery"></span>
+        </span>
+      </div>
+      <div class="appbar" id="appbar"></div>
+      <div class="screen" id="screen"></div>
+      <nav class="tabbar" id="tabbar" aria-label="底部导航"></nav>
+    </div>
+    <p class="viewport-note">页面内可点击：三个报告页签、提示／本步解答、完整解答、变式答案、错因树分支。</p>
+  </section>
+</main>
+
+<script src="data.js"></script>
+<script src="r3-fixtures.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
+

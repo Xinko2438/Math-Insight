@@ -27,7 +27,7 @@ async function invoke(provider, options = {}) {
   const handler = factory()({ apiKey: options.apiKey ?? 'isolated-test-credential', url: 'https://example.invalid/mimo', model: 'mimo-v2.6-flash', fetchImpl,
     idFactory: () => 'ocr-isolated-1', now: () => 100000, audit: async record => { if (options.auditFails) throw Error('sensitive-path-detail'); records.push(record); }, warn: (...args) => warnings.push(args) });
   const res = { statusCode: 200, status(code) { this.statusCode = code; return this; }, json(body) { this.body = body; return this; } };
-  await handler({ body: { image: options.image === undefined ? 'aW1hZ2U=' : options.image } }, res);
+  await handler({ body: { image: options.image === undefined ? 'aW1hZ2U=' : options.image,...(options.format?{format:options.format}:{}) } }, res);
   return { status: res.statusCode, body: res.body, records, warnings, requests };
 }
 async function check(name, run) { try { await run(); results.push({ name, pass: true }); } catch (error) { results.push({ name, pass: false, reason: error.message }); } }
@@ -41,6 +41,17 @@ async function reject(content, code = 'OCR_INVALID_RESPONSE', options = {}) {
   assert.equal(result.records.length, 1);
 }
 (async () => {
+  await check('versioned math transcription preserves the system and steps in one provider call', async () => {
+    const {questionDoc,wrongAnswerDoc}=require('./math-fixtures.cjs');const result=await invoke(completion({questionDoc,wrongAnswerDoc,needsReview:false,reviewReasons:[]}),{format:'math-document-v1'});
+    assert.equal(result.status,200);assert.deepEqual(result.body.data.questionDoc,questionDoc);assert.deepEqual(result.body.data.wrongAnswerDoc,wrongAnswerDoc);assert.equal(result.requests.length,1);assert.ok(result.body.data.question.includes('\\begin{aligned}'));assert.ok(result.body.data.wrongAnswer.includes('x=5'));
+    assert.ok(!JSON.stringify(result.records).includes('x=5'),'audit must not contain transcription');
+  });
+  await check('malformed structured math is not silently flattened or retried', async () => {
+    const {questionDoc,wrongAnswerDoc}=require('./math-fixtures.cjs');const result=await invoke(completion({questionDoc:{...questionDoc,blocks:[{id:'x',type:'math',latex:String.raw`\href{https://bad.invalid}{x}`,display:'block'}]},wrongAnswerDoc,needsReview:false,reviewReasons:[]}),{format:'math-document-v1'});assert.notEqual(result.status,200);assert.equal(result.requests.length,1)
+  });
+  await check('math returned only as plain text is explicitly flagged for review', async () => {
+    const result=await invoke(completion({questionDoc:{version:1,blocks:[{id:'q',type:'text',text:'x+y=7\n2x-y=8'}]},wrongAnswerDoc:{version:1,blocks:[]},needsReview:false,reviewReasons:[]}),{format:'math-document-v1'});assert.equal(result.status,200);assert.equal(result.body.data.needsReview,true);assert.ok(result.body.data.reviewReasons.includes('needs_confirmation'))
+  });
   await check('photo content separates question and visible student work without correcting it', async () => {
     const result = await invoke(completion(valid()));
     assert.equal(result.status, 200);

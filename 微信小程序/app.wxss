@@ -20,6 +20,17 @@ button[disabled] { opacity: .5; }
 .action-primary { background: #3266ed; color: #fff; }
 .action-secondary { background: #fff; color: #182237; border: 1rpx solid #e5eaf2; }
 .button-hover { opacity: .85; }
+@keyframes feedback-enter {
+  from { opacity:.45; transform:translateY(4rpx); }
+  to { opacity:1; transform:translateY(0); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .action-primary,.action-secondary,.photo-action,.task-link { transition:opacity 120ms ease-out, background-color 160ms ease-out; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo-notice,.saved-hint,.task-note,.reveal,.solution,.variant-detail { animation:none !important; transform:none !important; }
+  .action-primary,.action-secondary,.photo-action,.task-link,.field,.field-label,.report-tab,.row-main,.more-action { transition:none !important; }
+}
 .math-copy { display: block; font-size: 32rpx; line-height: 1.85; letter-spacing: .8rpx; word-break: break-word; white-space: pre-wrap; }
 .ui-icon { width: 40rpx; height: 40rpx; display: inline-block; position: relative; flex-shrink: 0; color: inherit; }
 .icon-camera { width: 38rpx; height: 28rpx; border: 3rpx solid currentColor; border-radius: 6rpx; }

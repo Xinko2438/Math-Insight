@@ -26,11 +26,13 @@ function host(history = [], options = {}) {
     let captured;
     const localRequire = id => {
       const target = path.resolve(path.dirname(absolute), id + (path.extname(id) ? '' : '.js'));
+      // Explicit isolated transport fixture; never perform real WeChat identity or public uploads.
+      if (target === path.join(mini, 'utils/config.js')) return {baseUrl:'http://127.0.0.1:3000',authRequired:false};
       if (target === path.join(mini, 'utils/causeNodes.js')) return { loadLibrary: cb => activeLibrary ? cb(activeLibrary) : libraryCallbacks.push(cb), getLibrary: () => activeLibrary, resolveNode: ref => library.ERROR_CAUSE_NODES.find(n => n.id === ref.id) || ref };
       if (!cache.has(target)) cache.set(target, load(target));
       return cache.get(target);
     };
-    vm.runInNewContext(fs.readFileSync(absolute, 'utf8'), { module, exports: module.exports, require: localRequire, wx, getApp: () => app, getCurrentPages: () => stack, Page: x => { captured = x; }, Component: x => { captured = x; }, console, TextDecoder: options.noTextDecoder ? undefined : TextDecoder, setTimeout: () => 0 }, { filename: absolute });
+    vm.runInNewContext(fs.readFileSync(absolute, 'utf8'), { module, exports: module.exports, require: localRequire, wx, getApp: () => app, getCurrentPages: () => stack, Page: x => { captured = x; }, Component: x => { captured = x; }, console, TextDecoder: options.noTextDecoder ? undefined : TextDecoder, setTimeout: () => 0, clearTimeout: () => {} }, { filename: absolute });
     if (kind !== 'page') return module.exports;
     const p = { data: clone(captured.data || {}), setData(patch, cb) { for (const [key, value] of Object.entries(patch)) { const bits = key.replace(/\[(\d+)\]/g, '.$1').split('.'); let obj = this.data; bits.slice(0, -1).forEach(b => { obj = obj[b]; }); obj[bits.at(-1)] = value; } if (cb) cb(); } };
     Object.entries(captured).forEach(([k, v]) => { if (typeof v === 'function') p[k] = v.bind(p); });
@@ -73,8 +75,10 @@ check('again from history opens input rather than returning to history', () => {
   const h = host(); h.stack.push({ route: 'pages/history/history' }, { route: 'pages/result/result' }); h.page('result').goAgain();
   assert.equal(h.calls.at(-1)[0], 'redirectTo'); assert.equal(h.calls.at(-1)[1].url, '/pages/input/input');
 });
-check('again over input reuses the existing input page', () => {
-  const h = host(); h.stack.push({ route: 'pages/input/input' }, { route: 'pages/result/result' }); h.page('result').goAgain(); assert.equal(h.calls.at(-1)[0], 'navigateBack');
+check('again over input reuses its page as a fresh form and preserves the old draft', () => {
+  const h=host();h.wx.getStorageInfoSync=()=>({keys:Object.keys(h.storage)});const input=h.page('input');input.onLoad();input.onQuestionInput({detail:{value:'原题'}});const oldId=input._draftId;
+  h.stack.push({route:'pages/input/input'},{route:'pages/result/result'});h.page('result').goAgain();assert.equal(h.calls.at(-1)[0],'navigateBack');
+  input.onShow();assert.equal(input.data.question,'');assert.equal(input._draftId,'');assert.equal(h.storage['mathDraft:'+oldId].question,'原题');
 });
 check('main navigation reuses existing pages and ignores invalid keys', () => {
   const h = host(); h.stack.push({ route: 'pages/history/history' }, { route: 'pages/result/result' }); const nav = h.load('utils/navigation.js'); nav.openMain('history');
@@ -114,6 +118,70 @@ check('OCR works from home and the input form through one shared operation', () 
   const h = host(); mockOcr(h); const p = h.page('index'); p.goCamera(); assert.equal(h.app.globalData.pendingPhoto.question, fixture.question); assert.equal(p.data.recognizing, false);
   const p2 = h.page('input'); p2.onLoad(); assert.equal(p2.data.question, fixture.question); assert.equal(p2.data.wrongAnswer, '2x-x=4-6\nx=-2'); assert.equal(p2.data.answerLen, p2.data.wrongAnswer.length); assert.equal(h.app.globalData.pendingPhoto, null);
   const p3 = h.page('input'); p3.goCamera(); assert.equal(p3.data.question, fixture.question); assert.equal(p3.data.wrongAnswer, p2.data.wrongAnswer); assert.equal(p3.data.recognizing, false);
+});
+check('photo result gives visible review feedback without an extra confirmation', () => {
+  const h=host(); h.wx.getStorageInfoSync=()=>({keys:Object.keys(h.storage)});
+  const p=h.page('input'); p.onLoad(); p.applyPhoto({question:'2x+1=7',wrongAnswer:'x=2',reviewReasons:[]});
+  assert.match(p.data.photoNotice,/识别完成/); assert.match(p.data.photoNotice,/核对/); assert.equal(p.data.saveState,'已保存');
+  assert.ok(!h.calls.some(call=>call[0]==='modal'));
+});
+check('completed task offers its report directly without changing edited input', () => {
+  const h=host(); h.wx.getStorageInfoSync=()=>({keys:Object.keys(h.storage)});
+  h.wx.getUserCryptoManager=()=>({getRandomValues:o=>o.success({randomValues:Uint8Array.from({length:o.length},(_,i)=>i+1).buffer})});
+  const req=[]; h.wx.request=o=>req.push(o);
+  const p=h.page('input');p.onLoad();p.onShow();p.onQuestionInput({detail:{value:'2x+1=7'}});p.onAnswerInput({detail:{value:'x=2'}});p.onSubmit();
+  const id=req[0].data.taskId;req[0].success({statusCode:202,data:{code:0,data:{taskId:id,status:'queued'}}});
+  p.refreshTask();req[1].success({statusCode:200,data:{code:0,data:{taskId:id,status:'complete',result:{source:'ai',question:'2x+1=7',diagnosis:'检查计算',steps:[],variants:[]}}}});
+  assert.equal(p.data.primaryMode,'report');assert.equal(req.filter(x=>x.method==='POST').length,1);
+  p.onSubmit();assert.ok(h.calls.some(c=>c[0]==='navigateTo' && c[1].url.includes('/pages/result/result?taskId=')));
+  assert.equal(h.app.globalData.lastWrongAnswer,'x=2');
+  p.onHide();p.onShow();
+  p.onQuestionInput({detail:{value:'已经修改的新题目'}});assert.equal(p.data.question,'已经修改的新题目');assert.equal(p.data.primaryMode,'analyze');assert.equal(p.data.previousReportReady,true);
+  p.openTaskResult();assert.equal(h.app.globalData.lastResult.question,'2x+1=7');assert.equal(p.data.question,'已经修改的新题目');
+});
+check('double-tapping the completed report opens it only once', () => {
+  const h=host();h.wx.getStorageInfoSync=()=>({keys:Object.keys(h.storage)});const p=h.page('input');p.onLoad();p.onQuestionInput({detail:{value:'题目'}});
+  const id='a'.repeat(32);h.storage['mathJob:'+id]={taskId:id,draftId:p._draftId,status:'complete',snapshot:{question:'题目',wrongAnswer:''},result:{question:'题目',diagnosis:'结果',steps:[],variants:[]}};
+  p.onShow();p.onSubmit();p.onSubmit();assert.equal(h.calls.filter(c=>c[0]==='navigateTo').length,1);
+});
+check('analysis received while page is hidden resumes without forcing navigation', () => {
+  const h=host();h.wx.getStorageInfoSync=()=>({keys:Object.keys(h.storage)});
+  h.wx.getUserCryptoManager=()=>({getRandomValues:o=>o.success({randomValues:Uint8Array.from({length:o.length},(_,i)=>i+1).buffer})});
+  const req=[];h.wx.request=o=>req.push(o);const p=h.page('input');p.onLoad();p.onShow();p.onQuestionInput({detail:{value:'题目'}});p.onSubmit();p.onHide();
+  const id=req[0].data.taskId;req[0].success({statusCode:202,data:{code:0,data:{taskId:id,status:'queued'}}});
+  assert.ok(!h.calls.some(c=>c[0]==='navigateTo'));p.onShow();assert.equal(p.data.submitting,false);assert.equal(p.data.primaryMode,'waiting');
+  p.refreshTask();req[1].success({statusCode:200,data:{code:0,data:{taskId:id,status:'complete',result:{source:'ai',question:'题目',diagnosis:'结果',steps:[],variants:[]}}}});
+  assert.equal(p.data.primaryMode,'report');assert.ok(!h.calls.some(c=>c[0]==='navigateTo'));
+});
+check('backgrounding during secure ID generation cannot start two submissions', () => {
+  const h=host();h.wx.getStorageInfoSync=()=>({keys:Object.keys(h.storage)});let randomCalls=0,randomCallback;
+  h.wx.getUserCryptoManager=()=>({getRandomValues:o=>{randomCalls++;randomCallback=o.success}});
+  const req=[];h.wx.request=o=>req.push(o);const p=h.page('input');p.onLoad();p.onShow();p.onQuestionInput({detail:{value:'题目'}});p.onSubmit();p.onHide();p.onShow();p.onSubmit();
+  assert.equal(randomCalls,1);randomCallback({randomValues:Uint8Array.from({length:48},(_,i)=>i+1).buffer});assert.equal(req.length,1);
+});
+check('late old submission callback cannot replace a newer task', () => {
+  const h=host();h.wx.getStorageInfoSync=()=>({keys:Object.keys(h.storage)});let seed=0;
+  h.wx.getUserCryptoManager=()=>({getRandomValues:o=>o.success({randomValues:Uint8Array.from({length:o.length},()=>++seed%255).buffer})});
+  const req=[];h.wx.request=o=>req.push(o);const p=h.page('input');p.onLoad();p.onShow();p.onQuestionInput({detail:{value:'题目'}});p.onSubmit();req[0].fail({});
+  p.onSubmit();const confirm=h.calls.find(c=>c[0]==='modal');assert.ok(confirm);confirm[1].success({confirm:true});
+  const newId=req[1].data.taskId;req[1].success({statusCode:202,data:{code:0,data:{taskId:newId,status:'queued'}}});
+  req[0].success({statusCode:202,data:{code:0,data:{taskId:req[0].data.taskId,status:'queued'}}});assert.equal(p._taskId,newId);
+});
+check('returning after deleting a task restores the analysis action', () => {
+  const h=host();h.wx.getStorageInfoSync=()=>({keys:Object.keys(h.storage)});h.wx.getUserCryptoManager=()=>({getRandomValues:o=>o.success({randomValues:Uint8Array.from({length:o.length},(_,i)=>i+1).buffer})});
+  const req=[];h.wx.request=o=>req.push(o);const p=h.page('input');p.onLoad();p.onShow();p.onQuestionInput({detail:{value:'题目'}});p.onSubmit();const id=req[0].data.taskId;
+  req[0].success({statusCode:202,data:{code:0,data:{taskId:id,status:'queued'}}});p.onHide();delete h.storage['mathJob:'+id];p.onShow();assert.equal(p.data.primaryMode,'analyze');assert.equal(p._taskId,'');
+});
+check('saving as another draft disconnects late old task callbacks', () => {
+  const h=host();h.wx.getStorageInfoSync=()=>({keys:Object.keys(h.storage)});h.wx.getUserCryptoManager=()=>({getRandomValues:o=>o.success({randomValues:Uint8Array.from({length:o.length},(_,i)=>i+1).buffer})});
+  const req=[];h.wx.request=o=>req.push(o);const p=h.page('input');p.onLoad();p.onShow();p.onQuestionInput({detail:{value:'原题'}});p.onSubmit();const oldDraft=p._draftId,id=req[0].data.taskId;
+  p.saveAsNew();assert.notEqual(p._draftId,oldDraft);p.onQuestionInput({detail:{value:'新题'}});req[0].success({statusCode:202,data:{code:0,data:{taskId:id,status:'queued'}}});
+  assert.equal(p._taskId,'');assert.equal(p.data.primaryMode,'analyze');assert.equal(h.storage['mathJob:'+id].draftId,oldDraft);
+});
+check('reanalysis confirmation survives hide and cannot submit twice', () => {
+  const h=host();h.wx.getStorageInfoSync=()=>({keys:Object.keys(h.storage)});let seed=0;h.wx.getUserCryptoManager=()=>({getRandomValues:o=>o.success({randomValues:Uint8Array.from({length:o.length},()=>++seed%255).buffer})});
+  const req=[];h.wx.request=o=>req.push(o);const p=h.page('input');p.onLoad();p.onShow();p.onQuestionInput({detail:{value:'题目'}});p.onSubmit();req[0].fail({});p.onSubmit();const modal=h.calls.find(c=>c[0]==='modal')[1];
+  p.onHide();p.onShow();p.onSubmit();assert.equal(h.calls.filter(c=>c[0]==='modal').length,1);modal.success({confirm:true});modal.success({confirm:true});assert.equal(req.length,2);
 });
 check('question-only and answer-only photos preserve the complementary manual field', () => {
   const h = host(); mockOcr(h, { question: fixture.question, wrongAnswer: '', needsReview: false, reviewReasons: [] });

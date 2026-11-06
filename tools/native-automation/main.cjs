@@ -12,7 +12,7 @@ const profile = path.resolve(process.env.MATH_APP_RUNNER_PROFILE || '');
 const vendor = process.env.MATH_APP_VENDOR_ASAR || 'D:/Program Files (x86)/Tencent/微信web开发者工具/resources/app.asar';
 const deviceMode = process.env.MATH_APP_RUNNER_MODE === 'DevicePreview';
 const fixtureProfile = process.env.MATH_APP_NATIVE_FIXTURE || '';
-if (fixtureProfile && (!['multiline-bare', 'text-matrix', 'supported-text', 'supported-all'].includes(fixtureProfile) || deviceMode)) throw Error('Unknown or unsupported UI-only diagnostic fixture');
+if (fixtureProfile && (!['multiline-bare', 'text-matrix', 'supported-text', 'supported-all', 'math-render'].includes(fixtureProfile) || deviceMode)) throw Error('Unknown or unsupported UI-only diagnostic fixture');
 const sourceLibVersion = JSON.parse(fs.readFileSync(path.join(repo, 'project.config.json'), 'utf8')).libVersion || '3.17.6';
 const targetLibVersion = process.env.MATH_APP_NATIVE_LIB_VERSION || sourceLibVersion;
 if (!['3.17.6', '3.12.1'].includes(targetLibVersion) || targetLibVersion !== sourceLibVersion && !fixtureProfile) throw Error('Library override is restricted to named diagnostic profiles');
@@ -124,6 +124,16 @@ function copySources() {
       config.renderer = 'webview';
       overrides = { 'app.json': JSON.stringify(config) };
       state.fixtureOptions = { renderer: 'webview', componentFramework: config.componentFramework };
+    }
+    if (fixtureProfile === 'math-render') {
+      const probeStyles=fs.readFileSync(path.join(work,'math-probe','probe.wxss'),'utf8');
+      if(/https?:/.test(probeStyles)) throw Error('Math probe must not contain remote resources');
+      overrides={
+        'app.wxss':'page{background:#f5f7fb;color:#182237;}',
+        'pages/input/input.wxss':probeStyles,
+        'pages/input/input.wxml':'<view class="probe-body"><scroll-view class="probe-scroll" scroll-y><view class="probe-case" wx:for="{{probeCases}}" wx:key="id"><text class="probe-label">{{item.label}}</text><rich-text class="probe-math" nodes="{{item.nodes}}" /></view></scroll-view></view>'
+      };
+      state.fixtureOptions={renderer:'webview',mathProbeSha256:crypto.createHash('sha256').update(probeStyles).digest('hex'),externalFonts:false};
     }
     if (['multiline-bare', 'text-matrix', 'supported-text'].includes(fixtureProfile)) {
       const config = JSON.parse(fs.readFileSync(path.join(miniSource, 'app.json'), 'utf8'));
@@ -323,7 +333,7 @@ realElectron.app.whenReady().then(async () => {
         }
         socket.send(JSON.stringify({ id: request.id, result: list })); return;
       }
-      if (!/^(Tool\.getInfo|App\.(getCurrentPage|getPageStack|callFunction|callWxMethod|mockWxMethod|captureScreenshot|enableLog|CDPEnable|CDPListProtocol|CDPCommand)|Page\.(getElement|getElements|getData|setData|callMethod)|Element\.(getElement|getElements|getDOMProperties|getStyles|getOffset|getWXML|getData|callMethod|callFunction))$/.test(request.method)) throw Error('Method excluded from isolated UI acceptance');
+      if (!/^(Tool\.getInfo|App\.(getCurrentPage|getPageStack|callFunction|callWxMethod|mockWxMethod|captureScreenshot|enableLog|CDPEnable|CDPListProtocol|CDPCommand)|Page\.(getElement|getElements|getData|setData|callMethod)|Element\.(getElement|getElements|getDOMProperties|getStyles|getOffset|getWXML|getData|callMethod|callFunction|tap))$/.test(request.method)) throw Error('Method excluded from isolated UI acceptance');
       const result = await transfer.callClientService(backendId, bridgeInterface.IAutomatorBridgeService, 'request', [JSON.stringify(request)]);
       if (socket.readyState === wsPackage.OPEN) socket.send(result);
     } catch (error) { if (socket.readyState === wsPackage.OPEN) socket.send(JSON.stringify({ id: request && request.id, error: { message: clean(error.message) } })); }

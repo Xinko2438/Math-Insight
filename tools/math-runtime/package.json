@@ -1,0 +1,12 @@
+{
+  "name": "math-app-math-runtime-build",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@rojer/katex-mini": "1.3.4",
+    "katex": "0.16.47",
+    "@unified-latex/unified-latex-util-parse": "1.8.4",
+    "@unified-latex/unified-latex-util-print-raw": "1.8.4"
+  },
+  "devDependencies": { "esbuild": "0.28.2" }
+}

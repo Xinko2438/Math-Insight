@@ -27,6 +27,8 @@
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
   "usingComponents": {
-    "study-tabs": "/components/study-tabs/study-tabs"
+    "study-tabs": "/components/study-tabs/study-tabs",
+    "math-content": "/components/math-content/math-content",
+    "math-editor": "/components/math-editor/math-editor"
   }
 }

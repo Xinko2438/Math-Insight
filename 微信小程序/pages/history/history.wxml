@@ -28,7 +28,7 @@
   <view class="book-head"><text class="section-title">{{searchKey || activeFilter !== '全部' || selectedTagId ? '筛选结果' : '全部错题'}}</text><text class="record-count">{{filtered.length}} 道</text></view>
   <view class="book-list">
     <view class="record" wx:for="{{filtered}}" wx:key="id">
-      <view class="record-mainline"><button class="record-open" data-id="{{item.id}}" bindtap="viewRecord" hover-class="button-hover" style="display:block;flex:1;width:0;min-width:0;margin:0;padding:0;"><view class="record-question">{{item.question}}</view></button><button class="record-delete" catchtap="removeRecord" data-id="{{item.id}}" aria-label="删除这道错题" style="width:88rpx;flex-shrink:0;margin:0;"><view class="ui-icon icon-trash"></view></button></view>
+      <view class="record-mainline"><button class="record-open" data-id="{{item.id}}" bindtap="viewRecord" hover-class="button-hover" style="display:block;flex:1;width:0;min-width:0;margin:0;padding:0;"><view class="record-question">{{item.displayQuestion}}</view></button><button class="record-delete" catchtap="removeRecord" data-id="{{item.id}}" aria-label="删除这道错题" style="width:88rpx;flex-shrink:0;margin:0;"><view class="ui-icon icon-trash"></view></button></view>
       <view class="record-meta"><view class="record-meta-content"><text class="record-kp" wx:if="{{item.result.knowledgePoint}}">{{item.result.knowledgePoint}}</text><text class="record-time">{{item.time}}</text><text class="record-tag-name" wx:for="{{item.tagNames}}" wx:for-item="tagName" wx:key="*this">{{tagName}}</text></view><button class="record-tag-action" data-id="{{item.id}}" bindtap="openTagEditor" style="width:auto;margin:0;">标签</button></view>
     </view>
   </view>
@@ -36,7 +36,7 @@
 </view></scroll-view>
 <study-tabs class="main-tabs" active="history"></study-tabs>
 <view class="tag-overlay" wx:if="{{editorRecordId}}" bindtap="closeTagEditor">
-  <view class="tag-sheet" catchtap="keepTagEditorOpen">
+  <view class="tag-sheet" style="max-height:{{tagSheetMaxHeight}}px;" catchtap="keepTagEditorOpen">
     <view class="tag-sheet-head"><text>题目标签</text><button bindtap="closeTagEditor" style="width:auto;margin:0;">完成</button></view>
     <view class="tag-sheet-hint">选择已有标签，或新建一个。</view>
     <scroll-view class="tag-sheet-list" wx:if="{{editorTags.length}}" scroll-y type="list" style="height:{{editorTags.length > 4 ? 360 : editorTags.length * 90}}rpx;"><view class="tag-sheet-row" wx:for="{{editorTags}}" wx:key="id"><button data-id="{{item.id}}" bindtap="onToggleRecordTag" aria-label="{{item.name}}" aria-role="checkbox" aria-checked="{{item.selected}}" style="width:100%;margin:0;"><text>{{item.name}}</text><text class="tag-check">{{item.selected ? '✓' : ''}}</text></button></view></scroll-view>

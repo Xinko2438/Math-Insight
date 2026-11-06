@@ -1,0 +1,41 @@
+{
+  "schema": "math-qa-handoff.v1",
+  "version": "GREEN-R1-UI-R7-20261106-rev1",
+  "status": "targeted_offline_scope_passed",
+  "primary": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r7-rev1-20261106\\report.md",
+  "ledger": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r7-rev1-20261106\\evidence.json",
+  "gallery": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\50ca2d0f-b949-4bec-8c3a-4cea9ec1ef09\\evidence\\green-round1\\worktrees\\qa\\review\\r7-rev1-20261106\\gallery.html",
+  "caseSummary": {
+    "pass": 10,
+    "fail": 0,
+    "scope": "R7差异10项，非旧38项重跑"
+  },
+  "closed": [
+    "R7-C01",
+    "R7-E01"
+  ],
+  "protected": {
+    "files": 205,
+    "changed": 0,
+    "evidence": "final-integrity.json"
+  },
+  "noBusinessWrites": true,
+  "notVerified": [
+    "原生",
+    "模拟器",
+    "手机",
+    "真实模型/教学质量",
+    "用户最终接受"
+  ],
+  "chiefNext": "将本独立版本证据用于PRD A-05；本结果不授权原生替换",
+  "attachment": {
+    "status": "not_attached",
+    "reason": "Attachment service rejects hidden folders and application data paths. File remains in exact sole authorized QA directory; no copy elsewhere."
+  },
+  "browser": {
+    "gallery": "9/9 assets loaded; previous/next actual clicks verified",
+    "userWindowsUsed": false,
+    "browserLeftOpen": true
+  },
+  "learningReview": "none: project version results and bounded method corrections retained in evidence; existing guidance sufficient, no global promotion"
+}

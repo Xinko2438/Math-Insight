@@ -132,17 +132,56 @@ function build() {
     }
   }
   const draftEvidence = path.join(runtime, 'draft-ui.json');
+  let currentInteraction = false;
   if (fs.existsSync(draftEvidence)) {
     const candidate = JSON.parse(fs.readFileSync(draftEvidence, 'utf8'));
     const current = candidate.status === 'PASS' && candidate.fixtureCleanup && candidate.fixtureCleanup.restored && candidate.sourceHashes.every(source => {
       const file = path.resolve(root, '微信小程序', source.file);
       return file.startsWith(path.join(root, '微信小程序') + path.sep) && fs.existsSync(file) && crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex') === source.sha256;
     });
-    if (current) groups.unshift({ title:'本次草稿与任务 · 原生模拟器', images:candidate.screenshots.map(source => ({...item(source.file, source.title, source.sha256),note:'隔离示例数据；未调用真实模型，真机和用户视觉接受另验。'})) });
+    if (current) { currentInteraction = true; groups.unshift({ title:'本次交互与轻动效 · 原生模拟器', images:candidate.screenshots.map(source => ({...item(source.file, source.title, source.sha256),note:'隔离示例数据；静态截图不代表动效手感。未调用真实模型，输入页截图顶部边缘有蓝色残影，真机显示和用户视觉接受另验。'})) }); }
   }
+  let currentMath=false;
+  for(const spec of [
+    ['math-touch.json','本次重做 · 公式点选与数学键盘','公式上只保留选中高亮；实际原生按键流程＋44个坐标检查，原生测试数据已恢复。手机手指操作与流畅度仍需复测。'],
+    ['math-direct.json','直接点公式修改 · 原生组件','新版交互：只在点中的数字或符号处输入，不展示字段列表。手工样例与隔离原生点击；手机输入法、触控手感另验。'],
+    ['math-corpus.json','公式覆盖 · 原生组件','手工样例，未使用真实识别或远程公式服务；长公式支持块内横向查看。'],
+    ['math-fraction.json','分子与分母编辑 · 原生组件','手工新建分数，分子和分母分别修改；手机键盘与动效手感仍需真机验收。'],
+    ['math-native.json','本次数学排版与编辑 · 原生模拟','手工转录与模拟响应；包含只把题目中的7改为9、保留原作答的演示。未调用真实模型；顶部残影和真机显示另验。']
+  ]){
+    const file=path.join(runtime,spec[0]);if(!fs.existsSync(file))continue;
+    const evidence=JSON.parse(fs.readFileSync(file,'utf8'));
+    const okay=(evidence.status==='PASS'||String(evidence.status).startsWith('NATIVE_MATH_FLOW_PASS'))&&(!evidence.fixtureCleanup||evidence.fixtureCleanup.restored)&&Array.isArray(evidence.sourceHashes)&&evidence.sourceHashes.every(s=>{const f=path.resolve(root,'微信小程序',s.file);return f.startsWith(path.join(root,'微信小程序')+path.sep)&&fs.existsSync(f)&&crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex')===s.sha256});
+    if(okay){currentMath=true;groups.unshift({title:spec[1],images:evidence.screenshots.map(s=>({...item(s.file,s.title,s.sha256),note:spec[2]}))});}
+    else if(Array.isArray(evidence.screenshots)){
+      const preserved=evidence.screenshots.filter(s=>fs.existsSync(s.file)&&crypto.createHash('sha256').update(fs.readFileSync(s.file)).digest('hex')===s.sha256);
+      if(preserved.length)groups.push({title:'历史证据 · '+spec[1],images:preserved.map(s=>({...item(s.file,s.title,s.sha256),note:'此前版本截图，源码已变更，不代表最新版验收。'+spec[2]}))});
+    }
+  }
+  const keyboardFile=path.join(runtime,'math-keyboard.json');
+  if(fs.existsSync(keyboardFile)){
+    const evidence=JSON.parse(fs.readFileSync(keyboardFile,'utf8'));
+    if(evidence.status==='PASS'){
+      const images=[];
+      const before=path.join(runtime,'math-keyboard-before.png');
+      if(fs.existsSync(before))images.push({...item(before,'修复前 · 标题进入胶囊区域'),note:'旧代码，400px键盘高度事件模拟；图中没有操作系统键盘，底部显示的是被遮罩的背景。'});
+      images.push(...evidence.screenshots.map(s=>({...item(s.file,s.title,s.sha256),note:'修复后，400px键盘高度事件模拟；未弹出实体手机键盘，真实输入框绘制与动效手感待手机复测。'})));
+      groups.push({title:'此前修复 · 编辑弹层与键盘（模拟高度）',images});
+    }
+  }
+  let deleteProof=false;
+  const proofFile=path.join(runtime,'math-delete-proof.json');
+  if(fs.existsSync(proofFile)){
+    const evidence=JSON.parse(fs.readFileSync(proofFile,'utf8'));
+    if(evidence.status==='PASS'&&evidence.sourceHashes.every(s=>crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'微信小程序',s.file))).digest('hex')===s.sha256)){
+      deleteProof=true;groups.unshift({title:'本次删除修复 · 浏览器排版对照',images:evidence.screenshots.map(s=>({...item(s.file,s.title,s.sha256),note:'当前编辑代码与本机KaTeX字体在独立浏览器运行：删除后y保持基线，第二行不变，撤销可恢复。不是微信模拟器或手机验收。'}))});
+    }
+  }
+  const directGroup=groups.findIndex(g=>g.title==='本次重做 · 公式点选与数学键盘');
+  if(directGroup>0&&!deleteProof)groups.unshift(groups.splice(directGroup,1)[0]);
   fs.writeFileSync(output, renderGallery(groups, { openVisualIssue,
-    title: analysis ? '错因智诊 · 解析异常修复检查' : textFixed ? '错因智诊 · 中文与换行显示已修复' : syntheticResult ? '错因智诊 · 单次照片识别实测' : ocr ? '错因智诊 · 照片识别分流检查' : nativeUnified ? '错因智诊 · 统计与图标修复' : projection ? '错因智诊 · 零数据页面调整' : report.appliedVisualDirection ? '错因智诊 · ' + report.appliedVisualDirection + ' 版原生截图' : undefined,
-    subtitle: analysis ? '微信模拟器 · 分析返回为隔离模拟 · 服务重载和真实诊断另验' : textFixed ? '真实微信模拟器 · 原始文字完整 · 五页流程通过 · 物理手机与最终接受另验' : syntheticResult ? '合成图1次实测通过 · 原生界面的模拟返回另列 · 换行显示问题未解决' : ocr ? '真实原生界面 · OCR 返回为隔离模拟 · 换行显示问题未解决' : nativeUnified ? '真实微信模拟器截图 · 零记录与有记录同版式 · 手机复核待完成' : projection ? '本次为 HTML 布局预览 · 可切换查看上轮原生截图 · 本次真机显示待验' : '隔离示例数据 · ' + (styleConfirmed ? 'UI 风格已确认' : '新版待确认') + ' · ' + (openVisualIssue ? '换行显示问题待修复' : '画面待复核') }));
+    title: deleteProof ? '错因智诊 · 删除前后排版复验' : currentMath ? '错因智诊 · 可编辑的数学排版' : currentInteraction ? '错因智诊 · 交互与轻动效' : analysis ? '错因智诊 · 解析异常修复检查' : textFixed ? '错因智诊 · 中文与换行显示已修复' : syntheticResult ? '错因智诊 · 单次照片识别实测' : ocr ? '错因智诊 · 照片识别分流检查' : nativeUnified ? '错因智诊 · 统计与图标修复' : projection ? '错因智诊 · 零数据页面调整' : report.appliedVisualDirection ? '错因智诊 · ' + report.appliedVisualDirection + ' 版原生截图' : undefined,
+    subtitle: deleteProof ? '本次是浏览器排版复验 · 当前编辑代码与本机字体 · 未调用模型 · 微信与手机另验' : currentMath ? '独立原生模拟器 · 手工样例与模拟响应 · 未调用真实模型 · 真机另验' : currentInteraction ? '独立微信模拟器 · 静态截图 · 实际动效手感与手机显示另验' : analysis ? '微信模拟器 · 分析返回为隔离模拟 · 服务重载和真实诊断另验' : textFixed ? '真实微信模拟器 · 原始文字完整 · 五页流程通过 · 物理手机与最终接受另验' : syntheticResult ? '合成图1次实测通过 · 原生界面的模拟返回另列 · 换行显示问题未解决' : ocr ? '真实原生界面 · OCR 返回为隔离模拟 · 换行显示问题未解决' : nativeUnified ? '真实微信模拟器截图 · 零记录与有记录同版式 · 手机复核待完成' : projection ? '本次为 HTML 布局预览 · 可切换查看上轮原生截图 · 本次真机显示待验' : '隔离示例数据 · ' + (styleConfirmed ? 'UI 风格已确认' : '新版待确认') + ' · ' + (openVisualIssue ? '换行显示问题待修复' : '画面待复核') }));
   return { output, images: groups.reduce((sum, group) => sum + group.images.length, 0), pages: pages.length, states: states.length };
 }
 

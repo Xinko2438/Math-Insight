@@ -1,0 +1,348 @@
+{
+  "schema": "math-approved-green-delivery.v1",
+  "version": "GREEN-R1-UI-R7-20261106-rev1",
+  "acceptedAt": "2026-11-06T16:21:00+08:00",
+  "authorization": "先提交上传当前版本，再替换实际小程序；先实施报告/学情及必要共用绿色主题，不含微信发布或真实模型调用",
+  "primary": "ui/index.html",
+  "gallery": "qa-result/gallery.html",
+  "report": "qa-result/report.md",
+  "sourceRoot": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1",
+  "changesFromFrozen": "Only two review gallery links adapted for repository-relative viewing; app/data/styles unchanged. Original manifest files describe original frozen package; this delivery manifest binds this copy.",
+  "files": [
+    {
+      "file": "REVIEW.md",
+      "sourceSha256": "c8ab0ed7b89d2cc4ed7b37d24ff9a6cfe27e26d3dcdedb8dab571df3e04049b8",
+      "sha256": "c8ab0ed7b89d2cc4ed7b37d24ff9a6cfe27e26d3dcdedb8dab571df3e04049b8",
+      "bytes": 4221,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\REVIEW.md"
+    },
+    {
+      "file": "manifest.json",
+      "sourceSha256": "3bfdd9b17e122207f55735a03a07cbd51d2b222611f2eb381c22e7ada520d91d",
+      "sha256": "3bfdd9b17e122207f55735a03a07cbd51d2b222611f2eb381c22e7ada520d91d",
+      "bytes": 9965,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\manifest.json"
+    },
+    {
+      "file": "qa-receipt.json",
+      "sourceSha256": "24aa1677d8103bca7819afe09e3ad9723557d4b95f2756c1c2f78b366a4a8973",
+      "sha256": "24aa1677d8103bca7819afe09e3ad9723557d4b95f2756c1c2f78b366a4a8973",
+      "bytes": 9340,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-receipt.json"
+    },
+    {
+      "file": "chief-dom.json",
+      "sourceSha256": "1deb4b02fc95065fdc82f4be8eef2c09d0afbc8f99ef1d8281293e27c2546d97",
+      "sha256": "1deb4b02fc95065fdc82f4be8eef2c09d0afbc8f99ef1d8281293e27c2546d97",
+      "bytes": 1467,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\chief-dom.json"
+    },
+    {
+      "file": "ui/index.html",
+      "sourceSha256": "22b523bfdaf5d9519d18d8ba067c4b8c3251b46b93c40ef5fede16f2aead41c2",
+      "sha256": "22b523bfdaf5d9519d18d8ba067c4b8c3251b46b93c40ef5fede16f2aead41c2",
+      "bytes": 5697,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\index.html"
+    },
+    {
+      "file": "ui/app.js",
+      "sourceSha256": "d708c78089ec36b22e74deb069b2c98bf2c954ca6b3383ccd08af2a8f86d42b2",
+      "sha256": "d708c78089ec36b22e74deb069b2c98bf2c954ca6b3383ccd08af2a8f86d42b2",
+      "bytes": 43656,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\app.js"
+    },
+    {
+      "file": "ui/data.js",
+      "sourceSha256": "d6e80c05abc87edfb2078ecccdea50fb0a82be03994ce0d191ff5c3b345827f6",
+      "sha256": "d6e80c05abc87edfb2078ecccdea50fb0a82be03994ce0d191ff5c3b345827f6",
+      "bytes": 12791,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\data.js"
+    },
+    {
+      "file": "ui/styles.css",
+      "sourceSha256": "2e192c66a5bdfa352ba315746ee53be1c1c531837e81c4b080ce53c0cd7d3f4b",
+      "sha256": "2e192c66a5bdfa352ba315746ee53be1c1c531837e81c4b080ce53c0cd7d3f4b",
+      "bytes": 29670,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\styles.css"
+    },
+    {
+      "file": "ui/r3-fixtures.js",
+      "sourceSha256": "c081e36690b6f7945901ba50e72416558e002126bf70b739c2c73cb1f2f5edba",
+      "sha256": "c081e36690b6f7945901ba50e72416558e002126bf70b739c2c73cb1f2f5edba",
+      "bytes": 11058,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\r3-fixtures.js"
+    },
+    {
+      "file": "ui/gallery.html",
+      "sourceSha256": "6038e3d9d0e14083fa02ad8f128209f1284af79d2fd0f3754798b2a74b58b4b2",
+      "sha256": "8b58dd51911eb7dd7a2d22f3c40f8b0bac56a8c31d9737034e4e432b40adca74",
+      "bytes": 4097,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\gallery.html"
+    },
+    {
+      "file": "ui/r7-notes.md",
+      "sourceSha256": "b6478323a53f279f908be2a57f3c50c095c3bea44db78a09d4d015f892a4d54b",
+      "sha256": "b6478323a53f279f908be2a57f3c50c095c3bea44db78a09d4d015f892a4d54b",
+      "bytes": 2491,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\r7-notes.md"
+    },
+    {
+      "file": "ui/_r7hash.js",
+      "sourceSha256": "1d983ff14a4ec1993ae2eccf62d9987e344cf534e2edef96c93eba3558adee26",
+      "sha256": "1d983ff14a4ec1993ae2eccf62d9987e344cf534e2edef96c93eba3558adee26",
+      "bytes": 1268,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\_r7hash.js"
+    },
+    {
+      "file": "ui/_r7-verify.js",
+      "sourceSha256": "95621c727050771de08b31fc99f5d06dba7c40e564bf70a8774b1075b7b36fbc",
+      "sha256": "95621c727050771de08b31fc99f5d06dba7c40e564bf70a8774b1075b7b36fbc",
+      "bytes": 6297,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\_r7-verify.js"
+    },
+    {
+      "file": "ui/_r7-capture.js",
+      "sourceSha256": "10f699ce8e792747dea6f3c48624e1ecee425f075c3f41fc0ae6013ecbd8aa1a",
+      "sha256": "10f699ce8e792747dea6f3c48624e1ecee425f075c3f41fc0ae6013ecbd8aa1a",
+      "bytes": 4458,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\_r7-capture.js"
+    },
+    {
+      "file": "ui/_r7-verify.json",
+      "sourceSha256": "f5d9488e3eb5e4290bec6b2c0c67ff2866997d2d250bda84278e2e0faa9cb223",
+      "sha256": "f5d9488e3eb5e4290bec6b2c0c67ff2866997d2d250bda84278e2e0faa9cb223",
+      "bytes": 12869,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\_r7-verify.json"
+    },
+    {
+      "file": "ui/screenshots/r7-screenshots-manifest.json",
+      "sourceSha256": "3b3cf37e3f3c179ebee58c677b242a078567310d46b0f639d747a881b904e406",
+      "sha256": "3b3cf37e3f3c179ebee58c677b242a078567310d46b0f639d747a881b904e406",
+      "bytes": 2101,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r7-screenshots-manifest.json"
+    },
+    {
+      "file": "ui/r7-hashes.json",
+      "sourceSha256": "2f6a8984584df1439257887dde6fca25a7b5af87944d92f86a9a780186d4350d",
+      "sha256": "2f6a8984584df1439257887dde6fca25a7b5af87944d92f86a9a780186d4350d",
+      "bytes": 3297,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\r7-hashes.json"
+    },
+    {
+      "file": "ui/screenshots/r6-stats-375.png",
+      "sourceSha256": "b36c20790350c280da23f9e6ff9200b0a5e5f8f38d34048620e2ccd6905b3d02",
+      "sha256": "b36c20790350c280da23f9e6ff9200b0a5e5f8f38d34048620e2ccd6905b3d02",
+      "bytes": 62759,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r6-stats-375.png"
+    },
+    {
+      "file": "ui/screenshots/r7-stats-375.png",
+      "sourceSha256": "d3631221e529e0a20b186643f6a0b59a22248db0cf7382b1950f3c7fbae33b47",
+      "sha256": "d3631221e529e0a20b186643f6a0b59a22248db0cf7382b1950f3c7fbae33b47",
+      "bytes": 37289,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r7-stats-375.png"
+    },
+    {
+      "file": "ui/screenshots/r6-stats-390.png",
+      "sourceSha256": "03624e7f2be603702d4a6ccdfd1199ce9e3c7e39e51f78548e0c0733e9ca0c71",
+      "sha256": "03624e7f2be603702d4a6ccdfd1199ce9e3c7e39e51f78548e0c0733e9ca0c71",
+      "bytes": 67047,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r6-stats-390.png"
+    },
+    {
+      "file": "ui/screenshots/r7-stats-390.png",
+      "sourceSha256": "3465a6d32849202274b0267eb04ca0da3a6c538ba0e5237570886e5856e7a21a",
+      "sha256": "3465a6d32849202274b0267eb04ca0da3a6c538ba0e5237570886e5856e7a21a",
+      "bytes": 46047,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r7-stats-390.png"
+    },
+    {
+      "file": "ui/screenshots/r7-more-390.png",
+      "sourceSha256": "38f592ab0176ca83ab9c68dc9e85648b2e02f68493365f2fc8de0cb9452f4ef5",
+      "sha256": "38f592ab0176ca83ab9c68dc9e85648b2e02f68493365f2fc8de0cb9452f4ef5",
+      "bytes": 50030,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r7-more-390.png"
+    },
+    {
+      "file": "ui/screenshots/r7-S0-375.png",
+      "sourceSha256": "8b461cb83827741a6aa3e2783d22c4bff44e404769b1b584d17b39617cc7ee63",
+      "sha256": "8b461cb83827741a6aa3e2783d22c4bff44e404769b1b584d17b39617cc7ee63",
+      "bytes": 27344,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r7-S0-375.png"
+    },
+    {
+      "file": "ui/screenshots/r7-S2-375.png",
+      "sourceSha256": "4192bc26123c3ca2149567e0e6ac6d8e541280cf045f4a0b35d798abbfbace9d",
+      "sha256": "4192bc26123c3ca2149567e0e6ac6d8e541280cf045f4a0b35d798abbfbace9d",
+      "bytes": 33425,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r7-S2-375.png"
+    },
+    {
+      "file": "ui/screenshots/r7-report-390.png",
+      "sourceSha256": "18e27430aa92b7f654870fdac92123e48e62c15b05666803d1aa9d534fe61242",
+      "sha256": "18e27430aa92b7f654870fdac92123e48e62c15b05666803d1aa9d534fe61242",
+      "bytes": 66274,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\ui\\screenshots\\r7-report-390.png"
+    },
+    {
+      "file": "qa-result/evidence.json",
+      "sourceSha256": "1184e8841aaafe82cf17d67586e52c053443a656fadbe3c5635ea8f3912f73a8",
+      "sha256": "1184e8841aaafe82cf17d67586e52c053443a656fadbe3c5635ea8f3912f73a8",
+      "bytes": 9147,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\evidence.json"
+    },
+    {
+      "file": "qa-result/final-integrity.json",
+      "sourceSha256": "d7a7a98bb1de453e595725de4d2f631f308acfd118c1bbbc0819dfaa4f3eeb56",
+      "sha256": "d7a7a98bb1de453e595725de4d2f631f308acfd118c1bbbc0819dfaa4f3eeb56",
+      "bytes": 53017,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\final-integrity.json"
+    },
+    {
+      "file": "qa-result/gallery.html",
+      "sourceSha256": "31f8e475516632797480afd960d2600036a9a0aaa8bd855040c0e5913a84f1d4",
+      "sha256": "40daeff0a17f29ee7794fd2d5e0abd25ec21c02a9f7d508374afd2ea2e361922",
+      "bytes": 3656,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\gallery.html"
+    },
+    {
+      "file": "qa-result/handoff.json",
+      "sourceSha256": "5cdc256aeb22e1ed782b4b75704b721f7a11c6f23d8a173e196e1bc2a68c1742",
+      "sha256": "5cdc256aeb22e1ed782b4b75704b721f7a11c6f23d8a173e196e1bc2a68c1742",
+      "bytes": 1794,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\handoff.json"
+    },
+    {
+      "file": "qa-result/report.md",
+      "sourceSha256": "8bba71389c37d87a77bad6b59f9fbf7e69fb80d785e28df45d76ba5f45a34763",
+      "sha256": "8bba71389c37d87a77bad6b59f9fbf7e69fb80d785e28df45d76ba5f45a34763",
+      "bytes": 3563,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\report.md"
+    },
+    {
+      "file": "qa-result/probes/gallery-check.json",
+      "sourceSha256": "1a6e75be34b7000cf789444cebfcb06a5f693efad765b53c3442e146ade8b921",
+      "sha256": "1a6e75be34b7000cf789444cebfcb06a5f693efad765b53c3442e146ade8b921",
+      "bytes": 1724,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\probes\\gallery-check.json"
+    },
+    {
+      "file": "qa-result/probes/method-notes.md",
+      "sourceSha256": "e4dd0ea34d2d5b7d69498d7fae6840107aac9dd0ff7193bd6fcbacdba441cc0d",
+      "sha256": "e4dd0ea34d2d5b7d69498d7fae6840107aac9dd0ff7193bd6fcbacdba441cc0d",
+      "bytes": 2937,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\probes\\method-notes.md"
+    },
+    {
+      "file": "qa-result/probes/placement.json",
+      "sourceSha256": "f3541bdaf756a28bd2477aa826a76ca9092a09ec37f253bddc7c92152b0379bb",
+      "sha256": "f3541bdaf756a28bd2477aa826a76ca9092a09ec37f253bddc7c92152b0379bb",
+      "bytes": 777,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\probes\\placement.json"
+    },
+    {
+      "file": "qa-result/probes/presentation-initial.json",
+      "sourceSha256": "cb332a7a162a93fd3838b8df35a5c735ada40f52d08b333773efde338a88585e",
+      "sha256": "cb332a7a162a93fd3838b8df35a5c735ada40f52d08b333773efde338a88585e",
+      "bytes": 114685,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\probes\\presentation-initial.json"
+    },
+    {
+      "file": "qa-result/probes/presentation.js",
+      "sourceSha256": "33d06f6086864f9db4fb71ca5d19fcd7cdd664159114d3db00022710949bc48e",
+      "sha256": "33d06f6086864f9db4fb71ca5d19fcd7cdd664159114d3db00022710949bc48e",
+      "bytes": 9519,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\probes\\presentation.js"
+    },
+    {
+      "file": "qa-result/probes/shared-anchor.js",
+      "sourceSha256": "4cf5f45dbb4abcd6a63305b70854ee11ab3126ad6fd5c8f9438671b054df4a59",
+      "sha256": "4cf5f45dbb4abcd6a63305b70854ee11ab3126ad6fd5c8f9438671b054df4a59",
+      "bytes": 1926,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\probes\\shared-anchor.js"
+    },
+    {
+      "file": "qa-result/probes/source.json",
+      "sourceSha256": "10d3a34d19765dfed19cb4d399fce6600db0cbc71795a9a5555af28064a81260",
+      "sha256": "10d3a34d19765dfed19cb4d399fce6600db0cbc71795a9a5555af28064a81260",
+      "bytes": 76100,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\probes\\source.json"
+    },
+    {
+      "file": "qa-result/probes/target.js",
+      "sourceSha256": "562c87df659eadaed6b89a9f914bef0538e64164ea39ae812103ec3bc1827883",
+      "sha256": "562c87df659eadaed6b89a9f914bef0538e64164ea39ae812103ec3bc1827883",
+      "bytes": 3630,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\probes\\target.js"
+    },
+    {
+      "file": "qa-result/probes/target.json",
+      "sourceSha256": "72f4f9d2896cbe8d75d0df093595ddd5ba26ff5f0d3576f6fb9d5ed74457290b",
+      "sha256": "72f4f9d2896cbe8d75d0df093595ddd5ba26ff5f0d3576f6fb9d5ed74457290b",
+      "bytes": 72568,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\probes\\target.json"
+    },
+    {
+      "file": "qa-result/probes/validate.ps1",
+      "sourceSha256": "8ee2d448aef5fc983fcfce407788ae2b17f33b57ae6d9a7905a8585bfdeda5c4",
+      "sha256": "8ee2d448aef5fc983fcfce407788ae2b17f33b57ae6d9a7905a8585bfdeda5c4",
+      "bytes": 3639,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\probes\\validate.ps1"
+    },
+    {
+      "file": "qa-result/probes/validation.json",
+      "sourceSha256": "00ed0f4f97e0cc464a1164eac05a7dab9eced184eb308dec9c8e790688971936",
+      "sha256": "00ed0f4f97e0cc464a1164eac05a7dab9eced184eb308dec9c8e790688971936",
+      "bytes": 10299,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\probes\\validation.json"
+    },
+    {
+      "file": "qa-result/shots/default-375.png",
+      "sourceSha256": "50daf22a91780aca986e4f715e1d7b4baf4c076829755fa04ffd4d4c19292348",
+      "sha256": "50daf22a91780aca986e4f715e1d7b4baf4c076829755fa04ffd4d4c19292348",
+      "bytes": 42436,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\shots\\default-375.png"
+    },
+    {
+      "file": "qa-result/shots/expanded-375.png",
+      "sourceSha256": "2ce916a8e59221a6610f40953d78cd31045c248e002e30ac8d637b89510b6057",
+      "sha256": "2ce916a8e59221a6610f40953d78cd31045c248e002e30ac8d637b89510b6057",
+      "bytes": 41249,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\shots\\expanded-375.png"
+    },
+    {
+      "file": "qa-result/shots/expanded-390.png",
+      "sourceSha256": "70aa13adba6adc508b1d55f4100a3dcfcb6876c810567a2c039b5edc31e938d2",
+      "sha256": "70aa13adba6adc508b1d55f4100a3dcfcb6876c810567a2c039b5edc31e938d2",
+      "bytes": 52186,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\shots\\expanded-390.png"
+    },
+    {
+      "file": "qa-result/shots/zero-375.png",
+      "sourceSha256": "efddab183aace4657e7a3eb0a2d063f4a54c84df8d6c6d957cb7766a6125e6cf",
+      "sha256": "efddab183aace4657e7a3eb0a2d063f4a54c84df8d6c6d957cb7766a6125e6cf",
+      "bytes": 31218,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\shots\\zero-375.png"
+    },
+    {
+      "file": "qa-result/package-manifest.json",
+      "sourceSha256": "6ceae6fd6999985e0c3933d3e71af85c245411e4462030963392326bb4df4c6b",
+      "sha256": "6ceae6fd6999985e0c3933d3e71af85c245411e4462030963392326bb4df4c6b",
+      "bytes": 4214,
+      "source": "D:\\AI_Tools\\OpenMausBot\\data\\task-workspaces\\154430b7-4741-4857-9000-a1fb494a5a9f\\76f6df31-cf5f-4edc-bd2c-978d6d74e839\\green-review-20261105\\r7\\rev1\\qa-result\\package-manifest.json"
+    },
+    {
+      "file": "README.md",
+      "sourceSha256": null,
+      "sha256": "f53518bd22a45f28b59d6d5ac1c0efc0ae186ec64cbf71e84f1e9a5c3b5d150c",
+      "bytes": 1707,
+      "source": "Chief project handoff from user acceptance"
+    }
+  ],
+  "reuse": {
+    "consumer": "Native UI implementation and independent QA from next Git checkpoint",
+    "decision": "Use approved report rendering and three-section learning page, never restore full catalog or declaration blocks",
+    "measurement": "Native version checks same flows, math preservation, zero/nonzero, 375/390 and original answer mapping",
+    "rebuild": "Sources, paired screenshots, QA ledger, and source/output SHA-256 retained"
+  }
+}

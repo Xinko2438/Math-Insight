@@ -1,0 +1,450 @@
+{
+  "at": "2026-11-06T03:05:49.0143625Z",
+  "presentationChecks": 102,
+  "presentationFailures": 0,
+  "strictZeroChecks": 4,
+  "sharedAnchorChecks": 2,
+  "flows": [
+    {
+      "width": "375",
+      "ok": true,
+      "ranks": "1,2,3,4,5,6,7,8",
+      "collapsed": [
+        536,
+        670,
+        134
+      ],
+      "expanded": [
+        536,
+        822,
+        286
+      ],
+      "reopened": [
+        536,
+        822,
+        286
+      ],
+      "last": "n=1 特殊情况未验证",
+      "nameNotTruncated": true,
+      "buttonH": 44
+    },
+    {
+      "width": "390",
+      "ok": true,
+      "ranks": "1,2,3,4,5,6,7,8",
+      "collapsed": [
+        713,
+        713,
+        0
+      ],
+      "expanded": [
+        713,
+        832,
+        119
+      ],
+      "reopened": [
+        713,
+        832,
+        119
+      ],
+      "last": "n=1 特殊情况未验证",
+      "nameNotTruncated": true,
+      "buttonH": 44
+    }
+  ],
+  "contrast": {
+    "groups": 60,
+    "min": 6.44119560013896,
+    "maxDifference": 0.0,
+    "under45": 0,
+    "inexact": 0,
+    "values": [
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 13.101979921662668,
+        "reported": 13.101979921662668,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 9.4884609679142,
+        "reported": 9.4884609679142,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.44119560013896,
+        "reported": 6.44119560013896,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 9.4884609679142,
+        "reported": 9.4884609679142,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 9.4884609679142,
+        "reported": 9.4884609679142,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 9.795025893625263,
+        "reported": 9.795025893625263,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.514586755553725,
+        "reported": 6.514586755553725,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 8.537808515780101,
+        "reported": 8.537808515780101,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.514586755553725,
+        "reported": 6.514586755553725,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 13.101979921662668,
+        "reported": 13.101979921662668,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 9.4884609679142,
+        "reported": 9.4884609679142,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.44119560013896,
+        "reported": 6.44119560013896,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.44119560013896,
+        "reported": 6.44119560013896,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.514586755553725,
+        "reported": 6.514586755553725,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 9.4884609679142,
+        "reported": 9.4884609679142,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 9.4884609679142,
+        "reported": 9.4884609679142,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 9.795025893625263,
+        "reported": 9.795025893625263,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 13.101979921662668,
+        "reported": 13.101979921662668,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 9.4884609679142,
+        "reported": 9.4884609679142,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.44119560013896,
+        "reported": 6.44119560013896,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 9.4884609679142,
+        "reported": 9.4884609679142,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 9.4884609679142,
+        "reported": 9.4884609679142,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 9.795025893625263,
+        "reported": 9.795025893625263,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.514586755553725,
+        "reported": 6.514586755553725,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 8.537808515780101,
+        "reported": 8.537808515780101,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.514586755553725,
+        "reported": 6.514586755553725,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 13.101979921662668,
+        "reported": 13.101979921662668,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 9.4884609679142,
+        "reported": 9.4884609679142,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.44119560013896,
+        "reported": 6.44119560013896,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.44119560013896,
+        "reported": 6.44119560013896,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.514586755553725,
+        "reported": 6.514586755553725,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 9.4884609679142,
+        "reported": 9.4884609679142,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 9.4884609679142,
+        "reported": 9.4884609679142,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 6.869022179624594,
+        "reported": 6.869022179624594,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 9.795025893625263,
+        "reported": 9.795025893625263,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 9.4884609679142,
+        "reported": 9.4884609679142,
+        "delta": 0.0,
+        "exact": true
+      },
+      {
+        "ratio": 9.4884609679142,
+        "reported": 9.4884609679142,
+        "delta": 0.0,
+        "exact": true
+      }
+    ]
+  },
+  "png": [
+    {
+      "file": "default-375.png",
+      "sha256": "50daf22a91780aca986e4f715e1d7b4baf4c076829755fa04ffd4d4c19292348",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "file": "expanded-375.png",
+      "sha256": "2ce916a8e59221a6610f40953d78cd31045c248e002e30ac8d637b89510b6057",
+      "w": 1280,
+      "h": 720
+    },
+    {
+      "file": "expanded-390.png",
+      "sha256": "70aa13adba6adc508b1d55f4100a3dcfcb6876c810567a2c039b5edc31e938d2",
+      "w": 1280,
+      "h": 844
+    },
+    {
+      "file": "zero-375.png",
+      "sha256": "efddab183aace4657e7a3eb0a2d063f4a54c84df8d6c6d957cb7766a6125e6cf",
+      "w": 1280,
+      "h": 720
+    }
+  ]
+}

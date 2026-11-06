@@ -1,0 +1,72 @@
+[
+  {
+    "file": "r6-stats-375.png",
+    "width": 375,
+    "height": 667,
+    "sha256": "b36c20790350c280da23f9e6ff9200b0a5e5f8f38d34048620e2ccd6905b3d02",
+    "bytes": 62759,
+    "capturedAt": "2026-11-06T02:20:24.662Z"
+  },
+  {
+    "file": "r7-stats-375.png",
+    "width": 375,
+    "height": 667,
+    "sha256": "d3631221e529e0a20b186643f6a0b59a22248db0cf7382b1950f3c7fbae33b47",
+    "bytes": 37289,
+    "capturedAt": "2026-11-06T02:17:08.867Z"
+  },
+  {
+    "file": "r6-stats-390.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "03624e7f2be603702d4a6ccdfd1199ce9e3c7e39e51f78548e0c0733e9ca0c71",
+    "bytes": 67047,
+    "capturedAt": "2026-11-06T02:20:11.383Z"
+  },
+  {
+    "file": "r7-stats-390.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "3465a6d32849202274b0267eb04ca0da3a6c538ba0e5237570886e5856e7a21a",
+    "bytes": 46047,
+    "capturedAt": "2026-11-06T02:44:33.494Z",
+    "capture": "full phone inner frame, viewport 0..844; navigation drawn",
+    "navDrawn": true
+  },
+  {
+    "file": "r7-more-390.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "38f592ab0176ca83ab9c68dc9e85648b2e02f68493365f2fc8de0cb9452f4ef5",
+    "bytes": 50030,
+    "capturedAt": "2026-11-06T02:44:34.030Z",
+    "capture": "expanded remaining causes; full phone inner frame, navigation drawn",
+    "navDrawn": true
+  },
+  {
+    "file": "r7-S0-375.png",
+    "width": 375,
+    "height": 667,
+    "sha256": "8b461cb83827741a6aa3e2783d22c4bff44e404769b1b584d17b39617cc7ee63",
+    "bytes": 27344,
+    "capturedAt": "2026-11-06T02:14:26.163Z"
+  },
+  {
+    "file": "r7-S2-375.png",
+    "width": 375,
+    "height": 667,
+    "sha256": "4192bc26123c3ca2149567e0e6ac6d8e541280cf045f4a0b35d798abbfbace9d",
+    "bytes": 33425,
+    "capturedAt": "2026-11-06T02:14:26.919Z"
+  },
+  {
+    "file": "r7-report-390.png",
+    "width": 390,
+    "height": 844,
+    "sha256": "18e27430aa92b7f654870fdac92123e48e62c15b05666803d1aa9d534fe61242",
+    "bytes": 66274,
+    "capturedAt": "2026-11-06T02:44:34.597Z",
+    "capture": "full phone inner frame, viewport 0..844; navigation drawn",
+    "navDrawn": true
+  }
+]
